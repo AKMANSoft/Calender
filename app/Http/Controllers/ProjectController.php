@@ -56,4 +56,10 @@ class ProjectController extends Controller
         //return redirect()->back()->with('success', 'Project Data Has Been Inserted Successfuly:');
     }
 
+    public function requests()
+    {
+        $projects = Project::all();
+        return view('layouts/template/include/layout/requests', compact('projects'));
+    }
+
 }
