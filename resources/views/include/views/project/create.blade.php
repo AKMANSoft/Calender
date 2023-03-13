@@ -8,7 +8,7 @@
     </div>
     <div class="mt-100">
         <!-- Project Info Section -->
-        <form method="post" enctype="multipart/form-data" action="{{ url('/') }}/create-project">
+        <form class="needs-validation" method="post" enctype="multipart/form-data" action="{{ url('/') }}/create-project">
             @csrf
         <div>
             <div>
@@ -17,25 +17,36 @@
             <div class="row">
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Project name <span class="ms-1 text-danger">*</span></label>
-                    <input type="text" name="projectName" class="form-control fs-14 shadow-none" placeholder="" />
-                    <div class="invalid-feedback"></div>
+                    <input type="text" name="projectName" id="projectName" class="form-control fs-14 shadow-none" placeholder="" required/>
+                    <div id="invalidfeedback" class="text-danger">
+    
+                    </div>
                 </div>
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Chain <span class="ms-1 text-danger">*</span></label>
-                    <select class="form-select w-100 fs-14 shadow-none" name="projectChain">
+                    <select class="form-select w-100 fs-14 shadow-none" name="projectChain" required id="projectChain">
                         <option value="" selected>-- Choose your project chain --</option>
                         <option value="1">One</option>
                     </select>
+                    <div id="invalidfeedback1" class="text-danger">
+    
+                    </div>
                 </div>
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Total supply <span class="ms-1 text-danger">*</span></label>
-                    <input type="text" class="form-control fs-14 shadow-none" placeholder="" name="totalSupply"/>
+                    <input type="text" class="form-control fs-14 shadow-none" placeholder="" name="totalSupply" id="totalSupply" required/>
+                    <div id="invalidfeedback2" class="text-danger">
+    
+                    </div>
                 </div>
             </div>
             <div class="row mb-20">
                 <div>
                     <label class="form-label fs-14 text-light-70 mb-10">Project description <span class="ms-1 text-danger">*</span></label>
-                    <textarea class="form-control fs-14 shadow-none" rows={6} placeholder="" name="projectDesc"></textarea>
+                    <textarea class="form-control fs-14 shadow-none" rows={6} placeholder="" name="projectDesc" id="projectDesc" required></textarea>
+                    <div id="invalidfeedback3" class="text-danger">
+    
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -85,10 +96,13 @@
             <div class="row">
                 <div class="col mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Timezone <span class="ms-1 text-danger">*</span></label>
-                    <select class="form-select fs-14 shadow-none" name="timeZone">
+                    <select class="form-select fs-14 shadow-none" name="timeZone" id="timeZone" required>
                         <option value="" selected>-- Choose timezone --</option>
                         <option value="1">One</option>
                     </select>
+                    <div id="invalidfeedback4" class="text-danger">
+    
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -117,18 +131,28 @@
             <div class="row">
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Mint date <span class="ms-1 text-danger">*</span></label>
-                    <input type="date" class="form-control fs-14 shadow-none" placeholder="Choose date" name="date" />
+                    <input type="date" class="form-control fs-14 shadow-none" placeholder="Choose date" name="date" id="date" required  />
+                    <div id="invalidfeedback5" class="text-danger">
+    
+                    </div>
                 </div>
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Mint time <span class="ms-1 text-danger">*</span></label>
-                    <input type="time" class="form-control fs-14 shadow-none" placeholder="Choose date" name="time"/>
+                    <input type="time" class="form-control fs-14 shadow-none" placeholder="Choose date" name="time" id="time" required/>
+                    <div id="invalidfeedback6" class="text-danger">
+    
+                    </div>
                 </div>
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Mint price <span class="ms-1 text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" class="form-control fs-14 shadow-none" placeholder="Enter price" name="price" />
+                        <input type="text" class="form-control fs-14 shadow-none" placeholder="Enter price" name="price" id="price" required/>
                         <span class="input-group-text bg-transparent">ETH</span>
+                        
                     </div>
+                    <div id="invalidfeedback7" class="text-danger">
+    
+                        </div>
                 </div>
             </div>
         </div>
@@ -144,7 +168,10 @@
                 </div>
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Email <span class="ms-1 text-danger">*</span></label>
-                    <input type="email" class="form-control fs-14 shadow-none" name="founderEmail" />
+                    <input type="email" class="form-control fs-14 shadow-none" name="founderEmail" id="founderEmail" required/>
+                    <div id="invalidfeedback8" class="text-danger">
+    
+                    </div>
                 </div>
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Phone no. (Optional)</label>
@@ -164,7 +191,7 @@
                 <img src="/assets/images/recaptcha.png" width="271" height="88" alt="">
             </div>
             <div class="d-flex">
-                <input name="submit" type="submit" class="btn-theme fs-18 mt-60 px-60 h-60">Submit</input>
+                <input name="submit" type="submit" onClick="validate()" class="btn-theme fs-18 mt-60 px-60 h-60">Submit</input>
             </div>
         </div>
         </form>
@@ -174,7 +201,7 @@
     document.querySelectorAll(".form-control-image-container").forEach((el) => {
         el.addEventListener("click", () => el.querySelector("input").click())
     })
-</script>
 
+</script>   
 
 @stop
