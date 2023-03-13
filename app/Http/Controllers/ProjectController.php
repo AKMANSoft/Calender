@@ -11,22 +11,26 @@ class ProjectController extends Controller
 
     public function index()
     {
-        //echo "index";
+
         return view('include.views.project.create');
     }
 
     public function create(Request $request)
     {
-        //echo "i am here";
-        //return view('inlcude.views.project.create');
 
         $validateData = $request->validate([
             'projectName' => 'required',
+            'projectChain' => 'required',
+            'totalSupply' => 'required',
+            'projectDesc' => 'required',
+            'timeZone' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'price' => 'required',
+            'founderEmail' => 'required',
         ]);
 
-        $proj = new Project();
-
-        //$projectName = $request->input('projectName');
+        $proj = new Project;
 
         $proj->project_name = $request->projectName;
         $proj->proj_chain = $request->projectChain;
@@ -35,8 +39,6 @@ class ProjectController extends Controller
         $proj->twitter = $request->twitter;
         $proj->discord = $request->discord;
         $proj->url = $request->url;
-        // $proj->profile_img = $request->profileImg;
-        // $proj->banner_img = $request->bannerImg;
         $proj->time_zone = $request->timeZone;
         $proj->pre_sale_date = $request->preSaleDate;
         $proj->pre_sale_time = $request->preSaleTime;
@@ -50,7 +52,8 @@ class ProjectController extends Controller
 
         $proj->save();
 
-        return redirect()->back()->with('success', 'Project Data Has Been Inserted Successfuly:');
+        return view('include.views.project.success');
+        //return redirect()->back()->with('success', 'Project Data Has Been Inserted Successfuly:');
     }
 
 }
