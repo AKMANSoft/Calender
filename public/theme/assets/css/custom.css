@@ -1,0 +1,37 @@
+.navbar-custom
+{
+    background-color: rgb(25,15,45);
+    box-shadow: none;
+}
+
+.left-side-menu
+{
+    background-color: rgb(25,15,45);
+    box-shadow: none;
+}
+
+body
+{
+    background-color: rgb(14,7,28);
+    box-shadow: none;
+    margin-bottom: 0px;
+    color: white;
+}
+
+
+.footer
+{
+    background-color: rgb(25,15,45);
+    box-shadow: none;
+}
+
+.content-page .card
+{
+    background-color: rgb(25,15,45);
+}
+
+
+a
+{
+    color: white;
+}
