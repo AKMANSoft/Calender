@@ -10,24 +10,27 @@
     <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="shortcut icon" href="//public/assets/images/favicon.ico">
 
 
     <!-- Plugins css -->
-    <link href="assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
+    <link href="/public/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
 
     <!-- Bootstrap css -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- App css -->
-    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="/public/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
     <!-- icons -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="/public/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- Head js -->
-    <script src="assets/js/head.js"></script>
+    <script src="/public/assets/js/head.js"></script>
 
-    <link href="assets/css/custom.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="/public/assets/css/custom.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="/public/assets/css/styles.css" rel="stylesheet" type="text/css">
 
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -50,7 +53,7 @@
                         <form class="app-search">
                             <div class="app-search-box dropdown">
                                 <div class="input-group">
-                                    <input type="search" class="form-control" placeholder="Search..." id="top-search">
+                                    <input type="search" class="form-control bg-transparent" placeholder="Search..." id="top-search">
                                     <button class="btn input-group-text" type="submit">
                                         <i class="fe-search"></i>
                                     </button>
@@ -88,7 +91,7 @@
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="d-flex align-items-start">
-                                                <img class="d-flex me-2 rounded-circle" src="assets/images/users/user-2.jpg" alt="Generic placeholder image" height="32">
+                                                <img class="d-flex me-2 rounded-circle" src="/public/assets/images/users/user-2.jpg" alt="Generic placeholder image" height="32">
                                                 <div class="w-100">
                                                     <h5 class="m-0 font-14">Erwin E. Brown</h5>
                                                     <span class="font-12 mb-0">UI Designer</span>
@@ -99,7 +102,7 @@
                                         <!-- item-->
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
                                             <div class="d-flex align-items-start">
-                                                <img class="d-flex me-2 rounded-circle" src="assets/images/users/user-5.jpg" alt="Generic placeholder image" height="32">
+                                                <img class="d-flex me-2 rounded-circle" src="/public/assets/images/users/user-5.jpg" alt="Generic placeholder image" height="32">
                                                 <div class="w-100">
                                                     <h5 class="m-0 font-14">Jacob Deo</h5>
                                                     <span class="font-12 mb-0">Developer</span>
@@ -119,7 +122,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-lg dropdown-menu-end p-0">
                             <form class="p-3">
-                                <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                <input type="text" class="form-control bg-transparent" placeholder="Search ..." aria-label="Recipient's username">
                             </form>
                         </div>
                     </li>
@@ -140,19 +143,19 @@
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/slack.png" alt="slack">
+                                            <img src="/public/assets/images/brands/slack.png" alt="slack">
                                             <span>Slack</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/github.png" alt="Github">
+                                            <img src="/public/assets/images/brands/github.png" alt="Github">
                                             <span>GitHub</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/dribbble.png" alt="dribbble">
+                                            <img src="/public/assets/images/brands/dribbble.png" alt="dribbble">
                                             <span>Dribbble</span>
                                         </a>
                                     </div>
@@ -161,19 +164,19 @@
                                 <div class="row g-0">
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/bitbucket.png" alt="bitbucket">
+                                            <img src="/public/assets/images/brands/bitbucket.png" alt="bitbucket">
                                             <span>Bitbucket</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/dropbox.png" alt="dropbox">
+                                            <img src="/public/assets/images/brands/dropbox.png" alt="dropbox">
                                             <span>Dropbox</span>
                                         </a>
                                     </div>
                                     <div class="col">
                                         <a class="dropdown-icon-item" href="#">
-                                            <img src="assets/images/brands/g-suite.png" alt="G Suite">
+                                            <img src="/public/assets/images/brands/g-suite.png" alt="G Suite">
                                             <span>G Suite</span>
                                         </a>
                                     </div>
@@ -186,31 +189,31 @@
 
                     <li class="d-none dropdown d-none d-lg-inline-block topbar-dropdown">
                         <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="assets/images/flags/us.jpg" alt="user-image" height="16">
+                            <img src="/public/assets/images/flags/us.jpg" alt="user-image" height="16">
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12">
+                                <img src="/public/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">German</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12">
+                                <img src="/public/assets/images/flags/italy.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">Italian</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12">
+                                <img src="/public/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">Spanish</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
-                                <img src="assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12">
+                                <img src="/public/assets/images/flags/russia.jpg" alt="user-image" class="me-1" height="12">
                                 <span class="align-middle">Russian</span>
                             </a>
 
@@ -240,7 +243,7 @@
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item active">
                                     <div class="notify-icon">
-                                        <img src="assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
+                                        <img src="/public/assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
                                     </div>
                                     <p class="notify-details">Cristina Pride</p>
                                     <p class="text-muted mb-0 user-msg">
@@ -261,7 +264,7 @@
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <div class="notify-icon">
-                                        <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
+                                        <img src="/public/assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
                                     </div>
                                     <p class="notify-details">Karen Robinson</p>
                                     <p class="text-muted mb-0 user-msg">
@@ -312,7 +315,7 @@
 
                     <li class="dropdown notification-list topbar-dropdown">
                         <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
+                            <img src="/public/assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
                             <span class="pro-user-name ms-1">
                                 Geneva <i class="mdi mdi-chevron-down"></i>
                             </span>
@@ -363,7 +366,7 @@
                 <ul class="list-unstyled topnav-menu float-end mb-0">
                     <li class="dropdown notification-list topbar-dropdown">
                         <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
+                            <img src="/public/assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
                             <span class="pro-user-name ms-1">
                                 Geneva <i class="mdi mdi-chevron-down"></i>
                             </span>
@@ -409,21 +412,21 @@
                 <div class="d-none logo-box">
                     <a href="index.html" class="logo logo-dark text-center">
                         <span class="logo-sm">
-                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                            <img src="/public/assets/images/logo-sm.png" alt="" height="22">
                             <!-- <span class="logo-lg-text-light">UBold</span> -->
                         </span>
                         <span class="logo-lg">
-                            <img src="assets/images/logo-dark.png" alt="" height="20">
+                            <img src="/public/assets/images/logo-dark.png" alt="" height="20">
                             <!-- <span class="logo-lg-text-light">U</span> -->
                         </span>
                     </a>
 
                     <a href="index.html" class="logo logo-light text-center">
                         <span class="logo-sm">
-                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                            <img src="/public/assets/images/logo-sm.png" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="assets/images/logo-light.png" alt="" height="20">
+                            <img src="/public/assets/images/logo-light.png" alt="" height="20">
                         </span>
                     </a>
                 </div>
@@ -431,27 +434,27 @@
                 <div class="logo-box">
                     <a href="index.html" class="d-none logo logo-dark text-center">
                         <span class="logo-sm">
-                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                            <img src="/public/assets/images/logo-sm.png" alt="" height="22">
                             <!-- <span class="logo-lg-text-light">UBold</span> -->
                         </span>
                         <span class="logo-lg">
-                            <img src="assets/images/logo-dark.png" alt="" height="20">
+                            <img src="/public/assets/images/logo-dark.png" alt="" height="20">
                             <!-- <span class="logo-lg-text-light">U</span> -->
                         </span>
                     </a>
 
                     <a href="index.html" class="d-none logo logo-light text-center">
                         <span class="logo-sm">
-                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                            <img src="/public/assets/images/logo-sm.png" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="assets/images/logo-light.png" alt="" height="20">
+                            <img src="/public/assets/images/logo-light.png" alt="" height="20">
                         </span>
                     </a>
 
                     <a href="index.html" class="logo logo-light text-center">
                         <span class="logo-lg">
-                            <img src="assets/images/logo-light.png" alt="" height="50">
+                            <img src="/public/assets/images/logo-light.png" alt="" height="50">
                         </span>
                     </a>
                 </div>
@@ -633,7 +636,7 @@
 
                 <!-- User box -->
                 <div class="user-box text-center">
-                    <img src="assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
+                    <img src="/public/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
                     <div class="dropdown">
                         <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown">Geneva Kennedy</a>
                         <div class="dropdown-menu user-pro-dropdown">
@@ -1478,11 +1481,11 @@
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
 
-        <div class="content-page">
+        <div class="content-page px-0">
             <div class="content">
 
                 <!-- Start Content-->
-                <div class="container-fluid">
+                <div class="container-fluid p-3">
 
                     <!-- start page title -->
                     <div class="row">
@@ -1491,7 +1494,7 @@
                                 <div class="page-title-right d-none">
                                     <form class="d-flex align-items-center mb-3">
                                         <div class="input-group input-group-sm">
-                                            <input type="text" class="form-control border" id="dash-daterange">
+                                            <input type="text" class="form-control bg-transparent border" id="dash-daterange">
                                             <span class="input-group-text bg-blue border-blue text-white">
                                                 <i class="mdi mdi-calendar-range"></i>
                                             </span>
@@ -1510,25 +1513,213 @@
                     </div>
                     <!-- end page title -->
 
-                    <div class="row">
-                        <div class="col-md-6 col-xl-4" style="max-width: 380px;">
-                            <div class="widget-rounded-circle card">
+                    <div class="row g-0">
+                        <!-- Profile Column  -->
+                        <div class="col-lg-4">
+                            <div class="widget-rounded-circle card" style="min-height: 750px;">
                                 <div class="banner-img">
-                                    <img src="/assets/images/project_banner_image.png" height="160" style="width: 100%; object-fit: cover; object-position: center;" alt="">
+                                    <img src="/public/assets/images/project_banner_image.png" height="160" style="width: 100%; object-fit: cover; object-position: center;" alt="">
                                 </div>
-                                <div class="profile mx-auto text-center">
-                                    <img src="/assets/images/nft_project.png" width="150" height="150" class="rounded-circle" style="margin-top: -80px;" alt="">
+                                <div class="profile mx-auto text-center px-30">
+                                    <img src="/public/assets/images/nft_project.png" width="150" height="150" class="rounded-circle" style="margin-top: -80px;" alt="">
                                     <p class="theme-text-sm theme-fw-400 text-light mt-3">Pre sale: 29 Jan</p>
                                     <h4 class="theme-h4 theme-fw-700 text-light mt-1">Cat Fight P2E NFT</h4>
                                 </div>
-                                <div class="mt-30">
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                                        <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+                                <div class="mt-30 px-30">
+                                    <div class="form-check form-switch d-flex justify-content-between p-0 mb-2">
+                                        <label class="theme-text-sm text-light-70 theme-fw-400">Super Featured</label>
+                                        <input class="form-check-input shadow-none border-0" type="checkbox" checked role="switch">
+                                    </div>
+                                    <div class="form-check form-switch d-flex justify-content-between p-0 mb-2">
+                                        <label class="theme-text-sm text-light-70 theme-fw-400">Featured</label>
+                                        <input class="form-check-input shadow-none border-0" type="checkbox" checked role="switch">
+                                    </div>
+                                    <div class="form-check form-switch d-flex justify-content-between p-0 mb-2">
+                                        <label class="theme-text-sm text-light-70 theme-fw-400">Links Verified</label>
+                                        <input class="form-check-input shadow-none border-0" type="checkbox" checked role="switch">
+                                    </div>
+                                    <div class="form-check form-switch d-flex justify-content-between p-0 mb-2">
+                                        <label class="theme-text-sm text-light-70 theme-fw-400">Dooxed KYC Verified</label>
+                                        <input class="form-check-input shadow-none border-0" type="checkbox" checked role="switch">
+                                    </div>
+                                    <div class="my-20 divider-light-10"></div>
+                                    <div class="mb-20">
+                                        <p class="theme-text-sm theme-fw-400 text-light-70">Social Profiles:</p>
+                                        <div class="col row g-4 mt-3">
+                                            <p class="col-auto theme-text-xsm theme-fw-400 text-light">
+                                                <i class="text-primary fa-brands fa-twitter"></i>
+                                                <span class="ms-1">Twitter (2.4K)</span>
+                                            </p>
+                                            <p class="col-auto theme-text-xsm theme-fw-400 text-light">
+                                                <i class="text-primary fa-brands fa-discord"></i>
+                                                <span class="ms-1">Discord (3.2K)</span>
+                                            </p>
+                                            <p class="col-auto theme-text-xsm theme-fw-400 text-light">
+                                                <i class="text-primary fa-solid fa-globe"></i>
+                                                <span class="ms-1">Website</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-20">
+                                        <p class="theme-text-sm theme-fw-400 text-light-70 mb-3">Event Tags:</p>
+                                        <div class="col row g-0">
+
+                                        </div>
                                     </div>
                                 </div>
                             </div> <!-- end widget-rounded-circle-->
                         </div> <!-- end col-->
+                        <!-- Project Detail Form Column -->
+                        <div class="col-lg-8 ps-lg-4 pt-4 pt-lg-0">
+                            <div class="widget-rounded-circle card p-20 m-0" style="padding-bottom: 200px;">
+                                <!-- Project Info Section -->
+                                <div class="mt-40">
+                                    <div>
+                                        <h3 class="theme-text-lg text-light mb-3">Project info</h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Project name <span class="ms-1 text-danger">*</span></label>
+                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="" />
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Chain <span class="ms-1 text-danger">*</span></label>
+                                            <select class="form-select bg-transparent w-100 theme-text-xsm shadow-none">
+                                                <option value="" selected>-- Choose your project chain --</option>
+                                                <option value="1">One</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Total supply <span class="ms-1 text-danger">*</span></label>
+                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div>
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Project description <span class="ms-1 text-danger">*</span></label>
+                                            <textarea class="form-control bg-transparent theme-text-xsm shadow-none" rows={6} placeholder=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Twitter Link (Optional)</label>
+                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter URL" />
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Discord Link (Optional)</label>
+                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter URL" />
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Website Link (Optional)</label>
+                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter URL" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Images Section -->
+                                <div>
+                                    <div class="mt-20 mb-3">
+                                        <h3 class="theme-text-lg text-light ">Images</h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-control-image-container cursor-pointer col-md-6 mb-3">
+                                            <label class=" form-label theme-text-xsm text-light-70 mb-10">Profile Photo <span class="mx-2 text-danger">*</span> Ideal size: 240px X 240px</label>
+                                            <input type="file" class="d-none" accept="image/*" />
+                                            <div class="form-control-image bg-transparent text-center">
+                                                <img src="/assets/images/icons/upload_icon.svg" alt="" />
+                                                <p class="theme-text-xsm text-light-70">Drag and drop or browse</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-control-image-container cursor-pointer col-md-6 mb-3">
+                                            <label class=" form-label theme-text-xsm text-light-70 mb-10">Banner Image <span class="mx-2">(Optional)</span> Ideal size: 1450px X 320px</label>
+                                            <input type="file" class="d-none" accept="image/*" />
+                                            <div class="form-control-image bg-transparent text-center">
+                                                <img src="/assets/images/icons/upload_icon.svg" alt="" />
+                                                <p class="theme-text-xsm text-light-70">Drag and drop or browse</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Pre-Sale Mint Details -->
+                                <div class="">
+                                    <div>
+                                        <h3 class="theme-text-lg text-light mt-20 mb-3">Pre-Sale Mint Details</h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Timezone <span class="ms-1 text-danger">*</span></label>
+                                            <select class="form-select bg-transparent theme-text-xsm shadow-none">
+                                                <option value="" selected>-- Choose timezone --</option>
+                                                <option value="1">One</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Pre-sale mint date (Optional)</label>
+                                            <input type="date" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Pre-sale mint time (Optional)</label>
+                                            <input type="time" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Pre-sale price (Optional)</label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter price" />
+                                                <span class="input-group-text bg-transparent">ETH</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Mint Details -->
+                                <div class="">
+                                    <div class="mt-20 mb-3">
+                                        <h3 class="theme-text-lg text-light ">Mint Details</h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Mint date <span class="ms-1 text-danger">*</span></label>
+                                            <input type="date" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Mint time <span class="ms-1 text-danger">*</span></label>
+                                            <input type="time" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Mint price <span class="ms-1 text-danger">*</span></label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter price" />
+                                                <span class="input-group-text bg-transparent">ETH</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Founder Info -->
+                                <div class="">
+                                    <div class="mt-20 mb-3">
+                                        <h3 class="theme-text-lg text-light ">Founder Info</h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Full name (Optional)</label>
+                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" />
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Email <span class="ms-1 text-danger">*</span></label>
+                                            <input type="email" class="form-control bg-transparent theme-text-xsm shadow-none" />
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label theme-text-xsm text-light-70 mb-10">Phone no. (Optional)</label>
+                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex">
+                                    <button type="submit" class="btn-theme mt-60 px-60 h-60">Save</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- end row-->
 
@@ -1597,7 +1788,7 @@
 
                     <form class="search-bar p-3">
                         <div class="position-relative">
-                            <input type="text" class="form-control" placeholder="Search...">
+                            <input type="text" class="form-control bg-transparent" placeholder="Search...">
                             <span class="mdi mdi-magnify"></span>
                         </div>
                     </form>
@@ -1632,7 +1823,7 @@
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="assets/images/users/user-10.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="/public/assets/images/users/user-10.jpg" class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status online"></i>
                                 </div>
                                 <div class="overflow-hidden">
@@ -1647,7 +1838,7 @@
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="assets/images/users/user-1.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="/public/assets/images/users/user-1.jpg" class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status away"></i>
                                 </div>
                                 <div class="overflow-hidden">
@@ -1663,7 +1854,7 @@
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="assets/images/users/user-9.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="/public/assets/images/users/user-9.jpg" class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status busy"></i>
                                 </div>
                                 <div class="overflow-hidden">
@@ -1682,7 +1873,7 @@
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="assets/images/users/user-2.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="/public/assets/images/users/user-2.jpg" class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status online"></i>
                                 </div>
                                 <div class="overflow-hidden">
@@ -1697,7 +1888,7 @@
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="assets/images/users/user-4.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="/public/assets/images/users/user-4.jpg" class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status away"></i>
                                 </div>
                                 <div class="overflow-hidden">
@@ -1712,7 +1903,7 @@
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="assets/images/users/user-5.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="/public/assets/images/users/user-5.jpg" class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status online"></i>
                                 </div>
                                 <div class="overflow-hidden">
@@ -1728,7 +1919,7 @@
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="assets/images/users/user-6.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="/public/assets/images/users/user-6.jpg" class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status online"></i>
                                 </div>
                                 <div class="overflow-hidden">
@@ -1743,7 +1934,7 @@
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="assets/images/users/user-7.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="/public/assets/images/users/user-7.jpg" class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status busy"></i>
                                 </div>
                                 <div class="overflow-hidden">
@@ -1758,7 +1949,7 @@
                         <a href="javascript: void(0);" class="text-reset notification-item">
                             <div class="d-flex align-items-start noti-user-item">
                                 <div class="position-relative me-2">
-                                    <img src="assets/images/users/user-8.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                    <img src="/public/assets/images/users/user-8.jpg" class="rounded-circle avatar-sm" alt="user-pic">
                                     <i class="mdi mdi-circle user-status away"></i>
                                 </div>
                                 <div class="overflow-hidden">
@@ -1964,19 +2155,19 @@
     <div class="d-none rightbar-overlay"></div>
 
     <!-- Vendor js -->
-    <script src="assets/js/vendor.min.js"></script>
+    <script src="/public/assets/js/vendor.min.js"></script>
 
     <!-- Plugins js-->
-    <script src="assets/libs/flatpickr/flatpickr.min.js"></script>
-    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="/public/assets/libs/flatpickr/flatpickr.min.js"></script>
+    <script src="/public/assets/libs/apexcharts/apexcharts.min.js"></script>
 
-    <script src="assets/libs/selectize/js/standalone/selectize.min.js"></script>
+    <script src="/public/assets/libs/selectize/js/standalone/selectize.min.js"></script>
 
     <!-- Dashboar 1 init js-->
-    <script src="assets/js/pages/dashboard-1.init.js"></script>
+    <script src="/public/assets/js/pages/dashboard-1.init.js"></script>
 
     <!-- App js-->
-    <script src="assets/js/app.min.js"></script>
+    <script src="/public/assets/js/app.min.js"></script>
 
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 

@@ -125,6 +125,7 @@ h2,
 h1,
 .h1 {
     margin-top: 0;
+    margin-bottom: .5rem;
     font-weight: 500;
     line-height: 1.2
 }
@@ -2477,7 +2478,7 @@ textarea.form-control-lg {
     line-height: 1.5;
     color: rgba(255, 255, 255, .4);
     background-color: #0e071c;
-    background-image: url(/assets/images/icons/select_icon.svg);
+    background-image: url(/public/assets/images/icons/select_icon.svg);
     background-repeat: no-repeat;
     background-position: right .75rem center;
     background-size: 16px 12px;
@@ -2559,11 +2560,11 @@ textarea.form-control-lg {
     height: 1em;
     margin-top: .25em;
     vertical-align: top;
-    background-color: #fff;
+    background-color: #0e071c;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    border: 1px solid rgba(255, 255, 255, .25);
+    border: 1px solid rgba(0, 0, 0, .25);
     appearance: none;
     print-color-adjust: exact
 }
@@ -2583,12 +2584,12 @@ textarea.form-control-lg {
 .form-check-input:focus {
     border-color: rgba(255, 255, 255, .2);
     outline: 0;
-    box-shadow: 0 0 0 .25rem rgba(171, 77, 171, 0.25);
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25)
 }
 
 .form-check-input:checked {
-    background-color: var(--bs-primary);
-    border-color: var(--bs-primary)
+    background-color: #0d6efd;
+    border-color: #0d6efd
 }
 
 .form-check-input:checked[type=checkbox] {
@@ -2600,8 +2601,8 @@ textarea.form-control-lg {
 }
 
 .form-check-input[type=checkbox]:indeterminate {
-    background-color: var(--bs-primary);
-    border-color: var(--bs-primary);
+    background-color: #0d6efd;
+    border-color: #0d6efd;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")
 }
 
@@ -2624,7 +2625,8 @@ textarea.form-control-lg {
 .form-switch .form-check-input {
     width: 2em;
     margin-left: -2.5em;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23000'/%3e%3c/svg%3e");
     background-position: left center;
     border-radius: 2em;
     transition: background-position .15s ease-in-out
@@ -2637,12 +2639,12 @@ textarea.form-control-lg {
 }
 
 .form-switch .form-check-input:focus {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%28255, 255, 255, 0.2%29'/%3e%3c/svg%3e")
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23000'/%3e%3c/svg%3e")
 }
 
 .form-switch .form-check-input:checked {
     background-position: right center;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e")
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23AB4DAB'/%3e%3c/svg%3e")
 }
 
 .form-switch.form-check-reverse {
@@ -3049,7 +3051,7 @@ textarea.is-valid.form-control-image {
 .form-select.is-valid:not([multiple]):not([size]),
 .form-select.is-valid:not([multiple])[size="1"] {
     padding-right: 4.125rem;
-    background-image: url(/assets/images/icons/select_icon.svg), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-image: url(/public/assets/images/icons/select_icon.svg), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
     background-position: right .75rem center, center right 2.25rem;
     background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)
 }
@@ -3167,7 +3169,7 @@ textarea.is-invalid.form-control-image {
 .form-select.is-invalid:not([multiple]):not([size]),
 .form-select.is-invalid:not([multiple])[size="1"] {
     padding-right: 4.125rem;
-    background-image: url(/assets/images/icons/select_icon.svg), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-image: url(/public/assets/images/icons/select_icon.svg), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
     background-position: right .75rem center, center right 2.25rem;
     background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)
 }
@@ -12548,11 +12550,11 @@ header {
 }
 
 input[type=date]::-webkit-calendar-picker-indicator {
-    background-image: url(/assets/images/icons/calendar_icon.svg)
+    background-image: url(/public/assets/images/icons/calendar_icon.svg)
 }
 
 input[type=time]::-webkit-calendar-picker-indicator {
-    background-image: url(/assets/images/icons/clock_icon.svg)
+    background-image: url(/public/assets/images/icons/clock_icon.svg)
 }
 
 .text-muted {
@@ -12564,11 +12566,19 @@ input[type=time]::-webkit-calendar-picker-indicator {
 }
 
 .border-muted {
-    border: 1px solid #292220
+    border: 1px solid #292220 !important;
 }
 
 .border-bottom-muted {
-    border-bottom: 2px solid rgba(255, 255, 255, .2)
+    border-bottom: 2px solid rgba(255, 255, 255, .2) !important;
+}
+
+.divider-light-10 {
+    display: flex;
+    min-width: 100%;
+    min-height: 1px;
+    background: rgba(255, 255, 255, .1);
+    opacity: .5;
 }
 
 p {
@@ -12656,6 +12666,11 @@ p {
 
 .mb-20 {
     margin-bottom: 20px
+}
+
+.my-20 {
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .mt-20 {
@@ -12943,6 +12958,10 @@ p {
     padding: 10px
 }
 
+.p-20 {
+    padding: 20px
+}
+
 @media(min-width: 992px) {
     .p-lg-20 {
         padding: 20px !important
@@ -13071,7 +13090,7 @@ p {
 }
 
 .list-group li {
-    list-style: url(/assets/images/icons/green_check.svg);
+    list-style: url(/public/assets/images/icons/green_check.svg);
     padding-left: 10px
 }
 
@@ -13287,50 +13306,50 @@ p {
 }
 
 .theme-h1 {
-    font-size: 50px;
-    line-height: 60px
+    font-size: 50px !important;
+    line-height: 60px !important
 }
 
 .theme-h2 {
-    font-size: 38px;
-    line-height: 48px
+    font-size: 38px !important;
+    line-height: 48px !important
 }
 
 .theme-h3 {
-    font-size: 32px;
-    line-height: 42px
+    font-size: 32px !important;
+    line-height: 42px !important
 }
 
 .theme-h4 {
-    font-size: 24px;
-    line-height: auto
+    font-size: 24px !important;
+    line-height: auto !important
 }
 
 .theme-text-lg {
-    font-size: 20px;
-    line-height: 28px
+    font-size: 20px !important;
+    line-height: 28px !important
 }
 
 .theme-text-body {
-    font-size: 16px;
-    line-height: 24px
+    font-size: 16px !important;
+    line-height: 24px !important
 }
 
 .theme-text-sm {
-    font-size: 14px;
-    line-height: 22px
+    font-size: 14px !important;
+    line-height: 22px !important
 }
 
 .theme-text-sm.btn,
 .theme-text-sm.btn-theme,
 .theme-text-sm.btn-theme-secondary,
 .theme-text-sm.btn-theme-light {
-    line-height: 16px
+    line-height: 16px !important
 }
 
 .theme-text-xsm {
-    font-size: 12px;
-    line-height: 20px
+    font-size: 12px !important;
+    line-height: 20px !important
 }
 
 .fw-400 {
@@ -13338,19 +13357,19 @@ p {
 }
 
 .fs-14 {
-    font-size: 14px
+    font-size: 14px !important
 }
 
 .fs-18 {
-    font-size: 18px
+    font-size: 18px !important
 }
 
 .fs-30 {
-    font-size: 30px
+    font-size: 30px !important
 }
 
 .fs-32 {
-    font-size: 32px
+    font-size: 32px !important
 }
 
 .theme-fw-400 {
@@ -13366,11 +13385,11 @@ p {
 }
 
 .text-light-70 {
-    color: rgba(255, 255, 255, .7)
+    color: rgba(255, 255, 255, .7) !important
 }
 
 .text-light-80 {
-    color: rgba(255, 255, 255, .8)
+    color: rgba(255, 255, 255, .8) !important
 }
 
 .text-yellow {
