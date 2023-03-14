@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Project;
 
 return new class extends Migration
 {
@@ -12,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        //
+        Schema::create('approved_projects', function (Blueprint $table) {
             $table->id();
             $table->string('project_name');
             $table->string('proj_chain');
@@ -31,7 +31,6 @@ return new class extends Migration
             $table->string('founder_name')->nullable();
             $table->string('founder_email');
             $table->string('founder_phone')->nullable();
-            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
@@ -41,6 +40,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        //
+        Schema::dropIfExists('approved_projects');
     }
 };

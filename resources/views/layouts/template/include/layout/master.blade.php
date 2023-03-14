@@ -48,7 +48,7 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="text-start">
-                                        <h3 class="text-dark mt-1"><span data-plugin="counterup" class="text-light"> 100</span></h3>
+                                        <h3 class="text-dark mt-1"><span data-plugin="counterup" class="text-light"><div style="color: white;"> 100 </div> </span></h3>
                                         <p class="text-muted mb-1 text-start">Total number of projects published
                                         </p>
                                     </div>
@@ -69,7 +69,7 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="text-start">
-                                        <h3 class="text-dark mt-1"><span data-plugin="counterup" class="text-light">100</span></h3>
+                                        <h3 class="text-dark mt-1"><span data-plugin="counterup" class="text-light"><div style="color: white;"> 100 </div></span></h3>
                                         <p class="text-muted mb-1 text-start">Total number of projects submitted
                                             requests</p>
                                     </div>
@@ -90,7 +90,7 @@
                             <div class="row">
                                 <div class="col-8">
                                     <div class="text-start">
-                                        <h3 class="text-dark mt-1"><span data-plugin="counterup" class="text-light">100</span></h3>
+                                        <h3 class="text-dark mt-1"><span data-plugin="counterup" class="text-light"><div style="color: white;"> 100 </div></span></h3>
                                         <p class="text-muted mb-1 text-start">Total number of featured
                                             projects</p>
                                     </div>

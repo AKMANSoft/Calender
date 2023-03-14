@@ -796,13 +796,13 @@
                     <div class="collapse" id="sidebarOpt">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#">Published</a>
+                                <a href="{{ route('project_approved') }}">Published</a>
                             </li>
                             <li>
-                                <a href="{{ route('requests') }}">Requests</a>
+                                <a href="{{ route('project_requests') }}">Requests</a>
                             </li>
                             <li>
-                                <a href="#">Offline</a>
+                                <a href="{{ route('project_rejected') }}">Offline</a>
                             </li>
 
                         </ul>

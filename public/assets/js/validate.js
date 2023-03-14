@@ -2,7 +2,7 @@ function validate() {
 
 	var projectName = document.getElementById("projectName").value;
     
-	if(projectName = " ") {
+	if(projectName === "") {
         let message = "You must enter valid input";
         document.getElementById('invalidfeedback').innerHTML = message;
 	}
@@ -15,7 +15,7 @@ function validate() {
 
     var projectChain = document.getElementById("projectChain").value;
     
-	if(projectChain = " ") {
+	if(projectChain === "") {
         let message = "You must enter valid input";
         document.getElementById('invalidfeedback1').innerHTML = message;
 	}
@@ -28,7 +28,7 @@ function validate() {
 
     var totalSupply = document.getElementById("totalSupply").value;
     
-	if(totalSupply = " ") {
+	if(totalSupply === "") {
         let message = "You must enter valid input";
         document.getElementById('invalidfeedback2').innerHTML = message;
 	}
@@ -40,7 +40,7 @@ function validate() {
 
     var projectDesc = document.getElementById("projectDesc").value;
     
-	if(projectDesc = " ") {
+	if(projectDesc === "") {
         let message = "You must enter valid input";
         document.getElementById('invalidfeedback3').innerHTML = message;
 	}
@@ -52,7 +52,7 @@ function validate() {
 
     var timeZone = document.getElementById("timeZone").value;
     
-	if(timeZone = " ") {
+	if(timeZone === "") {
         let message = "You must enter valid input";
         document.getElementById('invalidfeedback4').innerHTML = message;
 	}
@@ -64,7 +64,7 @@ function validate() {
 
     var date = document.getElementById("date").value;
     
-	if(date = " ") {
+	if(date === "") {
         let message = "You must enter valid input";
         document.getElementById('invalidfeedback5').innerHTML = message;
 	}
@@ -77,7 +77,7 @@ function validate() {
 
     var time = document.getElementById("time").value;
     
-	if(time = " ") {
+	if(time === "") {
         let message = "You must enter valid input";
         document.getElementById('invalidfeedback6').innerHTML = message;
 	}
@@ -89,7 +89,7 @@ function validate() {
 
     var price = document.getElementById("price").value;
     
-	if(price = " ") {
+	if(price === "") {
         let message = "You must enter valid input";
         document.getElementById('invalidfeedback7').innerHTML = message;
 	}
@@ -102,7 +102,7 @@ function validate() {
 
     var founderEmail = document.getElementById("founderEmail").value;
     
-	if(founderEmail = " ") {
+	if(founderEmail === "") {
         let message = "You must enter valid input";
         document.getElementById('invalidfeedback8').innerHTML = message;
 	}

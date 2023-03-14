@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class ProjectRejected extends Model
 {
     use HasFactory;
-    
 
+    
     protected $fillable = [
         'project_name',
         'proj_chain',
@@ -28,6 +28,6 @@ class Project extends Model
         'founder_name',
         'founder_email',
         'founder_phone',
-        'status',
     ];
+    
 }

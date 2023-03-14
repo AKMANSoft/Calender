@@ -36,4 +36,29 @@ Route::post('/profile', [ProfileController::class, 'index'])->name('preview');
 Route::post('/profile-update', [ProfileController::class, 'update'])->name('preview');
 
 
+Route::post('/project-approved', [ProjectController::class, 'approved']);
+
+Route::post('/project-approved-submit', [ProjectController::class, 'approved_submit']);
+
+Route::get('/published', [ProjectController::class, 'view_approved_proj'])->name('published');
+
+Route::post('/project-rejected', [ProjectController::class, 'rejected']);
+
+Route::post('/project-rejected-submit', [ProjectController::class, 'rejected_submit']);
+
+Route::get('/offline', [ProjectController::class, 'view_rejected_proj'])->name('offline');
+
+//
+
+Route::get('/project-requests', [ProjectController::class, 'project_requests'])->name('project_requests');
+
+
+Route::post('/project-approved-update', [ProjectController::class, 'status_update_approved']);
+
+Route::post('/project-rejected-update', [ProjectController::class, 'status_update_rejected']);
+
+
+Route::get('/project-approved-view', [ProjectController::class, 'project_approved'])->name('project_approved');
+
+Route::get('/project-rejected-view', [ProjectController::class, 'project_rejected'])->name('project_rejected');
 
