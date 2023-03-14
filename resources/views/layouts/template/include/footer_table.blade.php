@@ -1,10 +1,8 @@
-</div>
-</body>
+        <!-- Vendor js -->
+        <script src="assets/js/vendor.min.js"></script>
 
-    <script src="assets/js/vendor.min.js"></script>
-
-    <!-- third party js -->
-    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <!-- third party js -->
+        <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
         <script src="assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
         <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
         <script src="assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
@@ -22,4 +20,8 @@
         <!-- Datatables init -->
         <script src="assets/js/pages/datatables.init.js"></script>
 
+        <!-- App js -->
+        <script src="assets/js/app.min.js"></script>
+        
+    </body>
 </html>

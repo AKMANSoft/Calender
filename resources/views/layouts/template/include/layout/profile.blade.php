@@ -6,38 +6,29 @@
 @include('layouts/template/include/sidebar');
 
 
-<meta charset="utf-8" />
-    <title>Dashboard | UBold - Responsive Admin Dashboard Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="/assets/images/favicon.ico">
-
 
     <!-- Plugins css -->
     <link href=" /assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
     <link href=" /assets/libs/selectize/css/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
 
-    <!-- Bootstrap css -->
-    <link href=" /assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- App css -->
-    <link href=" /assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
-    <!-- icons -->
-    <link href=" /assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Head js -->
-    <script src=" /assets/js/head.js"></script>
+
 
     <link href=" /assets/css/custom.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href=" /assets/css/styles.css" rel="stylesheet" type="text/css">
+    <link href=" /assets/css/custom.css" rel="stylesheet" type="text/css">
 
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
+<style>
+    a
+    {
+        text-decoration: none;
+    }
+</style>
 
 <div class="content-page px-0">
             <div class="content">
@@ -132,6 +123,8 @@
                         </div> <!-- end col-->
                         <!-- Project Detail Form Column -->
                         <div class="col-lg-8 ps-lg-4 pt-4 pt-lg-0">
+                        <form action="{{ url('/') }}/profile-update" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="widget-rounded-circle card p-20 m-0" style="padding-bottom: 200px;">
                                 <!-- Project Info Section -->
                                 <div class="mt-40">
@@ -139,45 +132,43 @@
                                         <h3 class="theme-text-lg text-light mb-3">Project info</h3>
                                     </div>
                                     <div class="row">
+                                        <input name="id" value="{{ Session::get('id') }}" type="number" class="d-none">
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Project name <span class="ms-1 text-danger">*</span></label>
-                                            @foreach ($result as $key => $proj)
-
-                                            {{ $proj->project_name }}
-
-                                            @endforeach
-                                            <input value="" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="" />
+                                            @foreach ($result as $key => $proj)                                                                            
+                                            <input name="projectName" value="{{ $proj->project_name }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="" />
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Chain <span class="ms-1 text-danger">*</span></label>
-                                            <select class="form-select bg-transparent w-100 theme-text-xsm shadow-none">
-                                                <option value="" selected>-- Choose your project chain --</option>
+                                            <select name="projectChain" class="form-select bg-transparent w-100 theme-text-xsm shadow-none">
+                                                <option value="{{ $proj->proj_chain }}" selected>{{ $proj->proj_chain }}</option>
                                                 <option value="1">One</option>
                                             </select>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Total supply <span class="ms-1 text-danger">*</span></label>
-                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="" />
+                                            <input name="totalSupply" value="{{ $proj->total_supply }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="" />
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div>
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Project description <span class="ms-1 text-danger">*</span></label>
-                                            <textarea class="form-control bg-transparent theme-text-xsm shadow-none" rows={6} placeholder=""></textarea>
+                                            
+                                            <textarea name="projectDesc" class="form-control bg-transparent theme-text-xsm shadow-none" rows={6}> {{ $proj->proj_description }} </textarea>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Twitter Link (Optional)</label>
-                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter URL" />
+                                            <input name="twitter" value="{{ $proj->twitter }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter URL" />
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Discord Link (Optional)</label>
-                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter URL" />
+                                            <input name="discord" value="{{ $proj->discord }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter URL" />
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Website Link (Optional)</label>
-                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter URL" />
+                                            <input name="url" value="{{ $proj->url }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter URL" />
                                         </div>
                                     </div>
                                 </div>
@@ -213,8 +204,8 @@
                                     <div class="row">
                                         <div class="col mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Timezone <span class="ms-1 text-danger">*</span></label>
-                                            <select class="form-select bg-transparent theme-text-xsm shadow-none">
-                                                <option value="" selected>-- Choose timezone --</option>
+                                            <select name="timeZone" class="form-select bg-transparent theme-text-xsm shadow-none">
+                                                <option value="{{ $proj->time_zone }}"> {{ $proj->time_zone }} </option>
                                                 <option value="1">One</option>
                                             </select>
                                         </div>
@@ -222,16 +213,16 @@
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Pre-sale mint date (Optional)</label>
-                                            <input type="date" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
+                                            <input name="preDate" value="{{ $proj->pre_sale_date }}" type="date" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Pre-sale mint time (Optional)</label>
-                                            <input type="time" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
+                                            <input name="preTime" value="{{ $proj->pre_sale_time }}" type="time" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Pre-sale price (Optional)</label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter price" />
+                                                <input name="prePrice" value="{{ $proj->pre_sale_price }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter price" />
                                                 <span class="input-group-text bg-transparent">ETH</span>
                                             </div>
                                         </div>
@@ -245,16 +236,16 @@
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Mint date <span class="ms-1 text-danger">*</span></label>
-                                            <input type="date" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
+                                            <input name="date" value="{{ $proj->date }}" type="date" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Mint time <span class="ms-1 text-danger">*</span></label>
-                                            <input type="time" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
+                                            <input name="time" value="{{ $proj->time }}" type="time" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Mint price <span class="ms-1 text-danger">*</span></label>
                                             <div class="input-group">
-                                                <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter price" />
+                                                <input name="price" value="{{ $proj->price }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Enter price" />
                                                 <span class="input-group-text bg-transparent">ETH</span>
                                             </div>
                                         </div>
@@ -268,23 +259,25 @@
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Full name (Optional)</label>
-                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" />
+                                            <input name="founderName" value="{{ $proj->founder_name }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" />
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Email <span class="ms-1 text-danger">*</span></label>
-                                            <input type="email" class="form-control bg-transparent theme-text-xsm shadow-none" />
+                                            <input name="founderEmail" value="{{ $proj->founder_email }}" type="email" class="form-control bg-transparent theme-text-xsm shadow-none" />
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Phone no. (Optional)</label>
-                                            <input type="text" class="form-control bg-transparent theme-text-xsm shadow-none" />
+                                            <input name="founderPhone" value="{{ $proj->founder_phone }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" />
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="d-flex">
-                                    <button type="submit" class="btn-theme mt-60 px-60 h-60">Save</button>
+                                    <input type="submit" name="submit" class="btn-theme mt-60 px-60 h-60"/>
+                                    @endforeach
                                 </div>
                             </div>
+                        </form>
                         </div>
                     </div>
                     <!-- end row-->

@@ -33,6 +33,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/requests', [ProjectController::class, 'requests'])->name('requests');
 
 Route::post('/profile', [ProfileController::class, 'index'])->name('preview');
+Route::post('/profile-update', [ProfileController::class, 'update'])->name('preview');
 
 
 
