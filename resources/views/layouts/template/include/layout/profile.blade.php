@@ -29,6 +29,8 @@
     }
 </style>
 
+
+
 <div class="content-page px-0">
             <div class="content">
 
@@ -122,6 +124,10 @@
                         </div> <!-- end col-->
                         <!-- Project Detail Form Column -->
                         <div class="col-lg-8 ps-lg-4 pt-4 pt-lg-0">
+
+       
+                                  
+
                         <form action="{{ url('/') }}/profile-update" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="widget-rounded-circle card p-20 m-0" style="padding-bottom: 200px;">
@@ -130,13 +136,20 @@
                                     <div>
                                         <h3 class="theme-text-lg text-light mb-3">Project info</h3>
                                     </div>
+
                                     <div class="row">
+
                                         <input name="id" value="{{ Session::get('id') }}" type="number" class="d-none">
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Project name <span class="ms-1 text-danger">*</span></label>
                                             @foreach ($result as $key => $proj)                                                                            
                                             <input name="projectName" value="{{ $proj->project_name }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="" />
                                         </div>
+
+
+                                        
+
+
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Chain <span class="ms-1 text-danger">*</span></label>
                                             <select name="projectChain" class="form-select bg-transparent w-100 theme-text-xsm shadow-none">
@@ -192,6 +205,20 @@
                                                 <img src="/assets/images/icons/upload_icon.svg" alt="" />
                                                 <p class="theme-text-xsm text-light-70">Drag and drop or browse</p>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="mt-20 mb-3">
+                                        <h3 class="theme-text-lg text-light ">Paths</h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-control-image-container cursor-pointer col-md-6 mb-3">
+                                        <input name="" value="{{ $proj->path_image }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="" readonly/>
+                                        </div>
+                                        <!-- <img src="https://mymlbucket100.s3.ap-southeast-2.amazonaws.com/{{ $proj->path_image }}" width="100" height="100">  -->
+                                        <div class="form-control-image-container cursor-pointer col-md-6 mb-3">
+                                        <input name="" value="{{ $proj->path_banner }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="" readonly/>
                                         </div>
                                     </div>
                                 </div>

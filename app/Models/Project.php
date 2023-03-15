@@ -29,5 +29,7 @@ class Project extends Model
         'founder_email',
         'founder_phone',
         'status',
+        'path_image',
+        'path_banner',
     ];
 }

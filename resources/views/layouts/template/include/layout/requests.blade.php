@@ -58,7 +58,9 @@
                                                     <th>Founder Name</th>
                                                     <th>Founder Email</th>
                                                     <th>Founder Phone</th>
-                                                    <th>Action</th>
+                                                    <th>Path Image</th>
+                                                    <!-- <th>Path Banner</th>
+                                                    <th>Action</th> -->
                                                 </tr>
                                             </thead>
                                         
@@ -75,6 +77,8 @@
                                                     <td>{{ $proj->founder_name }}</td>
                                                     <td>{{ $proj->founder_email }}</td>
                                                     <td>{{ $proj->founder_phone }}</td>
+                                                    <!-- <td>{{ $proj->path_image }}</td>
+                                                    <td>{{ $proj->path_banner }}</td> -->
                                                     <td>
                                                     
                                                     <div class="row">

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\ApprovedProject;
 use App\Models\RejectedProject;
+use App\Models\Image;
+use Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\input;
 
@@ -33,6 +35,48 @@ class ProjectController extends Controller
             'founderEmail' => 'required',
         ]);
 
+
+            $title_image = request()->file('image')->getClientOriginalName();
+            $extension  = request()->file('image')->getClientOriginalExtension(); 
+            $image_name = time() .'_'. '.' . $extension;
+
+
+
+            $path = $request->file('image')->storeAs(
+                'images',
+                $image_name,
+                's3'
+            );
+
+
+
+
+            $banner_name = request()->file('banner')->getClientOriginalName();
+            $extension  = request()->file('banner')->getClientOriginalExtension(); 
+            $image_name = time() .'_'. '.' .$extension;
+            $path2 = $request->file('banner')->storeAs(
+                'images',
+                $image_name,
+                's3'
+            );
+
+
+
+
+
+            Image::create([
+                'title' => $title_image,
+                'project_name'=>$request->projectName,
+                'founder_name'=>$request->founderName,
+                'founder_email'=>$request->founderEmail,
+                'founder_phone'=>$request->founderPhone,
+                'image'=>$path,
+                'banner'=>$path2,
+                'banner_title'=>$banner_name,
+            ]);
+
+
+
         $proj = new Project;
 
         $proj->project_name = $request->projectName;
@@ -53,6 +97,8 @@ class ProjectController extends Controller
         $proj->founder_email = $request->founderEmail;
         $proj->founder_phone = $request->founderPhone;
         $proj->status = $request->status;
+        $proj->path_image = $path;
+        $proj->path_banner = $path2;
 
         $proj->save();
 

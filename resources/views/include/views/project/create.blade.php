@@ -72,7 +72,7 @@
             <div class="row">
                 <div class="form-control-image-container cursor-pointer col-md-6 mb-20">
                     <label class=" form-label fs-14 text-light-70 mb-10">Profile Photo <span class="mx-2 text-danger">*</span> Ideal size: 240px X 240px</label>
-                    <input type="file" class="d-none" accept="image/*" />
+                    <input type="file" name="image" class="d-none" accept="image/*" />
                     <div class="form-control-image text-center">
                         <img src="/assets/images/icons/upload_icon.svg" alt="" />
                         <p class="fs-14 text-light-70">Drag and drop or browse</p>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="form-control-image-container cursor-pointer col-md-6 mb-20">
                     <label class=" form-label fs-14 text-light-70 mb-10">Banner Image <span class="mx-2">(Optional)</span> Ideal size: 1450px X 320px</label>
-                    <input type="file" class="d-none" accept="image/*" />
+                    <input type="file" name="banner" class="d-none" accept="image/*" />
                     <div class="form-control-image text-center">
                         <img src="/assets/images/icons/upload_icon.svg" alt="" />
                         <p class="fs-14 text-light-70">Drag and drop or browse</p>

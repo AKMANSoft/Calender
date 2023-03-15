@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\input;
 use App\Models\Project;
+use App\Models\Image;
 
 class ProfileController extends Controller
 {
@@ -19,13 +20,22 @@ class ProfileController extends Controller
 
         $result = $data_profile->toArray();
 
-        //var_dump($result);
+        // $project_name = Project::where('id', $prev_id)->pluck('project_name');
+
+        // $project_name = $project_name->toArray();
+
+        // $images = Image::where('project_name', $project_name)->pluck('image','banner');
+
+        // $project_name_res = $project_name_img->toArray();
+
+        // $images = $project_name_res;
+
+        // var_dump($images);
 
         $id = $request->session()->put('id', $request->id);
         
         return view('layouts.template.include.layout.profile', compact('result','id'));
 
-        //return view('layouts.template.include.layout.profile');
     }
 
     public function update(Request $request)

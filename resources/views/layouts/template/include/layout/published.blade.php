@@ -39,7 +39,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title"> Published </h4>
+                                        <h4 class="header-title">Published</h4>
                                         <p class="text-muted font-13 mb-4">
                                             <!-- DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction
                                             function: -->
@@ -58,7 +58,7 @@
                                                     <th>Founder Name</th>
                                                     <th>Founder Email</th>
                                                     <th>Founder Phone</th>
-                                                    
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                         
@@ -75,9 +75,8 @@
                                                     <td>{{ $proj->founder_name }}</td>
                                                     <td>{{ $proj->founder_email }}</td>
                                                     <td>{{ $proj->founder_phone }}</td>
-                                                    
                                                     <td>
-                                                        
+                                                    
                                                     <div class="row">
                                                         <div class="col-md-3">
                                                             <form action="{{ url('/') }}/profile" method="post">
@@ -108,8 +107,6 @@
                                                     </div>
                                                     
                                                     </td>
-                                                    
-                                                    
                                                     
                                                      
                                                 </tr>

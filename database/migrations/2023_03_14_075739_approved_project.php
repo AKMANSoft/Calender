@@ -32,6 +32,8 @@ return new class extends Migration
             $table->string('founder_name')->nullable();
             $table->string('founder_email');
             $table->string('founder_phone')->nullable();
+            $table->string('path_image')->nullable();
+            $table->string('path_banner')->nullable();
             $table->timestamps();
         });
     }
