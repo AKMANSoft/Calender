@@ -30,6 +30,5 @@
     <!-- Datatables init -->
     <script src="assets/js/pages/datatables.init.js"></script>
 
-
-
+    <script src="assets/js/profile.js"></script>
 </html>

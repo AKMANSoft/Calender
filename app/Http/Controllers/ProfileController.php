@@ -58,7 +58,12 @@ class ProfileController extends Controller
         $price = $request->input('price');
         $founderName = $request->input('founderName');
         $founderEmail = $request->input('founderEmail');
+        $founderEmail = $request->input('founderEmail');
         $founderPhone = $request->input('founderPhone');
+        $superFeatured = $request->input('superFeatured');
+        $featured = $request->input('featured');
+        $linksVerified = $request->input('linksVerified');
+        $kycVerified = $request->input('kycVerified');
         
 
         DB::table('projects')->select('*')->where('id', '=', $prev_id)->update([
@@ -78,7 +83,11 @@ class ProfileController extends Controller
             'price' => $price,
             'founder_name' => $founderName,
             'founder_email' => $founderEmail,
-            'founder_phone' => $founderPhone
+            'founder_phone' => $founderPhone,
+            'super_featured' => $superFeatured,
+            'featured' => $featured,
+            'links_verified' => $linksVerified,
+            'kyc_verified' => $kycVerified,
         ]);
         
 

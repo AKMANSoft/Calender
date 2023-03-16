@@ -73,28 +73,118 @@
                                 <div class="banner-img">
                                     <img src=" /assets/images/project_banner_image.png" height="160" style="width: 100%; object-fit: cover; object-position: center;" alt="">
                                 </div>
+
+                            <form action="{{ url('/') }}/profile-update" method="post" enctype="multipart/form-data">
+                            @csrf
+
                                 <div class="profile mx-auto text-center px-30">
                                     <img src=" /assets/images/nft_project.png" width="150" height="150" class="rounded-circle" style="margin-top: -80px;" alt="">
                                     <p class="theme-text-sm theme-fw-400 text-light mt-3">Pre sale: 29 Jan</p>
                                     <h4 class="theme-h4 theme-fw-700 text-light mt-1">Cat Fight P2E NFT</h4>
                                 </div>
+                                <input name="id" value="{{ Session::get('id') }}" type="number" class="d-none">
+                                @foreach ($result as $key => $proj)  
                                 <div class="mt-30 px-30">
                                     <div class="form-check form-switch d-flex justify-content-between p-0 mb-2">
                                         <label class="theme-text-sm text-light-70 theme-fw-400">Super Featured</label>
-                                        <input class="form-check-input shadow-none border-0" type="checkbox" checked role="switch">
+                                        <input id="superFeatured" name="superFeatured" class="form-check-input shadow-none border-0" type="checkbox" checked role="switch">
+                                        
+                                        <!-- <div id="valChecked"></div>
+                                        <input id="abc" value="{{ $proj->super_featured }}"> -->
+
+                                        <!-- <div id="abc"> </div> -->
+
+<script>
+
+// window.location.reload();
+
+var super_featured = '<?php echo $proj->super_featured; ?>';
+if(super_featured==="")
+{
+    //document.getElementById('abc').innerHTML = "on";
+    document.getElementById('superFeatured').checked = false;
+
+}
+else
+{
+    document.getElementById('superFeatured').checked = true;
+}
+
+</script>
+
                                     </div>
                                     <div class="form-check form-switch d-flex justify-content-between p-0 mb-2">
                                         <label class="theme-text-sm text-light-70 theme-fw-400">Featured</label>
-                                        <input class="form-check-input shadow-none border-0" type="checkbox" checked role="switch">
+                                        <input id="featured" name="featured" class="form-check-input shadow-none border-0" type="checkbox" role="switch">
                                     </div>
+
+
+
+
+<script>
+
+var featured = '<?php echo $proj->featured; ?>';
+if(featured==="")
+{
+    //document.getElementById('abc').innerHTML = "on";
+    document.getElementById('featured').checked = false;
+
+}
+else
+{
+    document.getElementById('featured').checked = true;
+}
+
+
+</script>
+
                                     <div class="form-check form-switch d-flex justify-content-between p-0 mb-2">
                                         <label class="theme-text-sm text-light-70 theme-fw-400">Links Verified</label>
-                                        <input class="form-check-input shadow-none border-0" type="checkbox" checked role="switch">
+                                        <input id="linksVerified" name="linksVerified" class="form-check-input shadow-none border-0" type="checkbox" role="switch">
                                     </div>
+
+
+<script>
+
+var linksVerified = '<?php echo $proj->links_verified; ?>';
+if(linksVerified==="")
+{
+    //document.getElementById('abc').innerHTML = "on";
+    document.getElementById('linksVerified').checked = false;
+
+
+}
+else
+{
+    document.getElementById('linksVerified').checked = true;
+}
+
+</script>
+
+
                                     <div class="form-check form-switch d-flex justify-content-between p-0 mb-2">
                                         <label class="theme-text-sm text-light-70 theme-fw-400">Dooxed KYC Verified</label>
-                                        <input class="form-check-input shadow-none border-0" type="checkbox" checked role="switch">
+                                        <input id="kycVerified" name="kycVerified" class="form-check-input shadow-none border-0" type="checkbox" role="switch">
                                     </div>
+
+
+                                    <script>
+
+var kycVerified = '<?php echo $proj->kyc_verified; ?>';
+if(kycVerified==="")
+{
+    //document.getElementById('abc').innerHTML = "on";
+    document.getElementById('kycVerified').checked = false;
+
+
+}
+else
+{
+    document.getElementById('kycVerified').checked = true;
+}
+
+</script>
+
                                     <div class="my-20 divider-light-10"></div>
                                     <div class="mb-20">
                                         <p class="theme-text-sm theme-fw-400 text-light-70">Social Profiles:</p>
@@ -128,8 +218,7 @@
        
                                   
 
-                        <form action="{{ url('/') }}/profile-update" method="post" enctype="multipart/form-data">
-                            @csrf
+                       
                             <div class="widget-rounded-circle card p-20 m-0" style="padding-bottom: 200px;">
                                 <!-- Project Info Section -->
                                 <div class="mt-40">
@@ -139,10 +228,10 @@
 
                                     <div class="row">
 
-                                        <input name="id" value="{{ Session::get('id') }}" type="number" class="d-none">
+                                        
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Project name <span class="ms-1 text-danger">*</span></label>
-                                            @foreach ($result as $key => $proj)                                                                            
+                                                                                                                      
                                             <input name="projectName" value="{{ $proj->project_name }}" type="text" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="" />
                                         </div>
 
