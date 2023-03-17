@@ -141,7 +141,7 @@
             <div class="row">
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Mint date <span class="ms-1 text-danger">*</span></label>
-                    <input type="text" id="humanfd-datepicker" class="form-control fs-14 shadow-none" placeholder="Choose date" name="preSaleDate" required/>
+                    <input type="text" id="humanfd-datepicker" class="form-control fs-14 shadow-none" placeholder="Choose date" name="date" required/>
                     <div id="invalidfeedback5" class="text-danger">
     
                     </div>
