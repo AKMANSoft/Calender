@@ -821,7 +821,7 @@
                                 <a href="#">Get Gold Verification (KYC Verified)</a>
                             </li>
                             <li>
-                                <a href="#">Get your prohect featured</a>
+                                <a href="#">Get your project featured</a>
                             </li>
                             <li>
                                 <a href="#">Purchase an article</a>

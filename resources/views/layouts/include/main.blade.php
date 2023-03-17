@@ -488,16 +488,16 @@
                 </div>
 
 
-                <ul class="d-none list-unstyled topnav-menu topnav-menu-left m-0">
+                <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
                     <li>
                         <button class="button-menu-mobile waves-effect waves-light">
                             <i class="fe-menu"></i>
                         </button>
                     </li>
 
-                    <li>
+                    <li class="d-none">
                         <!-- Mobile menu toggle (Horizontal Layout)-->
-                        <a class="navbar-toggle nav-link" data-bs-toggle="collapse"
+                        <a class="d-none navbar-toggle nav-link" data-bs-toggle="collapse"
                             data-bs-target="#topnav-menu-content">
                             <div class="lines">
                                 <span></span>
@@ -509,12 +509,12 @@
                     </li>
 
                     <li class="dropdown d-none d-xl-block">
-                        <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
+                        <a class="d-none nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
                             role="button" aria-haspopup="false" aria-expanded="false">
                             Create New
                             <i class="mdi mdi-chevron-down"></i>
                         </a>
-                        <div class="dropdown-menu">
+                        <div class="d-none dropdown-menu">
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item">
                                 <i class="fe-briefcase me-1"></i>
@@ -550,13 +550,13 @@
                         </div>
                     </li>
 
-                    <li class="dropdown dropdown-mega d-none d-xl-block">
-                        <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
+                    <li class="dropdown dropdown-mega d-none d-xl-block d-none">
+                        <a class="d-none nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#"
                             role="button" aria-haspopup="false" aria-expanded="false">
                             Mega Menu
                             <i class="mdi mdi-chevron-down"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-megamenu">
+                        <div class="d-none dropdown-menu dropdown-megamenu">
                             <div class="row">
                                 <div class="col-sm-8">
 

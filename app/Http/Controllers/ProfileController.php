@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\input;
 use App\Models\Project;
 use App\Models\Image;
+// use App\Services\ScraperService;
 
 class ProfileController extends Controller
 {
@@ -94,4 +95,17 @@ class ProfileController extends Controller
         return view('layouts/template/include/layout/master');
 
     }
+
+
+    // public function scrap(ScraperService $scraperService)
+    // {
+    //     $url = 'https://twitter.com/HamidMe17190876';
+        
+    //     $data = $scraperService->scrap($url);
+
+    //     var_dump($url);
+    // }
+
+    //css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0
+
 }

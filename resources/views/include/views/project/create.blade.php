@@ -1,6 +1,16 @@
 @extends('./include/layout/master')
 
 @section('content')
+
+        <!-- Plugins css -->
+        <link href="assets/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet" type="text/css">
+        <link href="assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+
+
 <main class="mx-auto mt-150 px-60-auto mb-100" style="max-width: 1220px;">
     <div>
         <h1 class="fs-1 fw-bold mb-3">Submit a project</h1>
@@ -72,7 +82,7 @@
             <div class="row">
                 <div class="form-control-image-container cursor-pointer col-md-6 mb-20">
                     <label class=" form-label fs-14 text-light-70 mb-10">Profile Photo <span class="mx-2 text-danger">*</span> Ideal size: 240px X 240px</label>
-                    <input type="file" name="image" class="d-none" accept="image/*" />
+                    <input type="file" name="image" class="d-none" accept="image/*" required/>
                     <div class="form-control-image text-center">
                         <img src="/assets/images/icons/upload_icon.svg" alt="" />
                         <p class="fs-14 text-light-70">Drag and drop or browse</p>
@@ -108,11 +118,11 @@
             <div class="row">
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Pre-sale date (Optional)</label>
-                    <input type="date" class="form-control fs-14 shadow-none" placeholder="Choose date" name="preSaleDate" />
+                    <input type="text" id="basic-datepicker" class="form-control fs-14 shadow-none" placeholder="Choose date" name="preSaleDate" />
                 </div>
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Pre-sale mint time (Optional)</label>
-                    <input type="time" class="form-control fs-14 shadow-none" placeholder="Choose date" name="preSaleTime"/>
+                    <input type="text" id="preloading-timepicker" class="form-control fs-14 shadow-none" placeholder="Choose date" name="preSaleTime"/>
                 </div>
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Pre-sale price (Optional)</label>
@@ -131,14 +141,14 @@
             <div class="row">
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Mint date <span class="ms-1 text-danger">*</span></label>
-                    <input type="date" class="form-control fs-14 shadow-none" placeholder="Choose date" name="date" id="date" required  />
+                    <input type="text" id="humanfd-datepicker" class="form-control fs-14 shadow-none" placeholder="Choose date" name="preSaleDate" required/>
                     <div id="invalidfeedback5" class="text-danger">
     
                     </div>
                 </div>
                 <div class="col-md-4 mb-20">
                     <label class="form-label fs-14 text-light-70 mb-10">Mint time <span class="ms-1 text-danger">*</span></label>
-                    <input type="time" class="form-control fs-14 shadow-none" placeholder="Choose date" name="time" id="time" required/>
+                    <input type="text" id="minmax-timepicker" class="form-control fs-14 shadow-none" placeholder="Choose date" name="time" id="time" required/>
                     <div id="invalidfeedback6" class="text-danger">
     
                     </div>
@@ -152,7 +162,7 @@
                     </div>
                     <div id="invalidfeedback7" class="text-danger">
     
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -204,5 +214,18 @@
     })
 
 </script>   
+               <!-- Vendor js -->
+               <script src="assets/js/vendor.min.js"></script>
 
+                <!-- Plugins js-->
+                <script src="assets/libs/flatpickr/flatpickr.min.js"></script>
+                <script src="assets/libs/spectrum-colorpicker2/spectrum.min.js"></script>
+                <script src="assets/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
+                <script src="assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+                <!-- Init js-->
+                <script src="assets/js/pages/form-pickers.init.js"></script>
+
+                <!-- App js -->
+                <script src="assets/js/app.min.js"></script>
 @stop

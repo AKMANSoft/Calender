@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\HTTP\Controllers\ProjectController;
-use App\HTTP\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 //Route::view('/submit-project', 'include.views.project.create')->name('submitProject');
 
-Route::get('/project', [PostController::class, 'index']);
+Route::get('/project', [ProjectController::class, 'index']);
 
 Route::get('/create-project', [ProjectController::class, 'index']);
 Route::post('/create-project', [ProjectController::class, 'create']);

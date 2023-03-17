@@ -199,7 +199,8 @@ else
                                             </p>
                                             <p class="col-auto theme-text-xsm theme-fw-400 text-light">
                                                 <i class="text-primary fa-solid fa-globe"></i>
-                                                <span class="ms-1">Website</span>
+                                                <span class="ms-1">Website: {{ $proj->url }} </span>
+                                                
                                             </p>
                                         </div>
                                     </div>
