@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::resource('projects', ProjectController::class, ['except' => ['index'] ]);
+Route::prefix('projects')->name('projects.')->group(function () {
+    Route::get('/{status}/list', [ProjectController::class, 'index'])->name('index');
+    // Route::get('/update-status/{status}', [ProjectController::class, 'updateStatus'])->name('status.update');
+});
 
 //Route::view('/submit-project', 'include.views.project.create')->name('submitProject');
 

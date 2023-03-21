@@ -8,28 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    
 
     protected $fillable = [
-        'project_name',
-        'proj_chain',
+        'name',
+        'chain',
         'total_supply',
-        'proj_description',
-        'twitter',
-        'discord',
-        'url',
-        'time_zone',
+        'description',
+        'twitter_link',
+        'discord_link',
+        'website_link',
+        'profile_image_path',
+        'banner_image_path',
+        'pre_sale_timezone',
         'pre_sale_date',
         'pre_sale_time',
         'pre_sale_price',
-        'date',
-        'time',
-        'price',
+        'mint_date',
+        'mint_time',
+        'mint_price',
         'founder_name',
         'founder_email',
         'founder_phone',
         'status',
-        'path_image',
-        'path_banner',
+        'project_category_id',
     ];
 }

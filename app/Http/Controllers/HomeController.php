@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $noOfRequestedProjects = Project::where('status', 'requested')->count();
+        $noOfPublishedProjects = Project::where('status', 'published')->count();
+        $noOfFeaturedProjects = Project::where('is_featured', true)->count();
+        return view('adminpanel.pages.dashboard', compact('noOfRequestedProjects', 'noOfPublishedProjects', 'noOfFeaturedProjects'));
     }
 }

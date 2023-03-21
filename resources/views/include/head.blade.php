@@ -80,7 +80,7 @@
                             <button class="btn btn-secondary col-auto px-20 rounded-5 border-0 text-light" type="button" id="button-addon2">Search</button>
                         </div>
                         <div class='col-12 col-md-auto'>
-                            <a href="{{ url('/') }}/create-project" class="btn-theme w-100 px-4 h-46">
+                            <a href="{{route('projects.create')}}" class="btn-theme w-100 px-4 h-46">
                                 Submit a project <i class='fa-solid fa-chevron-right'></i>
                             </a>
                         </div>
