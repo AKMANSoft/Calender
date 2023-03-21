@@ -96,7 +96,7 @@ class ProjectController extends Controller
                 'founder_phone' => 'nullable',
             ]);
 
-            return $inputs = $request->except(['_method', '_token']);
+            $inputs = $request->except(['_method', '_token']);
 
             if($request->hasFile('profile_image_path')){
                 $profileImage = $request->file('profile_image_path');
