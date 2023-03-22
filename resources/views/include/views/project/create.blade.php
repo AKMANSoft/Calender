@@ -3,11 +3,11 @@
 @section('content')
 
     <!-- Plugins css -->
-    <link href="assets/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet" type="text/css">
-    <link href="assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/libs/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets')}}/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('assets')}}/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets')}}/libs/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets')}}/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assets')}}/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
 
 
 
