@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Carbon\Carbon;
 
 class ProjectController extends Controller
 {
@@ -41,6 +42,9 @@ class ProjectController extends Controller
             $profileImagePath = $profileImage->store('images/projects', 'public');
             $inputs['banner_image_path'] = $profileImagePath;
         }
+
+        $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date']. ' ' . $inputs['mint_time']);
+        $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date']. ' ' . $inputs['pre_sale_time']);
 
         Project::create($inputs);
 
@@ -126,6 +130,9 @@ class ProjectController extends Controller
             if($request->has('is_dooxed_kyc_verified')){
                 $inputs['is_dooxed_kyc_verified'] = $request->input('is_dooxed_kyc_verified') == "on" ? true : false;
             }
+
+            $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date']. ' ' . $inputs['mint_time']);
+            $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date']. ' ' . $inputs['pre_sale_time']);
 
             Project::where('id', $project->id)->update($inputs);
 

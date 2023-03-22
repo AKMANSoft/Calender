@@ -24,7 +24,7 @@
     <script src="assets/js/head.js"></script>
 
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    
+
 
 
     <!-- third party css -->
@@ -35,7 +35,7 @@
     <!-- third party css end -->
 
 
-    
+
     <!-- Bootstrap css -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- App css -->
@@ -56,7 +56,7 @@
 
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 
 
 

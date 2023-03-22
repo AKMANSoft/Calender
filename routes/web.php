@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WelcomeControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [WelcomeControler::class, 'index'])->name('index');
 
 Route::resource('projects', ProjectController::class, ['except' => ['index'] ]);
 Route::prefix('projects')->name('projects.')->group(function () {

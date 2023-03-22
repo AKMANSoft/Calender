@@ -28,18 +28,18 @@ return new class extends Migration
             $table->string('pre_sale_timezone');
             $table->string('pre_sale_date')->nullable();
             $table->string('pre_sale_time')->nullable();
-            $table->integer('pre_sale_price')->nullable();
+            $table->decimal('pre_sale_price', $precision = 8, $scale = 2)->nullable();
 
-            $table->string('mint_date')->nullable();
-            $table->string('mint_time')->nullable();
-            $table->integer('mint_price')->nullable();
+            $table->date('mint_date')->nullable();
+            $table->dateTime('mint_time')->nullable();
+            $table->decimal('mint_price', $precision = 8, $scale = 2)->nullable();
 
             $table->string('founder_name')->nullable();
             $table->string('founder_email');
-            $table->integer('founder_phone')->nullable();
+            $table->string('founder_phone')->nullable();
 
             $table->string('status')->default('requested');
-            
+
             $table->boolean('is_super_featured')->default(false);
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_link_verified')->default(false);
