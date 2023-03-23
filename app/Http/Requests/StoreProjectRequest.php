@@ -23,7 +23,8 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'chain' => 'required',
+            'project_category_id' => 'required',
+            'chain' => 'nullable',
             'total_supply' => 'required',
             'description' => 'required',
             'twitter_link' => 'nullable|url',

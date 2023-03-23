@@ -70,7 +70,7 @@
                                                 <td>{{ $project->founder_email }}</td>
                                                 <td>
 
-                                                    <a href="{{ route('projects.show', $project->id) }}"
+                                                    <a href="{{ route('admin.projects.edit', $project->id) }}"
                                                         class="btn btn-warning">View</a>
                                                     @if ($project->status == 'published')
                                                         <button class="btn btn-danger"
@@ -119,7 +119,7 @@
                     "_token": "{{ csrf_token() }}",
                     "status": status,
                 },
-                url: "{{ route('projects.update', '') }}/" + id,
+                url: "{{ route('admin.projects.update', '') }}/" + id,
                 success: function(response) {
                     if (response.success) {
                         alert(response.success)

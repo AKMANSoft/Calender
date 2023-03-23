@@ -73,39 +73,46 @@
             <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
                 <h3 class="theme-h3 theme-fw-700">Featured Projects</h3>
                 <div>
-                    <button type="button" class="btn-theme-secondary">
+                    <a href="{{ route('projects.index', 'featured') }}" class="btn-theme-secondary">
                         Get Featured <i class="fa-solid fa-chevron-right"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="mt-40">
                 <div class="d-flex gap-40 flex-wrap">
                     @forelse ($featuredProjects as $project)
-                    <div class="col-auto d-flex">
-                        <img src="{{asset('storage')}}/{{$project->banner_image_path}}" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">{{$project->name}}</h5>
-                                @if ($project->is_link_verified)
-                                @elseif ($project->is_link_verified)
+                        <div class="col-auto d-flex">
+                            <img src="{{ asset('storage') }}/{{ $project->banner_image_path }}" class="nft-project-item-img"
+                                alt="">
+                            <div class="ms-20 d-flex flex-column justify-content-between">
+                                <div>
+                                    <p class="theme-text-body mt-3">
+                                        {{ $project->minting_status }}
+                                    </p>
+                                    <h5 class="theme-text-lg theme-fw-700 my-2">{{ $project->name }}</h5>
+                                    @if ($project->is_link_verified)
+                                        <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" width="20"
+                                            height="20" alt="">
+                                    @elseif ($project->is_dooxed_kyc_verified)
+                                        <img src="{{ asset('assets') }}/images/icons/golden_badge.png" width="20"
+                                            height="20" alt="">
+                                    @endif
 
-                                @endif
-                                <img src="{{asset('assets')}}/images/icons/verified_icon.svg" width="20" height="20" alt="">
-
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: {{date('d M Y', strtotime($project->pre_sale_date))}}</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">{{$project->pre_sale_price}} Eth</p>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="theme-text-body text-light-80">Public-sale:
+                                        {{ date('d M Y', strtotime($project->pre_sale_date)) }}</p>
+                                    <div class="mt-2 row gx-2">
+                                        <img class="col-auto" src="{{ asset('assets') }}/images/icons/price_icon.svg"
+                                            width="12" height="20" alt="">
+                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">
+                                            {{ $project->pre_sale_price }} Eth</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @empty
-                    <p>no prijects to show</p>
+                        <p>no prijects to show</p>
                     @endforelse
 
                 </div>
@@ -171,127 +178,47 @@
             <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
                 <h3 class="theme-h3 theme-fw-700">Most Popular</h3>
                 <div>
-                    <button type="button" class="btn-theme-secondary">
+                    <a href="{{ route('projects.index', 'most-popular') }}" class="btn-theme-secondary">
                         View All <i class="fa-solid fa-chevron-right"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="mt-40">
                 <div class="d-flex gap-40 flex-wrap">
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
+                    @forelse ($popularProjects as $project)
+                        <div class="col-auto d-flex">
+                            <img src="{{ asset('storage') }}/{{ $project->banner_image_path }}"
+                                class="nft-project-item-img" alt="">
+                            <div class="ms-20 d-flex flex-column justify-content-between">
+                                <div>
+                                    <p class="theme-text-body mt-3">
+                                        {{ $project->minting_status }}
+                                    </p>
+                                    <h5 class="theme-text-lg theme-fw-700 my-2">{{ $project->name }}</h5>
+                                    @if ($project->is_link_verified)
+                                        <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" width="20"
+                                            height="20" alt="">
+                                    @elseif ($project->is_dooxed_kyc_verified)
+                                        <img src="{{ asset('assets') }}/images/icons/golden_badge.png" width="20"
+                                            height="20" alt="">
+                                    @endif
+
+                                </div>
+                                <div class="mt-2">
+                                    <p class="theme-text-body text-light-80">Public-sale:
+                                        {{ date('d M Y', strtotime($project->pre_sale_date)) }}</p>
+                                    <div class="mt-2 row gx-2">
+                                        <img class="col-auto" src="{{ asset('assets') }}/images/icons/price_icon.svg"
+                                            width="12" height="20" alt="">
+                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">
+                                            {{ $project->pre_sale_price }} Eth</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                        <p>no prijects to show</p>
+                    @endforelse
                 </div>
             </div>
         </section>
@@ -299,127 +226,47 @@
             <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
                 <h3 class="theme-h3 theme-fw-700">Upcoming</h3>
                 <div>
-                    <button type="button" class="btn-theme-secondary">
+                    <a href="{{ route('projects.index', 'upcoming') }}" class="btn-theme-secondary">
                         View All <i class="fa-solid fa-chevron-right"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="mt-40">
                 <div class="d-flex gap-40 flex-wrap">
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
+                    @forelse ($upcomingProjects as $project)
+                        <div class="col-auto d-flex">
+                            <img src="{{ asset('storage') }}/{{ $project->banner_image_path }}"
+                                class="nft-project-item-img" alt="">
+                            <div class="ms-20 d-flex flex-column justify-content-between">
+                                <div>
+                                    <p class="theme-text-body mt-3">
+                                        {{ $project->minting_status }}
+                                    </p>
+                                    <h5 class="theme-text-lg theme-fw-700 my-2">{{ $project->name }}</h5>
+                                    @if ($project->is_link_verified)
+                                        <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" width="20"
+                                            height="20" alt="">
+                                    @elseif ($project->is_dooxed_kyc_verified)
+                                        <img src="{{ asset('assets') }}/images/icons/golden_badge.png" width="20"
+                                            height="20" alt="">
+                                    @endif
+
+                                </div>
+                                <div class="mt-2">
+                                    <p class="theme-text-body text-light-80">Public-sale:
+                                        {{ date('d M Y', strtotime($project->pre_sale_date)) }}</p>
+                                    <div class="mt-2 row gx-2">
+                                        <img class="col-auto" src="{{ asset('assets') }}/images/icons/price_icon.svg"
+                                            width="12" height="20" alt="">
+                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">
+                                            {{ $project->pre_sale_price }} Eth</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                        <p>no prijects to show</p>
+                    @endforelse
                 </div>
             </div>
         </section>
@@ -436,127 +283,47 @@
             <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
                 <h3 class="theme-h3 theme-fw-700">Verified</h3>
                 <div>
-                    <button type="button" class="btn-theme-secondary">
-                        View All <i class="fa-solid fa-chevron-right"></i>
-                    </button>
+                    <a href="{{ route('projects.index', 'verified') }}" class="btn-theme-secondary">
+                        View All<i class="fa-solid fa-chevron-right"></i>
+                    </a>
                 </div>
             </div>
             <div class="mt-40">
                 <div class="d-flex gap-40 flex-wrap">
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
+                    @forelse ($popularProjects as $project)
+                        <div class="col-auto d-flex">
+                            <img src="{{ asset('storage') }}/{{ $project->banner_image_path }}"
+                                class="nft-project-item-img" alt="">
+                            <div class="ms-20 d-flex flex-column justify-content-between">
+                                <div>
+                                    <p class="theme-text-body mt-3">
+                                        {{ $project->minting_status }}
+                                    </p>
+                                    <h5 class="theme-text-lg theme-fw-700 my-2">{{ $project->name }}</h5>
+                                    @if ($project->is_link_verified)
+                                        <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" width="20"
+                                            height="20" alt="">
+                                    @elseif ($project->is_dooxed_kyc_verified)
+                                        <img src="{{ asset('assets') }}/images/icons/golden_badge.png" width="20"
+                                            height="20" alt="">
+                                    @endif
+
+                                </div>
+                                <div class="mt-2">
+                                    <p class="theme-text-body text-light-80">Public-sale:
+                                        {{ date('d M Y', strtotime($project->pre_sale_date)) }}</p>
+                                    <div class="mt-2 row gx-2">
+                                        <img class="col-auto" src="{{ asset('assets') }}/images/icons/price_icon.svg"
+                                            width="12" height="20" alt="">
+                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">
+                                            {{ $project->pre_sale_price }} Eth</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto d-flex">
-                        <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
-                        <div class="ms-20 d-flex flex-column justify-content-between">
-                            <div>
-                                <p class="theme-text-body mt-3">Future</p>
-                                <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                <img src="/assets/images/icons/verified_icon.svg" width="20" height="20"
-                                    alt="">
-                            </div>
-                            <div class="mt-2">
-                                <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                <div class="mt-2 row gx-2">
-                                    <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12"
-                                        height="20" alt="">
-                                    <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                        <p>no prijects to show</p>
+                    @endforelse
                 </div>
             </div>
         </section>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\ProjectCategory;
 use Carbon\Carbon;
 
 class ProjectController extends Controller
@@ -12,11 +13,36 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($status)
+    public function index($category)
     {
-        // return $status;
-        $projects = Project::where('status', $status)->get();
-        return view('adminpanel.pages.projects.index', compact('projects', 'status'));
+        $projectsPerPage = 14;
+        switch ($category) {
+            case 'most-popular':
+                $projects = Project::where('status', 'published')->where('is_link_verified', true)
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+            case 'verified':
+                $projects = Project::where('status', 'published')->where('is_link_verified', true)
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+            case 'upcoming':
+                $projects = Project::where('mint_time', '>=', Carbon::now())->where('status', 'published')->orderBy('id', 'ASC')
+                    // ->where('mint_time', '<=', Carbon::now()->addWeek(1))
+                    ->where('mint_time', '>=', Carbon::now())
+                    ->orderBy('id', 'ASC')
+                    ->paginate($projectsPerPage);
+                break;
+            case 'featured':
+                $projects = Project::where('status', 'published')->where('is_featured', true)
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+
+            default:
+                $projects = Project::where('status', 'published')->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+        }
+        // return $projects;
+        return view('pages.projects.index', compact('projects', 'category'));
     }
 
     /**
@@ -24,7 +50,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('include.views.project.create');
+        $categories = ProjectCategory::all();
+        return view('pages.projects.create', compact('categories'));
     }
 
     /**
@@ -37,14 +64,14 @@ class ProjectController extends Controller
         $profileImage = $request->file('profile_image_path');
         $profileImagePath = $profileImage->store('images/projects', 'public');
         $inputs['profile_image_path'] = $profileImagePath;
-        if($request->hasFile('banner_image_path')){
+        if ($request->hasFile('banner_image_path')) {
             $profileImage = $request->file('banner_image_path');
             $profileImagePath = $profileImage->store('images/projects', 'public');
             $inputs['banner_image_path'] = $profileImagePath;
         }
 
-        $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date']. ' ' . $inputs['mint_time']);
-        $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date']. ' ' . $inputs['pre_sale_time']);
+        $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date'] . ' ' . $inputs['mint_time']);
+        $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date'] . ' ' . $inputs['pre_sale_time']);
 
         Project::create($inputs);
 
@@ -72,11 +99,10 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        if($request->ajax()){
+        if ($request->ajax()) {
             $project->status = $request->status;
             $project->save();
             return response()->json(['success' => 'Status successfully updated !']);
-
         } else {
             $request->validate([
                 'name' => 'required|string',
@@ -102,7 +128,7 @@ class ProjectController extends Controller
 
             $inputs = $request->except(['_method', '_token']);
 
-            if($request->hasFile('profile_image_path')){
+            if ($request->hasFile('profile_image_path')) {
                 $profileImage = $request->file('profile_image_path');
                 $profileImagePath = $profileImage->store('images/projects', 'public');
                 $inputs['profile_image_path'] = $profileImagePath;
@@ -110,7 +136,7 @@ class ProjectController extends Controller
                 unset($inputs['profile_image_path']);
             }
 
-            if($request->hasFile('banner_image_path')){
+            if ($request->hasFile('banner_image_path')) {
                 $bannerImage = $request->file('banner_image_path');
                 $bannerImagePath = $bannerImage->store('images/projects', 'public');
                 $inputs['banner_image_path'] = $bannerImagePath;
@@ -118,26 +144,25 @@ class ProjectController extends Controller
                 unset($inputs['banner_image_path']);
             }
 
-            if($request->has('is_super_featured')){
+            if ($request->has('is_super_featured')) {
                 $inputs['is_super_featured'] = $request->input('is_super_featured') == "on" ? true : false;
             }
-            if($request->has('is_featured')){
+            if ($request->has('is_featured')) {
                 $inputs['is_featured'] = $request->input('is_featured') == "on" ? true : false;
             }
-            if($request->has('is_link_verified')){
+            if ($request->has('is_link_verified')) {
                 $inputs['is_link_verified'] = $request->input('is_link_verified') == "on" ? true : false;
             }
-            if($request->has('is_dooxed_kyc_verified')){
+            if ($request->has('is_dooxed_kyc_verified')) {
                 $inputs['is_dooxed_kyc_verified'] = $request->input('is_dooxed_kyc_verified') == "on" ? true : false;
             }
 
-            $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date']. ' ' . $inputs['mint_time']);
-            $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date']. ' ' . $inputs['pre_sale_time']);
+            $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date'] . ' ' . $inputs['mint_time']);
+            $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date'] . ' ' . $inputs['pre_sale_time']);
 
             Project::where('id', $project->id)->update($inputs);
 
-            return redirect()->back()->with(['Success'=>'Successfully updated !']);
-
+            return redirect()->back()->with(['Success' => 'Successfully updated !']);
         }
     }
 

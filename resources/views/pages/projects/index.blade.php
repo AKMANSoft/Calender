@@ -2,7 +2,7 @@
 @section('content')
     <main class="mx-auto mt-150 px-60-auto max-1440">
         <div>
-            <h1 class="fs-1 fw-bold">Upcoming Projects</h1>
+            <h1 class="fs-1 fw-bold">{{ucwords($category)}} Projects</h1>
         </div>
         <div class="my-30 border-muted"></div>
         <div class="">
@@ -60,160 +60,34 @@
                 </div>
                 <div class="col-12 col-lg-8">
                     <div class="row g-4">
+                        @forelse ($projects as $project)
                         <div class="col-md-6 col-lg-12 col-xl-6 d-flex gap-20">
-                            <img src="../public/images/nft_2.png" class="nft-project-item-img" alt="">
+                            <img src="{{asset('storage')}}/{{$project->banner_image_path}}" class="nft-project-item-img" alt="">
                             <div class="d-flex flex-column justify-content-between">
                                 <div>
                                     <p class="theme-text-body mt-2">Feb 22, 2023</p>
-                                    <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                    <img src="../public/images/icons/verified_icon.svg" width="20" height="20"
-                                        alt="">
+                                    <h5 class="theme-text-lg theme-fw-700 my-2">{{$project->name}}</h5>
+                                    @if ($project->is_link_verified)
+                                <img src="{{asset('assets')}}/images/icons/verified_icon.svg" width="20" height="20" alt="">
+                                @elseif ($project->is_dooxed_kyc_verified)
+                                <img src="{{asset('assets')}}/images/icons/golden_badge.png" width="20" height="20" alt="">
+                                @endif
                                 </div>
                                 <div>
-                                    <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
+                                    <p class="theme-text-body text-light-80">Public-sale: {{date('d M Y', strtotime($project->pre_sale_date))}}</p>
                                     <div class="mt-2 row gx-2">
-                                        <img class="col-auto" src="../public/images/icons/price_icon.svg" width="12"
-                                            height="20" alt="">
-                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
+                                        <img class="col-auto" src="{{asset('assets')}}/images/icons/price_icon.svg" width="12"
+                                        height="20" alt="">
+                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">{{$project->pre_sale_price}} Eth</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-12 col-xl-6 d-flex gap-20">
-                            <img src="../public/images/nft_2.png" class="nft-project-item-img" alt="">
-                            <div class="d-flex flex-column justify-content-between">
-                                <div>
-                                    <p class="theme-text-body mt-2">Feb 22, 2023</p>
-                                    <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                    <img src="../public/images/icons/verified_icon.svg" width="20" height="20"
-                                        alt="">
-                                </div>
-                                <div>
-                                    <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                    <div class="mt-2 row gx-2">
-                                        <img class="col-auto" src="../public/images/icons/price_icon.svg" width="12"
-                                            height="20" alt="">
-                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-12 col-xl-6 d-flex gap-20">
-                            <img src="../public/images/nft_2.png" class="nft-project-item-img" alt="">
-                            <div class="d-flex flex-column justify-content-between">
-                                <div>
-                                    <p class="theme-text-body mt-2">Feb 22, 2023</p>
-                                    <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                    <img src="../public/images/icons/verified_icon.svg" width="20" height="20"
-                                        alt="">
-                                </div>
-                                <div>
-                                    <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                    <div class="mt-2 row gx-2">
-                                        <img class="col-auto" src="../public/images/icons/price_icon.svg" width="12"
-                                            height="20" alt="">
-                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-12 col-xl-6 d-flex gap-20">
-                            <img src="../public/images/nft_2.png" class="nft-project-item-img" alt="">
-                            <div class="d-flex flex-column justify-content-between">
-                                <div>
-                                    <p class="theme-text-body mt-2">Feb 22, 2023</p>
-                                    <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                    <img src="../public/images/icons/verified_icon.svg" width="20" height="20"
-                                        alt="">
-                                </div>
-                                <div>
-                                    <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                    <div class="mt-2 row gx-2">
-                                        <img class="col-auto" src="../public/images/icons/price_icon.svg" width="12"
-                                            height="20" alt="">
-                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-12 col-xl-6 d-flex gap-20">
-                            <img src="../public/images/nft_2.png" class="nft-project-item-img" alt="">
-                            <div class="d-flex flex-column justify-content-between">
-                                <div>
-                                    <p class="theme-text-body mt-2">Feb 22, 2023</p>
-                                    <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                    <img src="../public/images/icons/verified_icon.svg" width="20" height="20"
-                                        alt="">
-                                </div>
-                                <div>
-                                    <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                    <div class="mt-2 row gx-2">
-                                        <img class="col-auto" src="../public/images/icons/price_icon.svg" width="12"
-                                            height="20" alt="">
-                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-12 col-xl-6 d-flex gap-20">
-                            <img src="../public/images/nft_2.png" class="nft-project-item-img"
-                                style="max-width: 200px; aspect-ratio: 1;" alt="">
-                            <div class="d-flex flex-column justify-content-between">
-                                <div>
-                                    <p class="theme-text-body mt-2">Feb 22, 2023</p>
-                                    <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                    <img src="../public/images/icons/verified_icon.svg" width="20" height="20"
-                                        alt="">
-                                </div>
-                                <div>
-                                    <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                    <div class="mt-2 row gx-2">
-                                        <img class="col-auto" src="../public/images/icons/price_icon.svg" width="12"
-                                            height="20" alt="">
-                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-12 col-xl-6 d-flex gap-20">
-                            <img src="../public/images/nft_2.png" class="nft-project-item-img" alt="">
-                            <div class="d-flex flex-column justify-content-between">
-                                <div>
-                                    <p class="theme-text-body mt-2">Feb 22, 2023</p>
-                                    <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                    <img src="../public/images/icons/verified_icon.svg" width="20" height="20"
-                                        alt="">
-                                </div>
-                                <div>
-                                    <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                    <div class="mt-2 row gx-2">
-                                        <img class="col-auto" src="../public/images/icons/price_icon.svg" width="12"
-                                            height="20" alt="">
-                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-12 col-xl-6 d-flex gap-20">
-                            <img src="../public/images/nft_2.png" class="nft-project-item-img"
-                                style="max-width: 200px; aspect-ratio: 1;" alt="">
-                            <div class="d-flex flex-column justify-content-between">
-                                <div>
-                                    <p class="theme-text-body mt-2">Feb 22, 2023</p>
-                                    <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
-                                    <img src="../public/images/icons/verified_icon.svg" width="20" height="20"
-                                        alt="">
-                                </div>
-                                <div>
-                                    <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
-                                    <div class="mt-2 row gx-2">
-                                        <img class="col-auto" src="../public/images/icons/price_icon.svg" width="12"
-                                            height="20" alt="">
-                                        <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @empty
+                        <p>no projects to show</p>
+                        @endforelse
+
+                        {{ $projects->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
             </div>

@@ -40,10 +40,18 @@
                         <div class="col-md-4 mb-20">
                             <label class="form-label fs-14 text-light-70 mb-10">Chain <span
                                     class="ms-1 text-danger">*</span></label>
-                            <select class="form-select w-100 fs-14 shadow-none" name="chain" required
+                            <select class="form-select w-100 fs-14 shadow-none" name="project_category_id" required
                                 id="projectChain">
                                 <option value="" selected>-- Choose your project chain --</option>
-                                <option value="1">One</option>
+                                @foreach ($categories as $category)
+
+                                @if ($category->id == old('project_category_id'))
+                                <option selected value="{{$category->id}}">{{$category->name}}</option>
+                                @else
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endif
+
+                                @endforeach
                             </select>
                             <div id="invalidfeedback1" class="text-danger">
                                 @error('chain')

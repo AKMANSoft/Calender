@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class Project extends Model
 {
@@ -31,5 +32,26 @@ class Project extends Model
         'founder_phone',
         'status',
         'project_category_id',
+        'is_super_featured',
+        'is_featured',
+        'is_link_verified',
+        'is_dooxed_kyc_verified',
     ];
+
+    public function getMintingStatusAttribute()
+    {
+        $now = Carbon::now();
+        $today = Carbon::now()->endOfDay();
+        $thisWeek = Carbon::now()->endOfWeek();
+        $mintDate = Carbon::create($this->mint_time);
+        if ($mintDate->lte($today) && $mintDate->gte($now)) {
+            return "Today";
+        } elseif($mintDate->gte($today) && $mintDate->lte($thisWeek)) {
+            return "This Week";
+        } elseif($mintDate->lt($now)) {
+            return "Minting Now";
+        } else {
+            return "Future";
+        }
+    }
 }

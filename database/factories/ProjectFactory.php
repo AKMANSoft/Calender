@@ -17,7 +17,30 @@ class ProjectFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'chain' => fake()->numberBetween(1,234),
+            'total_supply' => fake()->numberBetween(1,234),
+            'description' => fake()->sentence(),
+            'twitter_link' => fake()->url(),
+            'discord_link' => fake()->url(),
+            'website_link' => fake()->url(),
+            'profile_image_path' => '/images/projects/MHx9TycJIDec5J9OvZi1uwnBqz0ZazDr39cHtbFi.png',
+            'banner_image_path' => '/images/projects/MHx9TycJIDec5J9OvZi1uwnBqz0ZazDr39cHtbFi.png',
+            'pre_sale_timezone' => fake()->dateTime(),
+            'pre_sale_date' => fake()->date(),
+            'pre_sale_time' => fake()->dateTime(),
+            'pre_sale_price' => fake()->numberBetween(1,234253),
+            'mint_date' => fake()->date(),
+            'mint_time' => fake()->dateTime(),
+            'mint_price' => fake()->numberBetween(1,234253),
+            'founder_name' => fake()->name(),
+            'founder_email' => fake()->email(),
+            'founder_phone' => fake()->phoneNumber(),
+            'status' => fake()->randomElement(['published', 'requested', 'offline']),
+            'is_super_featured' => fake()->boolean(),
+            'is_featured' => fake()->boolean(),
+            'is_link_verified' => fake()->boolean(),
+            'is_dooxed_kyc_verified' => fake()->boolean(),
         ];
     }
 }

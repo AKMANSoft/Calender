@@ -73,7 +73,7 @@
                                     style="width: 100%; object-fit: cover; object-position: center;" alt="">
                             </div>
 
-                            <form action="{{route('projects.update', $project)}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 
@@ -175,12 +175,17 @@
                                     <div class="col-md-4 mb-3">
                                         <label class="form-label theme-text-xsm text-light-70 mb-10">Chain <span
                                                 class="ms-1 text-danger">*</span></label>
-                                        <select name="chain"
+                                        <select name="project_category_id"
                                             class="form-select bg-transparent w-100 theme-text-xsm shadow-none">
-                                            <option value="{{ $project->chain }}" selected>
-                                                {{ $project->chain }}
-                                            </option>
-                                            <option value="1">One</option>
+                                            @foreach ($categories as $category)
+
+                                            @if ($category->id == $project->project_category_id)
+                                            <option selected value="{{$category->id}}">{{$category->name}}</option>
+                                            @else
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endif
+                                            @endforeach
+
                                         </select>
                                         <div id="invalidfeedback8" class="text-danger">
                                             @error('chain')
