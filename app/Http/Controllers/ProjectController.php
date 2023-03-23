@@ -17,7 +17,7 @@ class ProjectController extends Controller
     {
         $projectsPerPage = 14;
         switch ($category) {
-            case 'most-popular':
+            case 'most popular':
                 $projects = Project::where('status', 'published')->where('is_link_verified', true)
                     ->orderBy('id', 'ASC')->paginate($projectsPerPage);
                 break;
@@ -27,13 +27,20 @@ class ProjectController extends Controller
                 break;
             case 'upcoming':
                 $projects = Project::where('mint_time', '>=', Carbon::now())->where('status', 'published')->orderBy('id', 'ASC')
-                    // ->where('mint_time', '<=', Carbon::now()->addWeek(1))
-                    ->where('mint_time', '>=', Carbon::now())
                     ->orderBy('id', 'ASC')
                     ->paginate($projectsPerPage);
                 break;
             case 'featured':
                 $projects = Project::where('status', 'published')->where('is_featured', true)
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+            case 'minting soon':
+                $projects = Project::where('status', 'published')->where('mint_time', '>=', Carbon::now())
+                    ->where('mint_time', '<=', Carbon::now()->addWeek(1))
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+            case 'recently closed':
+                $projects = Project::where('status', 'published')->where('mint_time', '<', Carbon::now())
                     ->orderBy('id', 'ASC')->paginate($projectsPerPage);
                 break;
 

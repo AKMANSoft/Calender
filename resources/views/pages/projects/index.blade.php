@@ -12,23 +12,23 @@
                         <p class="theme-text-body mb-3">NFT Calendar</p>
                         <div class="row g-3">
                             <div class="col-auto wmin-100 col-xl-6">
-                                <button type="button"
-                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase">Most
-                                    Popular</button>
+                                <a href="{{route('projects.index', 'most popular')}}"
+                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'most popular' ? 'text-primary' : ''}}">Most
+                                    Popular</a>
                             </div>
                             <div class="col-auto wmin-100 col-xl-6">
-                                <button type="button"
-                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase text-primary">Upcoming</button>
+                                <a href="{{route('projects.index', 'upcoming')}}"
+                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'upcoming' ? 'text-primary' : ''}}">Upcoming</a>
                             </div>
                             <div class="col-auto wmin-100 col-xl-6">
-                                <button type="button"
-                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase">Recently
-                                    Closed</button>
+                                <a href="{{route('projects.index', 'recently closed')}}"
+                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'recently closed' ? 'text-primary' : ''}}" >Recently
+                                    Closed</a>
                             </div>
                             <div class="col-auto wmin-100 col-xl-6">
-                                <button type="button"
-                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase">Minting
-                                    Soon</button>
+                                <a href="{{route('projects.index', 'minting soon')}}"
+                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'minting soon' ? 'text-primary' : ''}}">Minting
+                                    Soon</a>
                             </div>
                         </div>
                     </div>
@@ -62,10 +62,10 @@
                     <div class="row g-4">
                         @forelse ($projects as $project)
                         <div class="col-md-6 col-lg-12 col-xl-6 d-flex gap-20">
-                            <img src="{{asset('storage')}}/{{$project->banner_image_path}}" class="nft-project-item-img" alt="">
+                            <img src="{{asset('storage')}}/{{$project->profile_image_path}}" class="nft-project-item-img" alt="">
                             <div class="d-flex flex-column justify-content-between">
                                 <div>
-                                    <p class="theme-text-body mt-2">Feb 22, 2023</p>
+                                    <p class="theme-text-body mt-2">{{ $project->minting_status }}</p>
                                     <h5 class="theme-text-lg theme-fw-700 my-2">{{$project->name}}</h5>
                                     @if ($project->is_link_verified)
                                 <img src="{{asset('assets')}}/images/icons/verified_icon.svg" width="20" height="20" alt="">
@@ -96,10 +96,10 @@
     <div class="interaction_card mt-190" style="background-image: url(/public/images/interact_card_stars_large.svg);">
         <div class="inner-container">
             <h2 class="theme-h2 heading theme-fw-700">Are you a project founder? Do you want to get listed?</h2>
-            <button type="button" class="btn-theme-light">
+            <a href="{{route('projects.create')}}" class="btn-theme-light">
                 Submit Project
                 <i class="fa-solid fa-chevron-right"></i>
-            </button>
+            </a>
         </div>
     </div>
 @endsection

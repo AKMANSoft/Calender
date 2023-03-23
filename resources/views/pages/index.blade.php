@@ -19,23 +19,23 @@
                         </p>
                         <div class="row mt-2 g-2">
                             <div class="col-auto">
-                                <button type="button"
+                                <a href="{{route('projects.index', 'most popular')}}"
                                     class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">Most
-                                    Popular</button>
+                                    Popular</a>
                             </div>
                             <div class="col-auto">
-                                <button type="button"
+                                <a href="{{route('projects.index', 'upcoming')}}"
                                     class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">Upcoming</button>
                             </div>
                             <div class="col-auto">
-                                <button type="button"
+                                <a href="{{route('projects.index', 'recently closed')}}"
                                     class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">Recently
-                                    Closed</button>
+                                    Closed</a>
                             </div>
                             <div class="col-auto">
-                                <button type="button"
+                                <a href="{{route('projects.index', 'minting soon')}}"
                                     class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">Minting
-                                    Soon</button>
+                                    Soon</a>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                 <div class="d-flex gap-40 flex-wrap">
                     @forelse ($featuredProjects as $project)
                         <div class="col-auto d-flex">
-                            <img src="{{ asset('storage') }}/{{ $project->banner_image_path }}" class="nft-project-item-img"
+                            <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}" class="nft-project-item-img"
                                 alt="">
                             <div class="ms-20 d-flex flex-column justify-content-between">
                                 <div>
@@ -178,7 +178,7 @@
             <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
                 <h3 class="theme-h3 theme-fw-700">Most Popular</h3>
                 <div>
-                    <a href="{{ route('projects.index', 'most-popular') }}" class="btn-theme-secondary">
+                    <a href="{{ route('projects.index', 'most popular') }}" class="btn-theme-secondary">
                         View All <i class="fa-solid fa-chevron-right"></i>
                     </a>
                 </div>
@@ -187,7 +187,7 @@
                 <div class="d-flex gap-40 flex-wrap">
                     @forelse ($popularProjects as $project)
                         <div class="col-auto d-flex">
-                            <img src="{{ asset('storage') }}/{{ $project->banner_image_path }}"
+                            <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}"
                                 class="nft-project-item-img" alt="">
                             <div class="ms-20 d-flex flex-column justify-content-between">
                                 <div>
@@ -235,7 +235,7 @@
                 <div class="d-flex gap-40 flex-wrap">
                     @forelse ($upcomingProjects as $project)
                         <div class="col-auto d-flex">
-                            <img src="{{ asset('storage') }}/{{ $project->banner_image_path }}"
+                            <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}"
                                 class="nft-project-item-img" alt="">
                             <div class="ms-20 d-flex flex-column justify-content-between">
                                 <div>
@@ -273,10 +273,10 @@
         <div class="interaction_card" style="background-image: url(/assets/images/interact_card_large.svg);">
             <div class="inner-container">
                 <h2 class="theme-h2 heading theme-fw-700">Founders: Sellout Your Project</h2>
-                <button type="button" class="btn-theme-light">
+                <a href="{{route('projects.create')}}" class="btn-theme-light">
                     Submit Project
                     <i class="fa-solid fa-chevron-right"></i>
-                </button>
+                </a>
             </div>
         </div>
         <section class="max-1440 px-60-auto mx-auto mb-80 mt-100">
@@ -292,7 +292,7 @@
                 <div class="d-flex gap-40 flex-wrap">
                     @forelse ($popularProjects as $project)
                         <div class="col-auto d-flex">
-                            <img src="{{ asset('storage') }}/{{ $project->banner_image_path }}"
+                            <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}"
                                 class="nft-project-item-img" alt="">
                             <div class="ms-20 d-flex flex-column justify-content-between">
                                 <div>
