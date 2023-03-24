@@ -73,18 +73,19 @@
                                             <a href="{{ route('admin.projects.edit', $project->id) }}" class="p-1  btn" style="cursor: pointer;">
                                                 <i class="fe-eye"></i>
                                             </a>
-                                            @if ($project->status == 'published')
-                                            <!-- TODO -->
-                                            @elseif ($project->status == 'requested')
                                             <a class="text-success p-1 btn" style="cursor: pointer;" onclick="updateStatus({{ $project->id }}, 'published')">
                                                 <i class="fe-check"></i>
                                             </a>
                                             <a class="text-danger p-1 btn" style="cursor: pointer;" onclick="updateStatus({{ $project->id }}, 'offline')">
                                                 <i class="fe-x"></i>
                                             </a>
+                                            {{-- @if ($project->status == 'published')
+                                            <!-- TODO -->
+                                            @elseif ($project->status == 'requested')
+
                                             @else
                                             <!-- TODO -->
-                                            @endif
+                                            @endif --}}
 
                                         </td>
 
