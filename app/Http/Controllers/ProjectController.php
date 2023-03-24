@@ -2,312 +2,182 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
-use App\Models\ApprovedProject;
-use App\Models\RejectedProject;
-use App\Models\Image;
-use Storage;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\input;
+use App\Models\ProjectCategory;
+use Carbon\Carbon;
 
 class ProjectController extends Controller
 {
-    //
-
-    public function index()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index($category)
     {
-        return view('include.views.project.create');
+        $projectsPerPage = 14;
+        switch ($category) {
+            case 'most popular':
+                $projects = Project::where('status', 'published')->where('is_link_verified', true)
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+            case 'verified':
+                $projects = Project::where('status', 'published')->where('is_link_verified', true)
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+            case 'upcoming':
+                $projects = Project::where('mint_time', '>=', Carbon::now())->where('status', 'published')->orderBy('id', 'ASC')
+                    ->orderBy('id', 'ASC')
+                    ->paginate($projectsPerPage);
+                break;
+            case 'featured':
+                $projects = Project::where('status', 'published')->where('is_featured', true)
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+            case 'minting soon':
+                $projects = Project::where('status', 'published')->where('mint_time', '>=', Carbon::now())
+                    ->where('mint_time', '<=', Carbon::now()->addWeek(1))
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+            case 'recently closed':
+                $projects = Project::where('status', 'published')->where('mint_time', '<', Carbon::now())
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+
+            default:
+                $projects = Project::where('status', 'published')->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
+        }
+        // return $projects;
+        return view('pages.projects.index', compact('projects', 'category'));
     }
 
-    public function create(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
+        $categories = ProjectCategory::all();
+        return view('pages.projects.create', compact('categories'));
+    }
 
-        $validateData = $request->validate([
-            'projectName' => 'required',
-            'projectChain' => 'required',
-            'totalSupply' => 'required',
-            'projectDesc' => 'required',
-            'timeZone' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-            'price' => 'required',
-            'founderEmail' => 'required',
-        ]);
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreProjectRequest $request)
+    {
+        $inputs = $request->input();
 
+        $profileImage = $request->file('profile_image_path');
+        $profileImagePath = $profileImage->store('images/projects', 'public');
+        $inputs['profile_image_path'] = $profileImagePath;
+        if ($request->hasFile('banner_image_path')) {
+            $profileImage = $request->file('banner_image_path');
+            $profileImagePath = $profileImage->store('images/projects', 'public');
+            $inputs['banner_image_path'] = $profileImagePath;
+        }
 
-            $title_image = request()->file('image')->getClientOriginalName();
-            $extension  = request()->file('image')->getClientOriginalExtension(); 
-            $image_name = time() .'_'. '.' . $extension;
+        $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date'] . ' ' . $inputs['mint_time']);
+        $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date'] . ' ' . $inputs['pre_sale_time']);
 
-
-
-            $path = $request->file('image')->storeAs(
-                'images',
-                $image_name,
-                's3'
-            );
-
-
-
-
-            $banner_name = request()->file('banner')->getClientOriginalName();
-            $extension  = request()->file('banner')->getClientOriginalExtension(); 
-            $image_name = time() .'_'. '.' .$extension;
-            $path2 = $request->file('banner')->storeAs(
-                'images',
-                $image_name,
-                's3'
-            );
-
-
-
-
-
-            Image::create([
-                'title' => $title_image,
-                'project_name'=>$request->projectName,
-                'founder_name'=>$request->founderName,
-                'founder_email'=>$request->founderEmail,
-                'founder_phone'=>$request->founderPhone,
-                'image'=>$path,
-                'banner'=>$path2,
-                'banner_title'=>$banner_name,
-            ]);
-
-
-
-        $proj = new Project;
-
-        $proj->project_name = $request->projectName;
-        $proj->proj_chain = $request->projectChain;
-        $proj->total_supply = $request->totalSupply;
-        $proj->proj_description = $request->projectDesc;
-        $proj->twitter = $request->twitter;
-        $proj->discord = $request->discord;
-        $proj->url = $request->url;
-        $proj->time_zone = $request->timeZone;
-        $proj->pre_sale_date = $request->preSaleDate;
-        $proj->pre_sale_time = $request->preSaleTime;
-        $proj->pre_sale_price  = $request->preSalePrice;
-        $proj->date = $request->date;
-        $proj->time = $request->time;
-        $proj->price = $request->price;
-        $proj->founder_name = $request->founderName;
-        $proj->founder_email = $request->founderEmail;
-        $proj->founder_phone = $request->founderPhone;
-        $proj->status = $request->status;
-        $proj->path_image = $path;
-        $proj->path_banner = $path2;
-
-        $proj->save();
+        Project::create($inputs);
 
         return view('include.views.project.success');
-        //return redirect()->back()->with('success', 'Project Data Has Been Inserted Successfuly:');
     }
 
-    public function requests()
+    /**
+     * Display the specified resource.
+     */
+    public function show(Project $project)
     {
-        $projects = Project::all();
-        return view('layouts/template/include/layout/requests', compact('projects'));
+        return view('adminpanel.pages.projects.edit', compact('project'));
     }
 
-
-    public function approved(Request $request)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Project $project)
     {
-        $prev_id = $request->input('id');
-
-        $approved = DB::table("projects")->select('*')->where('id', '=', $prev_id)->get();
-        $result = $approved->toArray();
-
-        //var_dump($res);
-
-        $id = $request->session()->put('id', $request->id);
-        
-        return view('layouts.template.include.layout.approved', compact('result','id'));
-
+        //
     }
 
-
-    public function approved_submit(Request $request)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateProjectRequest $request, Project $project)
     {
+        if ($request->ajax()) {
+            $project->status = $request->status;
+            $project->save();
+            return response()->json(['success' => 'Status successfully updated !']);
+        } else {
+            $request->validate([
+                'name' => 'required|string',
+                'chain' => 'required',
+                'total_supply' => 'required',
+                'description' => 'required',
+                'twitter_link' => 'nullable|url',
+                'discord_link' => 'nullable|url',
+                'website_link' => 'nullable|url',
+                'profile_image_path' => 'nullable|file',
+                'banner_image_path' => 'nullable|file',
+                'pre_sale_timezone' => 'required',
+                'pre_sale_date' => 'nullable',
+                'pre_sale_time' => 'nullable',
+                'pre_sale_price' => 'nullable',
+                'mint_date' => 'required',
+                'mint_time' => 'required',
+                'mint_price' => 'required',
+                'founder_name' => 'nullable',
+                'founder_email' => 'required',
+                'founder_phone' => 'nullable',
+            ]);
 
-        $validateData = $request->validate([
-            'projectName' => 'required',
-            'projectChain' => 'required',
-            'totalSupply' => 'required',
-            'projectDesc' => 'required',
-            'timeZone' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-            'price' => 'required',
-            'founderEmail' => 'required',
-        ]);
+            $inputs = $request->except(['_method', '_token']);
 
-        $proj = new ApprovedProject;
+            if ($request->hasFile('profile_image_path')) {
+                $profileImage = $request->file('profile_image_path');
+                $profileImagePath = $profileImage->store('images/projects', 'public');
+                $inputs['profile_image_path'] = $profileImagePath;
+            } else {
+                unset($inputs['profile_image_path']);
+            }
 
-        $proj->project_name = $request->projectName;
-        $proj->proj_chain = $request->projectChain;
-        $proj->total_supply = $request->totalSupply;
-        $proj->proj_description = $request->projectDesc;
-        $proj->twitter = $request->twitter;
-        $proj->discord = $request->discord;
-        $proj->url = $request->url;
-        $proj->time_zone = $request->timeZone;
-        $proj->pre_sale_date = $request->preDate;
-        $proj->pre_sale_time = $request->preTime;
-        $proj->pre_sale_price  = $request->prePrice;
-        $proj->date = $request->date;
-        $proj->time = $request->time;
-        $proj->price = $request->price;
-        $proj->founder_name = $request->founderName;
-        $proj->founder_email = $request->founderEmail;
-        $proj->founder_phone = $request->founderPhone;
+            if ($request->hasFile('banner_image_path')) {
+                $bannerImage = $request->file('banner_image_path');
+                $bannerImagePath = $bannerImage->store('images/projects', 'public');
+                $inputs['banner_image_path'] = $bannerImagePath;
+            } else {
+                unset($inputs['banner_image_path']);
+            }
 
-        $proj->save();
+            if ($request->has('is_super_featured')) {
+                $inputs['is_super_featured'] = $request->input('is_super_featured') == "on" ? true : false;
+            }
+            if ($request->has('is_featured')) {
+                $inputs['is_featured'] = $request->input('is_featured') == "on" ? true : false;
+            }
+            if ($request->has('is_link_verified')) {
+                $inputs['is_link_verified'] = $request->input('is_link_verified') == "on" ? true : false;
+            }
+            if ($request->has('is_dooxed_kyc_verified')) {
+                $inputs['is_dooxed_kyc_verified'] = $request->input('is_dooxed_kyc_verified') == "on" ? true : false;
+            }
 
-        return view('layouts/template/include/layout/master');
+            $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date'] . ' ' . $inputs['mint_time']);
+            $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date'] . ' ' . $inputs['pre_sale_time']);
 
+            Project::where('id', $project->id)->update($inputs);
+
+            return redirect()->back()->with(['Success' => 'Successfully updated !']);
+        }
     }
 
-    public function view_approved_proj(Request $request)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Project $project)
     {
-        $projects = ApprovedProject::all();
-        return view('layouts/template/include/layout/published', compact('projects'));
+        //
     }
-
-
-    public function rejected(Request $request)
-    {
-        $prev_id = $request->input('id');
-
-        $approved = DB::table("projects")->select('*')->where('id', '=', $prev_id)->get();
-        $result = $approved->toArray();
-
-        //var_dump($res);
-
-        $id = $request->session()->put('id', $request->id);
-        
-        return view('layouts.template.include.layout.rejected', compact('result','id'));
-
-    }
-
-
-    public function rejected_submit(Request $request)
-    {
-        $validateData = $request->validate([
-            'projectName' => 'required',
-            'projectChain' => 'required',
-            'totalSupply' => 'required',
-            'projectDesc' => 'required',
-            'timeZone' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-            'price' => 'required',
-            'founderEmail' => 'required',
-        ]);
-
-        $proj = new RejectedProject;
-
-        $proj->project_name = $request->projectName;
-        $proj->proj_chain = $request->projectChain;
-        $proj->total_supply = $request->totalSupply;
-        $proj->proj_description = $request->projectDesc;
-        $proj->twitter = $request->twitter;
-        $proj->discord = $request->discord;
-        $proj->url = $request->url;
-        $proj->time_zone = $request->timeZone;
-        $proj->pre_sale_date = $request->preDate;
-        $proj->pre_sale_time = $request->preTime;
-        $proj->pre_sale_price  = $request->prePrice;
-        $proj->date = $request->date;
-        $proj->time = $request->time;
-        $proj->price = $request->price;
-        $proj->founder_name = $request->founderName;
-        $proj->founder_email = $request->founderEmail;
-        $proj->founder_phone = $request->founderPhone;
-
-        $proj->save();
-
-        return view('layouts/template/include/layout/master');
-    }
-    
-
-    public function view_rejected_proj(Request $request)
-    {
-        $projects = RejectedProject::all();
-        return view('layouts/template/include/layout/offline', compact('projects'));
-    }
-
-
-    // public function enum(Request $request)
-    // {
-    //     $status = $request->input('status');
-    //     $db_status = DB::table("projects")->select('*')->where('status', '=', $status)->get();
-    //     $result = $db_status->toArray();
-
-    // }
-
-
-    public function project_requests(Request $request)
-    {
-        $requests = DB::table("projects")->select('*')->where('status', '=', 'Pending')->get();
-        $projects = $requests->toArray();
-
-        return view('layouts/template/include/layout/requests', compact('projects'));
-
-    }
-
-
-    public function project_approved(Request $request)
-    {
-        $approved = DB::table("projects")->select('*')->where('status', '=', 'Approved')->get();
-        $projects = $approved->toArray();
-
-        return view('layouts/template/include/layout/published', compact('projects'));
-        
-    }
-
-    public function project_rejected(Request $request)
-    {
-        $approved = DB::table("projects")->select('*')->where('status', '=', 'Rejected')->get();
-        $projects = $approved->toArray();
-
-        return view('layouts/template/include/layout/offline', compact('projects'));
-        
-    }
-
-    public function status_update_approved(Request $request)
-    {
-        $prev_id = $request->input('id');
-
-        $update = DB::table("projects")->select('*')->where('id', '=', $prev_id)->update(['status' => 'Approved']);
-
-        $updated_rec = DB::table("projects")->select('*')->where('status', '=', 'Rejected')->get();
-
-        $projects = $updated_rec->toArray();
-        //$projects = $status->toArray();
-
-        // echo "offline";
-
-
-        
-        return view('layouts/template/include/layout/requests', compact('projects'));
-    }
-
-    public function status_update_rejected(Request $request)
-    {
-        $prev_id = $request->input('id');
-
-        $update = DB::table("projects")->select('*')->where('id', '=', $prev_id)->update(['status' => 'Rejected']);
-
-        $updated_rec = DB::table("projects")->select('*')->where('status', '=', 'Approved')->get();
-
-        $projects = $updated_rec->toArray();
-        //$projects = $status->toArray();
-
-        // echo "published";
-        return view('layouts/template/include/layout/requests', compact('projects'));
-    }
-
 }

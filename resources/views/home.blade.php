@@ -1,1 +1,1 @@
-@include('layouts/template/include/layout/master')
+@include('layouts.template.include.layout.master')
