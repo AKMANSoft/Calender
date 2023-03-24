@@ -25,22 +25,22 @@
                     </p>
                     <div class="row mt-2 g-2">
                         <div class="col-auto">
-                            <a href="{{route('projects.index', 'most popular')}}" class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">
+                            <a href="{{route('projects.index', ['category'=>'most popular', 'chain'=>'all'])}}" class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">
                                 Most Popular
                             </a>
                         </div>
                         <div class="col-auto">
-                            <a href="{{route('projects.index', 'upcoming')}}" class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">
+                            <a href="{{route('projects.index', ['category'=>'upcoming', 'chain'=>'all'])}}" class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">
                                 Upcoming
                             </a>
                         </div>
                         <div class="col-auto">
-                            <a href="{{route('projects.index', 'recently closed')}}" class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">
+                            <a href="{{route('projects.index', ['category'=>'recently closed', 'chain'=>'all'])}}" class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">
                                 Recently Closed
                             </a>
                         </div>
                         <div class="col-auto">
-                            <a href="{{route('projects.index', 'minting soon')}}" class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">
+                            <a href="{{route('projects.index', ['category'=>'minting soon', 'chain'=>'all'])}}" class="btn bg-light-10 text-uppercase rounded-pill py-2 px-3 theme-text-sm theme-fw-400">
                                 Minting Soon
                             </a>
                         </div>

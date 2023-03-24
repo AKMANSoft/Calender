@@ -12,21 +12,21 @@
                         <p class="theme-text-body mb-3">NFT Calendar</p>
                         <div class="row g-3">
                             <div class="col-auto wmin-100 col-xl-6">
-                                <a href="{{route('projects.index', 'most popular')}}"
+                                <a href="{{route('projects.index', ['category'=>'most popular', 'chain'=>$chain])}}"
                                     class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'most popular' ? 'text-primary' : ''}}">Most
                                     Popular</a>
                             </div>
                             <div class="col-auto wmin-100 col-xl-6">
-                                <a href="{{route('projects.index', 'upcoming')}}"
+                                <a href="{{route('projects.index', ['category'=>'upcoming', 'chain'=>$chain])}}"
                                     class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'upcoming' ? 'text-primary' : ''}}">Upcoming</a>
                             </div>
                             <div class="col-auto wmin-100 col-xl-6">
-                                <a href="{{route('projects.index', 'recently closed')}}"
+                                <a href="{{route('projects.index', ['category'=>'recently closed', 'chain'=>$chain])}}"
                                     class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'recently closed' ? 'text-primary' : ''}}" >Recently
                                     Closed</a>
                             </div>
                             <div class="col-auto wmin-100 col-xl-6">
-                                <a href="{{route('projects.index', 'minting soon')}}"
+                                <a href="{{route('projects.index', ['category'=>'minting soon', 'chain'=>$chain])}}"
                                     class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'minting soon' ? 'text-primary' : ''}}">Minting
                                     Soon</a>
                             </div>
@@ -36,24 +36,24 @@
                         <p class="theme-text-body mb-3">Blockchain</p>
                         <div class="row g-3">
                             <div class="col-auto wmin-100 col-xl-6">
-                                <button type="button"
-                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase">All</button>
+                                <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'all'])}}"
+                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'all' ? 'text-primary' : ''}}">All</a>
                             </div>
                             <div class="col-auto wmin-100 col-xl-6">
-                                <button type="button"
-                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase">Ethereum</button>
+                                <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'ethereum'])}}"
+                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'ethereum' ? 'text-primary' : ''}}">Ethereum</a>
                             </div>
                             <div class="col-auto wmin-100 col-xl-6">
-                                <button type="button"
-                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase">Solana</button>
+                                <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'solana'])}}"
+                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'solana' ? 'text-primary' : ''}}">Solana</a>
                             </div>
                             <div class="col-auto wmin-100 col-xl-6">
-                                <button type="button"
-                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase">Flow</button>
+                                <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'flow'])}}"
+                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'flow' ? 'text-primary' : ''}}">Flow</a>
                             </div>
                             <div class="col-auto wmin-100 col-xl-6">
-                                <button type="button"
-                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase">Polygon</button>
+                                <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'polygon'])}}"
+                                    class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'polygon' ? 'text-primary' : ''}}">Polygon</a>
                             </div>
                         </div>
                     </div>

@@ -13,34 +13,56 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($category)
+    public function index($category, $chain = 'all')
     {
+        $projectCategory = null;
+        if($chain != 'all'){
+            $projectCategory = ProjectCategory::where('slug', $chain)->get()->first();
+        }
         $projectsPerPage = 14;
         switch ($category) {
             case 'most popular':
                 $projects = Project::where('status', 'published')->where('is_link_verified', true)
+                    ->when($chain != 'all', function ($query) use ($projectCategory) {
+                        return $query->where('project_category_id', $projectCategory->id);
+                    })
                     ->orderBy('id', 'ASC')->paginate($projectsPerPage);
                 break;
             case 'verified':
                 $projects = Project::where('status', 'published')->where('is_link_verified', true)
+                    ->when($chain != 'all', function ($query) use ($projectCategory) {
+                        return $query->where('project_category_id', $projectCategory->id);
+                    })
                     ->orderBy('id', 'ASC')->paginate($projectsPerPage);
                 break;
             case 'upcoming':
                 $projects = Project::where('mint_time', '>=', Carbon::now())->where('status', 'published')->orderBy('id', 'ASC')
+                    ->when($chain != 'all', function ($query) use ($projectCategory) {
+                        return $query->where('project_category_id', $projectCategory->id);
+                    })
                     ->orderBy('id', 'ASC')
                     ->paginate($projectsPerPage);
                 break;
             case 'featured':
                 $projects = Project::where('status', 'published')->where('is_featured', true)
+                    ->when($chain != 'all', function ($query) use ($projectCategory) {
+                        return $query->where('project_category_id', $projectCategory->id);
+                    })
                     ->orderBy('id', 'ASC')->paginate($projectsPerPage);
                 break;
             case 'minting soon':
                 $projects = Project::where('status', 'published')->where('mint_time', '>=', Carbon::now())
                     ->where('mint_time', '<=', Carbon::now()->addWeek(1))
+                    ->when($chain != 'all', function ($query) use ($projectCategory) {
+                        return $query->where('project_category_id', $projectCategory->id);
+                    })
                     ->orderBy('id', 'ASC')->paginate($projectsPerPage);
                 break;
             case 'recently closed':
                 $projects = Project::where('status', 'published')->where('mint_time', '<', Carbon::now())
+                    ->when($chain != 'all', function ($query) use ($projectCategory) {
+                        return $query->where('project_category_id', $projectCategory->id);
+                    })
                     ->orderBy('id', 'ASC')->paginate($projectsPerPage);
                 break;
 
@@ -49,7 +71,7 @@ class ProjectController extends Controller
                 break;
         }
         // return $projects;
-        return view('pages.projects.index', compact('projects', 'category'));
+        return view('pages.projects.index', compact('projects', 'category', 'chain'));
     }
 
     /**
