@@ -13152,14 +13152,17 @@ p {
     margin-top: 20px
 }
 
+.glide__bullet,
 .slider_indicator {
     display: block;
     width: 6px;
     height: 6px;
     border-radius: 100%;
-    background: rgba(255, 255, 255, .3)
+    background: rgba(255, 255, 255, .3);
+    cursor: pointer;
 }
 
+.glide__bullet--active,
 .slider_indicator.active {
     background: #fff
 }
