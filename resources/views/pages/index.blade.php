@@ -424,7 +424,9 @@
 <script src="{{ asset('assets') }}/libs/glidejs/glide.min.js"></script>
 <script>
     new Glide('.nft-cards-carousel', {
-        type: "carousel"
+        type: "carousel",
+        autoplay: 2500,
+        animationDuration: 1000
     }).mount();
 </script>
 @endsection
