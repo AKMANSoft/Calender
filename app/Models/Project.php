@@ -54,4 +54,9 @@ class Project extends Model
             return "Future";
         }
     }
+
+    public function category()
+    {
+        return $this->belongsTo(ProjectCategory::class, 'project_category_id', 'id');
+    }
 }

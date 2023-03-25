@@ -277,9 +277,16 @@
                         your website. after you submit your project.
                     </p>
                 </div>
-                <div>
-                    <img src="/assets/images/recaptcha.png" width="271" height="88" alt="">
-                </div>
+                @if(config('services.recaptcha.key'))
+                    <div class="g-recaptcha"
+                        data-sitekey="{{config('services.recaptcha.key')}}">
+                    </div>
+                    <div id="invalidfeedback8" class="text-danger">
+                        @error('g-recaptcha-response')
+                        {{ $message }}
+                        @enderror
+                    </div>
+                @endif
                 <input name="status" class="d-none" value="requested">
                 <div class="d-flex">
                     <button type="submit" class="btn-theme fs-18 mt-60 px-60 h-60">Submit</button>
