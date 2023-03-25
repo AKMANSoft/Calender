@@ -6,6 +6,7 @@
 <link href="{{ asset('assets') }}/libs/clockpicker/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets') }}/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets') }}/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
 @endsection
 @section('content')
 <main class="mx-auto mt-150 px-60-auto mb-100" style="max-width: 1220px;">
@@ -15,7 +16,7 @@
     </div>
     <div class="mt-100">
         <!-- Project Info Section -->
-        <form class="needs-validation" method="POST" enctype="multipart/form-data" action="{{ route('projects.store') }}">
+        <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data" action="{{ route('projects.store') }}">
             @csrf
             <div>
                 <div>
@@ -73,7 +74,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Twitter Link (Optional)</label>
-                        <input type="url" value="{{ old('twitter_link') }}" class="form-control fs-14 shadow-none bg-transparent" placeholder="Enter URL" name="twitter_link" />
+                        <input type="url" value="{{ old('twitter_link') }}" class="form-control fs-14 shadow-none bg-transparent" pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})" placeholder="Enter URL" name="twitter_link" />
                         <div id="invalidfeedback3" class="text-danger">
                             @error('twitter_link')
                             {{ $message }}
@@ -82,7 +83,7 @@
                     </div>
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Discord Link (Optional)</label>
-                        <input value="{{ old('discord_link') }}" type="url" class="form-control fs-14 shadow-none bg-transparent" placeholder="Enter URL" name="discord_link" />
+                        <input value="{{ old('discord_link') }}" type="url" class="form-control fs-14 shadow-none bg-transparent" pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})" placeholder="Enter URL" name="discord_link" />
                         <div id="invalidfeedback3" class="text-danger">
                             @error('discord_link')
                             {{ $message }}
@@ -91,7 +92,7 @@
                     </div>
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Website Link (Optional)</label>
-                        <input value="{{ old('website_url') }}" type="url" class="form-control fs-14 shadow-none bg-transparent" placeholder="Enter URL" name="website_url" />
+                        <input value="{{ old('website_url') }}" type="url" class="form-control fs-14 shadow-none bg-transparent" pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})" placeholder="Enter URL" name="website_url" />
                         <div id="invalidfeedback3" class="text-danger">
                             @error('website_url')
                             {{ $message }}
@@ -107,11 +108,14 @@
                 </div>
                 <div class="row">
                     <div class="form-control-image-container cursor-pointer col-md-6 mb-20">
-                        <label class=" form-label fs-14 text-light-70 mb-10">Profile Photo <span class="mx-2 text-danger">*</span> Ideal size: 240px X 240px</label>
-                        <input type="file" name="profile_image_path" class="d-none" accept="image/*" required />
-                        <div class="form-control-image text-center">
+                        <label for="profile_image_path" class="form-label fs-14 text-light-70 mb-10">Banner Image <span class="mx-2 text-danger">*</span> Ideal size: 240px X 240px</label>
+                        <input type="file" name="profile_image_path" class="d-none" accept="image/*" />
+                        <div class="form-control-image position-relative overflow-hidden text-center">
                             <img src="/assets/images/icons/upload_icon.svg" alt="" />
                             <p class="fs-14 text-light-70">Drag and drop or browse</p>
+                            <div class="preview-image position-absolute top-0 left-0 w-100 h-100" style="z-index: 0;">
+                                <img src="" class="d-none" style="width: 100%; height: 100%; object-fit: contain; object-position: center;" alt="">
+                            </div>
                         </div>
                         <div id="invalidfeedback3" class="text-danger">
                             @error('profile_image_path')
@@ -119,12 +123,16 @@
                             @enderror
                         </div>
                     </div>
+
                     <div class="form-control-image-container cursor-pointer col-md-6 mb-20">
-                        <label class=" form-label fs-14 text-light-70 mb-10">Banner Image <span class="mx-2">(Optional)</span> Ideal size: 1450px X 320px</label>
+                        <label for="banner_image_path" class="form-label fs-14 text-light-70 mb-10">Banner Image <span class="mx-2">(Optional)</span> Ideal size: 1450px X 320px</label>
                         <input type="file" name="banner_image_path" class="d-none" accept="image/*" />
-                        <div class="form-control-image text-center">
+                        <div class="form-control-image position-relative overflow-hidden text-center">
                             <img src="/assets/images/icons/upload_icon.svg" alt="" />
                             <p class="fs-14 text-light-70">Drag and drop or browse</p>
+                            <div class="preview-image position-absolute top-0 left-0 w-100 h-100" style="z-index: 0;">
+                                <img src="" class="d-none" style="width: 100%; height: 100%; object-fit: contain; object-position: center;" alt="">
+                            </div>
                         </div>
                         <div id="invalidfeedback3" class="text-danger">
                             @error('banner_image_path')
@@ -156,7 +164,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Pre-sale date (Optional)</label>
-                        <input value="{{ old('pre_sale_date') }}" type="text" id="basic-datepicker" class="form-control fs-14 shadow-none bg-transparent" placeholder="Choose date" name="pre_sale_date" />
+                        <input value="{{ old('pre_sale_date') }}" type="date" id="" class="form-control fs-14 shadow-none bg-transparent" placeholder="Choose date" name="pre_sale_date" />
                         <div id="invalidfeedback5" class="text-danger">
                             @error('pre_sale_date')
                             {{ $message }}
@@ -165,7 +173,7 @@
                     </div>
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Pre-sale mint time (Optional)</label>
-                        <input value="{{ old('pre_sale_time') }}" type="text" id="preloading-timepicker" class="form-control fs-14 shadow-none bg-transparent" placeholder="Choose date" name="pre_sale_time" />
+                        <input value="{{ old('pre_sale_time') }}" type="time" class="form-control fs-14 shadow-none bg-transparent" placeholder="Choose date" name="pre_sale_time" />
                         <div id="invalidfeedback5" class="text-danger">
                             @error('pre_sale_time')
                             {{ $message }}
@@ -175,7 +183,7 @@
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Pre-sale price (Optional)</label>
                         <div class="input-group">
-                            <input value="{{ old('pre_sale_price') }}" type="text" class="form-control fs-14 shadow-none bg-transparent" placeholder="Enter price" name="pre_sale_price" />
+                            <input value="{{ old('pre_sale_price') }}" type="number" class="form-control fs-14 shadow-none bg-transparent" placeholder="Enter price" name="pre_sale_price" />
                             <span class="input-group-text bg-transparent">ETH</span>
                         </div>
                         <div id="invalidfeedback5" class="text-danger">
@@ -194,7 +202,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Mint date <span class="ms-1 text-danger">*</span></label>
-                        <input value="{{ old('mint_date') }}" type="text" id="humanfd-datepicker" class="form-control fs-14 shadow-none bg-transparent" placeholder="Choose date" name="mint_date" required />
+                        <input value="{{ old('mint_date') }}" type="date" class="form-control fs-14 shadow-none bg-transparent" placeholder="Choose date" name="mint_date" required />
                         <div id="invalidfeedback5" class="text-danger">
                             @error('mint_date')
                             {{ $message }}
@@ -203,7 +211,7 @@
                     </div>
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Mint time <span class="ms-1 text-danger">*</span></label>
-                        <input value="{{ old('mint_time') }}" type="text" id="minmax-timepicker" class="form-control fs-14 shadow-none bg-transparent" placeholder="Choose date" name="mint_time" id="time" required />
+                        <input value="{{ old('mint_time') }}" type="time" class="form-control fs-14 shadow-none bg-transparent" placeholder="Choose date" name="mint_time" id="time" required />
                         <div id="invalidfeedback6" class="text-danger">
                             @error('mint_time')
                             {{ $message }}
@@ -213,7 +221,7 @@
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Mint price <span class="ms-1 text-danger">*</span></label>
                         <div class="input-group">
-                            <input value="{{ old('mint_price') }}" type="text" class="form-control fs-14 shadow-none bg-transparent" placeholder="Enter price" name="mint_price" id="price" required />
+                            <input value="{{ old('mint_price') }}" type="number" class="form-control fs-14 shadow-none bg-transparent" placeholder="Enter price" name="mint_price" id="price" required />
                             <span class="input-group-text bg-transparent">ETH</span>
 
                         </div>
@@ -242,7 +250,7 @@
                     </div>
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Email <span class="ms-1 text-danger">*</span></label>
-                        <input value="{{ old('founder_email') }}" type="email" class="form-control fs-14 shadow-none bg-transparent" name="founder_email" id="founderEmail" required />
+                        <input value="{{ old('founder_email') }}" type="email" class="form-control fs-14 shadow-none bg-transparent" pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" name="founder_email" id="founderEmail" required />
                         <div id="invalidfeedback8" class="text-danger">
                             @error('founder_email')
                             {{ $message }}
@@ -291,11 +299,6 @@
 @endsection
 
 @section('custom-script')
-<script>
-    document.querySelectorAll(".form-control-image-container").forEach((el) => {
-        el.addEventListener("click", () => el.querySelector("input").click())
-    })
-</script>
 <!-- Vendor js -->
 <script src="{{ asset('assets') }}/js/vendor.min.js"></script>
 
@@ -305,9 +308,39 @@
 <script src="{{ asset('assets') }}/libs/clockpicker/bootstrap-clockpicker.min.js"></script>
 <script src="{{ asset('assets') }}/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
+
 <!-- Init js-->
 <script src="{{ asset('assets') }}/js/pages/form-pickers.init.js"></script>
 
 <!-- App js -->
 <script src="{{ asset('assets') }}/js/app.min.js"></script>
+<script>
+    document.querySelectorAll(".form-control-image-container").forEach((container) => {
+        container.addEventListener("click", () => container.querySelector("input").click())
+        let imgInput = container.querySelector("input");
+        let previewImageEl = container.querySelector(".preview-image > img");
+
+        let imgDropArea = container.querySelector(".form-control-image");
+        imgDropArea.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            imgDropArea.classList.add("active")
+        });
+        imgDropArea.addEventListener("dragleave", () => {
+            imgDropArea.classList.remove("active")
+        });
+        imgDropArea.addEventListener("drop", (e) => {
+            imgDropArea.classList.remove("active")
+            e.preventDefault();
+            imgInput.files = e.dataTransfer.files;
+            showImage(imgInput.files);
+        });
+        imgInput.addEventListener("change", (e) => showImage(e.target.files));
+
+        function showImage(files) {
+            if (files.length > 0) previewImageEl.classList.remove("d-none");
+            else previewImageEl.classList.add("d-none");
+            previewImageEl.src = window.URL.createObjectURL(files[0]);
+        }
+    })
+</script>
 @endsection
