@@ -250,7 +250,7 @@
                     </div>
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Email <span class="ms-1 text-danger">*</span></label>
-                        <input value="{{ old('founder_email') }}" type="email" class="form-control fs-14 shadow-none bg-transparent" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="founder_email" id="founderEmail" required />
+                        <input value="{{ old('founder_email') }}" type="email" class="form-control fs-14 shadow-none bg-transparent" pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" name="founder_email" id="founderEmail" required />
                         <div id="invalidfeedback8" class="text-danger">
                             @error('founder_email')
                             {{ $message }}
