@@ -21,8 +21,15 @@ class ProjectController extends Controller
         }
         $projectsPerPage = 14;
         switch ($category) {
+            case 'today':
+                $projects = Project::where('status', 'published')->where('mint_time', '<=', Carbon::now()->endOfDay())
+                    ->when($chain != 'all', function ($query) use ($projectCategory) {
+                        return $query->where('project_category_id', $projectCategory->id);
+                    })
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
             case 'most popular':
-                $projects = Project::where('status', 'published')->where('is_link_verified', true)
+                $projects = Project::where('status', 'published')
                     ->when($chain != 'all', function ($query) use ($projectCategory) {
                         return $query->where('project_category_id', $projectCategory->id);
                     })
