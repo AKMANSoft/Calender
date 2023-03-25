@@ -13152,14 +13152,17 @@ p {
     margin-top: 20px
 }
 
+.glide__bullet,
 .slider_indicator {
     display: block;
     width: 6px;
     height: 6px;
     border-radius: 100%;
-    background: rgba(255, 255, 255, .3)
+    background: rgba(255, 255, 255, .3);
+    cursor: pointer;
 }
 
+.glide__bullet--active,
 .slider_indicator.active {
     background: #fff
 }
@@ -13407,5 +13410,37 @@ p {
 .text-dark {
     color: #0e071c
 }
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+
+
+
+.bg-transparent {
+    background: transparent;
+}
+
+
+.bg-transparent:-webkit-autofill,
+.bg-transparent:-webkit-autofill:hover,
+.bg-transparent:-webkit-autofill:focus,
+.bg-transparent:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #ffffff;
+}
+
 
 /*# sourceMappingURL=styles.css.map */

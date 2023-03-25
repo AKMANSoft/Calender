@@ -1,38 +1,62 @@
-.navbar-custom
-{
-    background-color: rgb(25,15,45);
+.navbar-custom {
+    background-color: rgb(25, 15, 45);
     box-shadow: none;
 }
 
-.left-side-menu
-{
-    background-color: rgb(25,15,45);
+.left-side-menu {
+    background-color: rgb(25, 15, 45);
     box-shadow: none;
 }
 
-body
-{
-    background-color: rgb(14,7,28);
+body {
+    background-color: rgb(14, 7, 28);
     box-shadow: none;
     margin-bottom: 0px;
     color: white;
 }
 
 
-.footer
-{
-    background-color: rgb(25,15,45);
+.footer {
+    background-color: rgb(25, 15, 45);
     box-shadow: none;
 }
 
-.content-page .card
-{
-    background-color: rgb(25,15,45);
+.content-page .card {
+    background-color: rgb(25, 15, 45);
 }
 
 
-a
-{
+a {
     color: white;
 }
 
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+
+
+
+
+.bg-transparent {
+    background: transparent;
+}
+
+
+input.bg-transparent:-webkit-autofill,
+input.bg-transparent:-webkit-autofill:hover,
+input.bg-transparent:-webkit-autofill:focus,
+input.bg-transparent:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #ffffff;
+}

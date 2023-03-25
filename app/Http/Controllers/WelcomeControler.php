@@ -15,7 +15,8 @@ class WelcomeControler extends Controller
     {
         // return Project::all()->first()->minting_status;
         $superFeaturedProjects = Project::where('is_super_featured', true)->where('status', 'published')
-            ->get()->take(6);
+            ->orderBy('id', 'ASC')
+            ->get()->take(3);
 
         $featuredProjects = Project::where('is_featured', true)->where('status', 'published')->orderBy('id', 'ASC')->get()->take(6);
         $popularProjects = Project::where('is_featured', true)->where('status', 'published')->orderBy('id', 'ASC')->get()->take(6);

@@ -22,7 +22,7 @@ Route::get('/', [WelcomeControler::class, 'index'])->name('index');
 // Route::resource('projects', ProjectController::class);
 
 Route::prefix('projects')->name('projects.')->group(function () {
-    Route::get('/category/{category}', [App\Http\Controllers\ProjectController::class, 'index'])->name('index');
+    Route::get('/category/{category}/chain/{chain?}', [App\Http\Controllers\ProjectController::class, 'index'])->name('index');
     Route::post('/', [App\Http\Controllers\ProjectController::class, 'store'])->name('store');
     Route::get('/create', [App\Http\Controllers\ProjectController::class, 'create'])->name('create');
     // Route::get('/{project}', [App\Http\Controllers\ProjectController::class, 'show'])->name('show');
