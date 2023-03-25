@@ -40,7 +40,7 @@
 
             <div class="row">
                 <div class="col-md-6 col-xl-4">
-                    <div class="widget-rounded-circle card">
+                    <div class="widget-rounded-circle card h-100">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-8">
@@ -63,7 +63,7 @@
                 </div> <!-- end col-->
 
                 <div class="col-md-6 col-xl-4">
-                    <div class="widget-rounded-circle card">
+                    <div class="widget-rounded-circle card h-100">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-8">
@@ -86,7 +86,7 @@
                 </div> <!-- end col-->
 
                 <div class="col-md-6 col-xl-4">
-                    <div class="widget-rounded-circle card">
+                    <div class="widget-rounded-circle card h-100">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-8">
@@ -115,8 +115,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="dropdown float-end">
-                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="mdi mdi-dots-vertical"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
@@ -190,8 +189,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="dropdown float-end">
-                                <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="mdi mdi-dots-vertical"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
@@ -221,8 +219,7 @@
                                     <tbody>
                                         <tr>
                                             <td style="width: 36px;">
-                                                <img src="assets/images/users/user-2.jpg" alt="contact-img"
-                                                    title="contact-img" class="rounded-circle avatar-sm" />
+                                                <img src="assets/images/users/user-2.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
                                             </td>
 
                                             <td>
@@ -243,17 +240,14 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-plus"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-danger"><i
-                                                        class="mdi mdi-minus"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-plus"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-danger"><i class="mdi mdi-minus"></i></a>
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td style="width: 36px;">
-                                                <img src="assets/images/users/user-3.jpg" alt="contact-img"
-                                                    title="contact-img" class="rounded-circle avatar-sm" />
+                                                <img src="assets/images/users/user-3.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
                                             </td>
 
                                             <td>
@@ -274,16 +268,13 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-plus"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-danger"><i
-                                                        class="mdi mdi-minus"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-plus"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-danger"><i class="mdi mdi-minus"></i></a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="width: 36px;">
-                                                <img src="assets/images/users/user-4.jpg" alt="contact-img"
-                                                    title="contact-img" class="rounded-circle avatar-sm" />
+                                                <img src="assets/images/users/user-4.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
                                             </td>
 
                                             <td>
@@ -304,16 +295,13 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-plus"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-danger"><i
-                                                        class="mdi mdi-minus"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-plus"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-danger"><i class="mdi mdi-minus"></i></a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="width: 36px;">
-                                                <img src="assets/images/users/user-5.jpg" alt="contact-img"
-                                                    title="contact-img" class="rounded-circle avatar-sm" />
+                                                <img src="assets/images/users/user-5.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
                                             </td>
 
                                             <td>
@@ -334,16 +322,13 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-plus"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-danger"><i
-                                                        class="mdi mdi-minus"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-plus"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-danger"><i class="mdi mdi-minus"></i></a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td style="width: 36px;">
-                                                <img src="assets/images/users/user-6.jpg" alt="contact-img"
-                                                    title="contact-img" class="rounded-circle avatar-sm" />
+                                                <img src="assets/images/users/user-6.jpg" alt="contact-img" title="contact-img" class="rounded-circle avatar-sm" />
                                             </td>
 
                                             <td>
@@ -364,10 +349,8 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-plus"></i></a>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-danger"><i
-                                                        class="mdi mdi-minus"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-plus"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-danger"><i class="mdi mdi-minus"></i></a>
                                             </td>
                                         </tr>
 
@@ -382,8 +365,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="dropdown float-end">
-                                <a href="#" class="dropdown-toggle arrow-none card-drop"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="mdi mdi-dots-vertical"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
@@ -429,8 +411,7 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
                                             </td>
                                         </tr>
 
@@ -452,8 +433,7 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
                                             </td>
                                         </tr>
 
@@ -475,8 +455,7 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
                                             </td>
                                         </tr>
 
@@ -498,8 +477,7 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
                                             </td>
                                         </tr>
 
@@ -521,8 +499,7 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
                                             </td>
                                         </tr>
 
@@ -544,8 +521,7 @@
                                             </td>
 
                                             <td>
-                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i
-                                                        class="mdi mdi-pencil"></i></a>
+                                                <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
                                             </td>
                                         </tr>
 

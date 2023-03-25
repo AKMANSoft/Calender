@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-7" style="max-width: 450px;">
             <div class="card p-3" style="background-color: rgb(25,15,45); margin-top: 100px;">
                 <div class="d-flex justify-content-center">
                     <img src="{{asset('assets')}}/images/logo-light.png" height="80" alt="">
@@ -25,7 +25,14 @@
                             </div>
                             <div class="col-12">
                                 <label for="password" class="form-label">{{ __('Password') }}</label>
-                                <input id="password" type="password" class="form-control bg-transparent @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <div class="input-group input-group-merge">
+                                    <input id="password" type="password" class="form-control bg-transparent @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <div class="input-group-append" data-password="false">
+                                        <div class="input-group-text btn btn-light">
+                                            <span class="password-eye"></span>
+                                        </div>
+                                    </div>
+                                </div>
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
