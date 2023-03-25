@@ -42,6 +42,7 @@ class StoreProjectRequest extends FormRequest
             'founder_name' => 'nullable',
             'founder_email' => 'required',
             'founder_phone' => 'nullable',
+            'g-recaptcha-response' => 'required|recaptcha',
         ];
     }
 }
