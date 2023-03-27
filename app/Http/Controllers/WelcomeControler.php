@@ -28,6 +28,6 @@ class WelcomeControler extends Controller
             ->orderBy('id', 'ASC')
             ->get()->take(6);
 
-        return view('pages.index', compact('featuredProjects', 'popularProjects', 'verifiedProjects', 'upcomingProjects'));
+        return view('pages.index', compact('superFeaturedProjects', 'featuredProjects', 'popularProjects', 'verifiedProjects', 'upcomingProjects'));
     }
 }

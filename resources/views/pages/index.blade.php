@@ -52,7 +52,7 @@
             <div class="nft-cards-carousel w-100 wmax-lg-540">
                 <div class="glide__track" data-glide-el="track">
                     <ul class="glide__slides">
-                        @forelse ($featuredProjects as $project)
+                        @forelse ($superFeaturedProjects as $project)
                         <!-- NFT Slide  -->
                         <li class="glide__slide">
                             <div class="fetured_project_slider_card bg-gradient-light">
@@ -86,9 +86,9 @@
                         @endforeach
                     </ul>
                     <div class="mt-4 d-flex gap-3 align-items-center wmax-lg-540 justify-content-center w-100 glide__bullets" data-glide-el="controls[nav]">
-                        <span class="glide__bullet" data-glide-dir="=0"></span>
-                        <span class="glide__bullet" data-glide-dir="=1"></span>
-                        <span class="glide__bullet" data-glide-dir="=2"></span>
+                        @forelse ($superFeaturedProjects as $key => $project)
+                        <span class="glide__bullet" data-glide-dir="={{$key}}"></span>
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -119,7 +119,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('adminpanel.pages.projects.edit', compact('project'));
+        return view('pages.projects.show', compact('project'));
     }
 
     /**
