@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\ProjectCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -41,6 +42,7 @@ class ProjectFactory extends Factory
             'is_featured' => fake()->boolean(),
             'is_link_verified' => fake()->boolean(),
             'is_dooxed_kyc_verified' => fake()->boolean(),
+            'project_category_id' => ProjectCategory::all()->pluck('id')->random(),
         ];
     }
 }

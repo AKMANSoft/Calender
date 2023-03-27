@@ -7,9 +7,27 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\ProjectCategory;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
+    public function search(Request $request)
+    {
+        $request->validate([
+            'keyword'=>'required'
+        ]);
+
+        $keyword = $request->keyword;
+
+        $projects = Project::where('status', 'published')->where('name', 'like', '%' . $keyword . '%')
+                    ->orderBy('id', 'ASC')->paginate(14);
+
+        return view('pages.projects.search', compact('projects', 'keyword'));
+    }
+
     /**
      * Display a listing of the resource.
      */

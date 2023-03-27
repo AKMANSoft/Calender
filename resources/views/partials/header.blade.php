@@ -57,10 +57,14 @@
                     </li>
                 </ul>
                 <div class="d-flex flex-column flex-md-row col-xl-6 align-items-center justify-content-lg-end mt-4 mt-xl-0 gap-lg-4">
+                    <form action="{{route('projects.search')}}" method="GET">
+
                     <div class="input-group d-none d-xl-flex h-46 bg-secondary-10 rounded-5 ps-2">
-                        <input type="text" class="form-control col-auto bg-transparent border-0 shadow-none" placeholder="Project name, type" aria-describedby="button-addon2" />
-                        <button class="btn btn-secondary col-auto px-20 rounded-5 border-0 text-light" type="button" id="button-addon2">Search</button>
-                    </div>
+                            {{-- @csrf --}}
+                            <input required type="text" class="form-control col-auto bg-transparent border-0 shadow-none" name="keyword" value="{{old('search_keyword')}}" placeholder="Project name, type" aria-describedby="button-addon2" />
+                            <button class="btn btn-secondary col-auto px-20 rounded-5 border-0 text-light" type="submit" id="button-addon2">Search</button>
+                        </div>
+                    </form>
                     <div class='col-12 col-md-auto'>
                         <a href="{{route('projects.create')}}" class="btn-theme w-100 px-4 h-46">
                             Submit a project <i class='fa-solid fa-chevron-right'></i>

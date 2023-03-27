@@ -1,5 +1,5 @@
 <div {{ $attributes->merge(['class' => 'col-auto d-flex']) }}>
-    <a href="#">
+    <a href="{{route('projects.show', $project)}}">
         <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}" class="nft-project-item-img" alt="">
     </a>
     <div class="ms-20 d-flex flex-column justify-content-between">

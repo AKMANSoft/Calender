@@ -128,53 +128,6 @@
             </button>
         </div>
     </div>
-    <section class="max-1440 px-60-auto mx-auto mb-80 mt-60">
-        <div class="mb-20">
-            <h3 class="theme-h3 theme-fw-700">Browse by category</h3>
-        </div>
-        <div class="row row-cols-2 row-cols-lg-4 row-cols-xl-5 g-3 g-lg-4">
-            <div class="col">
-                <button type="button" class="btn w-100 rounded-0 bg-light-10 p-3 text-uppercase theme-text-body">Free
-                    Mint</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn w-100 rounded-0 bg-light-10 p-3 text-uppercase theme-text-body">Free
-                    Mint</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn w-100 rounded-0 bg-light-10 p-3 text-uppercase theme-text-body">Free
-                    Mint</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn w-100 rounded-0 bg-light-10 p-3 text-uppercase theme-text-body">Free
-                    Mint</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn w-100 rounded-0 bg-light-10 p-3 text-uppercase theme-text-body">Free
-                    Mint</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn w-100 rounded-0 bg-light-10 p-3 text-uppercase theme-text-body">Free
-                    Mint</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn w-100 rounded-0 bg-light-10 p-3 text-uppercase theme-text-body">Free
-                    Mint</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn w-100 rounded-0 bg-light-10 p-3 text-uppercase theme-text-body">Free
-                    Mint</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn w-100 rounded-0 bg-light-10 p-3 text-uppercase theme-text-body">Free
-                    Mint</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn w-100 rounded-0 bg-light-10 p-3 text-uppercase theme-text-body">Free
-                    Mint</button>
-            </div>
-        </div>
-    </section>
     <section class="max-1440 px-60-auto mx-auto mb-80 mt-80">
         <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Most Popular</h3>
