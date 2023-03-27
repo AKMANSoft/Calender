@@ -1,11 +1,13 @@
 <div {{ $attributes->merge(['class' => 'col-auto d-flex']) }}>
-    <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}" class="nft-project-item-img" alt="">
+    <a href="#">
+        <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}" class="nft-project-item-img" alt="">
+    </a>
     <div class="ms-20 d-flex flex-column justify-content-between">
         <div>
             <p class="theme-text-body mt-3">
                 {{ $project->minting_status }}
             </p>
-            <h5 class="theme-text-lg theme-fw-700 my-2">{{ $project->name }}</h5>
+            <h5 class="theme-text-lg text-decoration-none text-light d-block theme-fw-700 my-2">{{ $project->name }}</h5>
             <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
             @if ($project->is_link_verified && $project->is_dooxed_kyc_verified)
             <img src="{{ asset('assets') }}/images/icons/golden_badge.png" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
@@ -14,7 +16,6 @@
             @elseif ($project->is_dooxed_kyc_verified)
             <img src="{{ asset('assets') }}/images/icons/golden_badge.png" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
             @endif
-
         </div>
         <div class="mt-2">
             <p class="theme-text-body text-light-80">Public-sale:
