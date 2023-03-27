@@ -13,7 +13,7 @@
                     <div class="row g-3">
                         <div class="col-auto wmin-100 col-xl-6">
                             <a href="{{route('projects.index', ['category'=>'today', 'chain'=>$chain])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'today' ? 'text-primary' : ''}}">Today
-                                </a>
+                            </a>
                         </div>
                         <div class="col-auto wmin-100 col-xl-6">
                             <a href="{{route('projects.index', ['category'=>'most popular', 'chain'=>$chain])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'most popular' ? 'text-primary' : ''}}">Most
@@ -70,14 +70,13 @@
         </div>
     </div>
 </main>
-<div class="interaction_card mt-190" style="background-image: url(/public/images/interact_card_stars_large.svg);">
+<div class="interaction_card mt-190" style="background-image: url(/assets/images/interact_card_stars_large.svg);">
     <div class="inner-container">
         <h2 class="theme-h2 heading theme-fw-700">Are you a project founder? Do you want to get listed?</h2>
         <a href="{{route('projects.create')}}" class="btn-theme-light">
             Submit Project
             <i class="fa-solid fa-chevron-right"></i>
-        </a
->
+        </a>
     </div>
 </div>
 @endsection
