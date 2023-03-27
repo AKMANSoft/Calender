@@ -13,13 +13,13 @@
             <div class="ms-auto collapse navbar-collapse d-xl-flex justify-content-between align-items-center py-3 py-xl-0" id="top-navbar">
                 <ul class="navbar-nav justify-content-lg-center gap-2 gap-xl-3">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link text-light active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Marketing Support</a>
+                        <a class="nav-link text-light" href="#">Marketing Support</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <span class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="nav-link dropdown-toggle d-flex align-items-center cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="text-decoration-none text-light" href="#">Services</a>
                             <i class='fa-solid fa-chevron-right'></i>
                         </span>
@@ -32,7 +32,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <span class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="nav-link dropdown-toggle d-flex align-items-center cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="text-decoration-none text-light" href="#">News</a>
                             <i class='fa-solid fa-chevron-right'></i>
                         </span>
@@ -41,7 +41,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <span class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="nav-link dropdown-toggle d-flex align-items-center cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="text-decoration-none text-light" href="#">
                                 Calendar
                             </a>
