@@ -108,7 +108,7 @@
                 </div>
                 <div class="row">
                     <div class="form-control-image-container cursor-pointer col-md-6 mb-20">
-                        <label for="profile_image_path" class="form-label fs-14 text-light-70 mb-10">Banner Image <span class="mx-2 text-danger">*</span> Ideal size: 240px X 240px</label>
+                        <label for="profile_image_path" class="form-label fs-14 text-light-70 mb-10">Profile Photo <span class="mx-2 text-danger">*</span> Ideal size: 240px X 240px</label>
                         <input type="file" name="profile_image_path" class="d-none" accept="image/*" />
                         <div class="form-control-image position-relative overflow-hidden text-center">
                             <img src="/assets/images/icons/upload_icon.svg" alt="" />
@@ -278,14 +278,13 @@
                     </p>
                 </div>
                 @if(config('services.recaptcha.key'))
-                    <div class="g-recaptcha"
-                        data-sitekey="{{config('services.recaptcha.key')}}">
-                    </div>
-                    <div id="invalidfeedback8" class="text-danger">
-                        @error('g-recaptcha-response')
-                        {{ $message }}
-                        @enderror
-                    </div>
+                <div class="g-recaptcha" data-sitekey="{{config('services.recaptcha.key')}}">
+                </div>
+                <div id="invalidfeedback8" class="text-danger">
+                    @error('g-recaptcha-response')
+                    {{ $message }}
+                    @enderror
+                </div>
                 @endif
                 <input name="status" class="d-none" value="requested">
                 <div class="d-flex">
