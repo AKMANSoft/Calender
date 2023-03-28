@@ -14,19 +14,19 @@ class ProjectCategorySeeder extends Seeder
     public function run(): void
     {
         ProjectCategory::create(
-            ['name' => 'Ethereum', 'slug' => 'ethereum'],
+            ['name' => 'Ethereum', 'short_name' => 'ETH', 'slug' => 'ethereum'],
         );
 
         ProjectCategory::create(
-            ['name' => 'Solana', 'slug' => 'solana'],
+            ['name' => 'Solana', 'short_name' => 'SOL', 'slug' => 'solana'],
         );
 
         ProjectCategory::create(
-            ['name' => 'Flow', 'slug' => 'flow'],
+            ['name' => 'Flow', 'short_name' => 'FLOW', 'slug' => 'flow'],
         );
 
         ProjectCategory::create(
-            ['name' => 'Polygon', 'slug' => 'polygon'],
+            ['name' => 'Polygon', 'short_name' => 'MATIC', 'slug' => 'polygon'],
         );
     }
 }
