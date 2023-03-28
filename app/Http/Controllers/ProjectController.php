@@ -129,7 +129,7 @@ class ProjectController extends Controller
 
         Project::create($inputs);
 
-        return view('include.views.project.success');
+        return view('pages.projects.success');
     }
 
     /**
