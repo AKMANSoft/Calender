@@ -33,7 +33,7 @@
                         </div>
                         <div class="d-flex mt-4">
                             <div class="bg-light px-3 py-2 rounded-pill text-dark d-flex align-items-center gap-2">
-                                <img src="{{ asset('assets') }}/images/icons/{{ $project->category->slug }}_price_icon.svg" width="12"
+                                <img src="{{ asset('assets') }}/images/icons/{{ $project->category->slug }}_price_icon_dark.svg" width="12"
                                     height="20" alt="">
                                 <span
                                     class="theme-text-body theme-fw-400 text-uppercase">{{ $project->category->name }}</span>
