@@ -61,7 +61,7 @@
                                     <tr id="project-row-{{$project->id}}">
                                         <td>{{ $project->name }}</td>
                                         <td>{{ date('d M, Y', strtotime($project->created_at)) }}</td>
-                                        <td>{{ $project->chain }}</td>
+                                        <td>{{ $project->category->name }}</td>
                                         <td>{{ $project->total_supply }}</td>
                                         <td>{{ date('d M, Y', strtotime($project->pre_sale_date)) }} </td>
                                         <td>{{ $project->pre_sale_price }}</td>

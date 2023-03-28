@@ -13,13 +13,13 @@
             <div class="ms-auto collapse navbar-collapse d-xl-flex justify-content-between align-items-center py-3 py-xl-0" id="top-navbar">
                 <ul class="navbar-nav justify-content-lg-center gap-2 gap-xl-3">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link text-light active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Marketing Support</a>
+                        <a class="nav-link text-light" href="#">Marketing Support</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <span class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="nav-link dropdown-toggle d-flex align-items-center cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="text-decoration-none text-light" href="#">Services</a>
                             <i class='fa-solid fa-chevron-right'></i>
                         </span>
@@ -32,7 +32,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <span class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="nav-link dropdown-toggle d-flex align-items-center cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="text-decoration-none text-light" href="#">News</a>
                             <i class='fa-solid fa-chevron-right'></i>
                         </span>
@@ -41,7 +41,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <span class="nav-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="nav-link dropdown-toggle d-flex align-items-center cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="text-decoration-none text-light" href="#">
                                 Calendar
                             </a>
@@ -57,10 +57,14 @@
                     </li>
                 </ul>
                 <div class="d-flex flex-column flex-md-row col-xl-6 align-items-center justify-content-lg-end mt-4 mt-xl-0 gap-lg-4">
+                    <form action="{{route('projects.search')}}" method="GET">
+
                     <div class="input-group d-none d-xl-flex h-46 bg-secondary-10 rounded-5 ps-2">
-                        <input type="text" class="form-control col-auto bg-transparent border-0 shadow-none" placeholder="Project name, type" aria-describedby="button-addon2" />
-                        <button class="btn btn-secondary col-auto px-20 rounded-5 border-0 text-light" type="button" id="button-addon2">Search</button>
-                    </div>
+                            {{-- @csrf --}}
+                            <input required type="text" class="form-control col-auto bg-transparent border-0 shadow-none" name="keyword" value="{{old('search_keyword')}}" placeholder="Project name, type" aria-describedby="button-addon2" />
+                            <button class="btn btn-secondary col-auto px-20 rounded-5 border-0 text-light" type="submit" id="button-addon2">Search</button>
+                        </div>
+                    </form>
                     <div class='col-12 col-md-auto'>
                         <a href="{{route('projects.create')}}" class="btn-theme w-100 px-4 h-46">
                             Submit a project <i class='fa-solid fa-chevron-right'></i>

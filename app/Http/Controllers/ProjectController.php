@@ -7,9 +7,27 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\ProjectCategory;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
+    public function search(Request $request)
+    {
+        $request->validate([
+            'keyword'=>'required'
+        ]);
+
+        $keyword = $request->keyword;
+
+        $projects = Project::where('status', 'published')->where('name', 'like', '%' . $keyword . '%')
+                    ->orderBy('id', 'ASC')->paginate(14);
+
+        return view('pages.projects.search', compact('projects', 'keyword'));
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -21,8 +39,15 @@ class ProjectController extends Controller
         }
         $projectsPerPage = 14;
         switch ($category) {
+            case 'today':
+                $projects = Project::where('status', 'published')->where('mint_time', '<=', Carbon::now()->endOfDay())
+                    ->when($chain != 'all', function ($query) use ($projectCategory) {
+                        return $query->where('project_category_id', $projectCategory->id);
+                    })
+                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                break;
             case 'most popular':
-                $projects = Project::where('status', 'published')->where('is_link_verified', true)
+                $projects = Project::where('status', 'published')
                     ->when($chain != 'all', function ($query) use ($projectCategory) {
                         return $query->where('project_category_id', $projectCategory->id);
                     })
@@ -112,7 +137,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('adminpanel.pages.projects.edit', compact('project'));
+        return view('pages.projects.show', compact('project'));
     }
 
     /**

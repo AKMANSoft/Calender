@@ -12567,7 +12567,7 @@ input[type=time]::-webkit-calendar-picker-indicator {
 }
 
 .text-light-70 {
-    color: rgba(255, 255, 255, .7)
+    color: rgba(255, 255, 255, .7) !important
 }
 
 .border-muted {

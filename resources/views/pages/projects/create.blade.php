@@ -108,7 +108,7 @@
                 </div>
                 <div class="row">
                     <div class="form-control-image-container cursor-pointer col-md-6 mb-20">
-                        <label for="profile_image_path" class="form-label fs-14 text-light-70 mb-10">Banner Image <span class="mx-2 text-danger">*</span> Ideal size: 240px X 240px</label>
+                        <label for="profile_image_path" class="form-label fs-14 text-light-70 mb-10">Profile Photo <span class="mx-2 text-danger">*</span> Ideal size: 240px X 240px</label>
                         <input type="file" name="profile_image_path" class="d-none" accept="image/*" />
                         <div class="form-control-image position-relative overflow-hidden text-center">
                             <img src="/assets/images/icons/upload_icon.svg" alt="" />
@@ -250,7 +250,7 @@
                     </div>
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Email <span class="ms-1 text-danger">*</span></label>
-                        <input value="{{ old('founder_email') }}" type="email" class="form-control fs-14 shadow-none bg-transparent" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="founder_email" id="founderEmail" required />
+                        <input value="{{ old('founder_email') }}" type="email" class="form-control fs-14 shadow-none bg-transparent" pattern="^[\w]{1,}[\w.+-]{0,}@[\w-]{2,}([.][a-zA-Z]{2,}|[.][\w-]{2,}[.][a-zA-Z]{2,})$" name="founder_email" id="founderEmail" required />
                         <div id="invalidfeedback8" class="text-danger">
                             @error('founder_email')
                             {{ $message }}
@@ -277,9 +277,15 @@
                         your website. after you submit your project.
                     </p>
                 </div>
-                <div>
-                    <img src="/assets/images/recaptcha.png" width="271" height="88" alt="">
+                @if(config('services.recaptcha.key'))
+                <div class="g-recaptcha" data-sitekey="{{config('services.recaptcha.key')}}">
                 </div>
+                <div id="invalidfeedback8" class="text-danger">
+                    @error('g-recaptcha-response')
+                    {{ $message }}
+                    @enderror
+                </div>
+                @endif
                 <input name="status" class="d-none" value="requested">
                 <div class="d-flex">
                     <button type="submit" class="btn-theme fs-18 mt-60 px-60 h-60">Submit</button>
