@@ -8,6 +8,8 @@ use App\Models\Project;
 use App\Models\ProjectCategory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -51,7 +53,7 @@ class ProjectController extends Controller
                     ->when($chain != 'all', function ($query) use ($projectCategory) {
                         return $query->where('project_category_id', $projectCategory->id);
                     })
-                    ->orderBy('id', 'ASC')->paginate($projectsPerPage);
+                    ->orderBy('page_views', 'DESC')->paginate($projectsPerPage);
                 break;
             case 'verified':
                 $projects = Project::where('status', 'published')->where('is_link_verified', true)
@@ -143,8 +145,17 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show(Request $request, Project $project)
     {
+        $cookie_name = (Str::replace('.','',($request->ip())).'-'. $project->id);
+        if(Cookie::get($cookie_name) == ''){
+            $cookie = cookie($cookie_name, '1', 60);//set the cookie
+            $currentViews = $project->page_views;
+            $project->page_views = $currentViews + 1;
+            $project->save();
+            return response()->view('pages.projects.show', compact('project'))
+            ->withCookie($cookie);
+        }
         return view('pages.projects.show', compact('project'));
     }
 
