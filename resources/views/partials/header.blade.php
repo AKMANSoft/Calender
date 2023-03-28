@@ -24,11 +24,11 @@
                             <i class='fa-solid fa-chevron-right'></i>
                         </span>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item py-2" href="#">Get Gold Verification (KYC Verified)</a></li>
-                            <li><a class="dropdown-item py-2" href="#">Get your project featured</a></li>
-                            <li><a class="dropdown-item py-2" href="#">Purchase an article</a></li>
-                            <li><a class="dropdown-item py-2" href="#">Email blast</a></li>
-                            <li><a class="dropdown-item py-2" href="#">Free Listing</a></li>
+                            <li><a class="dropdown-item py-2" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">Get Gold Verification (KYC Verified)</a></li>
+                            <li><a class="dropdown-item py-2" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">Get your project featured</a></li>
+                            <li><a class="dropdown-item py-2" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">Purchase an article</a></li>
+                            <li><a class="dropdown-item py-2" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">Email blast</a></li>
+                            <li><a class="dropdown-item py-2" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">Free Listing</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
