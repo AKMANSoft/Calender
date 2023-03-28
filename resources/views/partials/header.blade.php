@@ -48,11 +48,11 @@
                             <i class='fa-solid fa-chevron-right'></i>
                         </span>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Future</a></li>
-                            <li><a class="dropdown-item" href="#">This Week</a></li>
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">Minting Now</a></li>
-                            <li><a class="dropdown-item" href="#">Finished</a></li>
+                            <li><a class="dropdown-item" href="{{route('projects.index', ['category'=>'today', 'chain'=>'all'])}}">Today</a></li>
+                            <li><a class="dropdown-item" href="{{route('projects.index', ['category'=>'most popular', 'chain'=>'all'])}}">Most Popular</a></li>
+                            <li><a class="dropdown-item" href="{{route('projects.index', ['category'=>'upcoming', 'chain'=>'all'])}}">Upcoming</a></li>
+                            <li><a class="dropdown-item" href="{{route('projects.index', ['category'=>'recently closed', 'chain'=>'all'])}}">Recently Closed</a></li>
+                            <li><a class="dropdown-item" href="{{route('projects.index', ['category'=>'minting soon', 'chain'=>'all'])}}">Minting Soon</a></li>
                         </ul>
                     </li>
                 </ul>
