@@ -44,6 +44,7 @@ return new class extends Migration
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_link_verified')->default(false);
             $table->boolean('is_dooxed_kyc_verified')->default(false);
+            $table->unsignedBigInteger('page_views')->default(0);
 
             $table->foreignId('project_category_id')->nullable();
             $table->foreign('project_category_id')->references('id')->on('project_categories')->onDelete('set null');

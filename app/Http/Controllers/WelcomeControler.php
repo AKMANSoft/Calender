@@ -19,7 +19,7 @@ class WelcomeControler extends Controller
             ->get()->take(3);
 
         $featuredProjects = Project::where('is_featured', true)->where('status', 'published')->orderBy('id', 'ASC')->get()->take(6);
-        $popularProjects = Project::where('is_featured', true)->where('status', 'published')->orderBy('id', 'ASC')->get()->take(6);
+        $popularProjects = Project::where('is_featured', true)->where('status', 'published')->orderBy('page_views', 'DESC')->get()->take(6);
         $verifiedProjects = Project::where('is_link_verified', true)->where('status', 'published')->orderBy('id', 'ASC')->get()->take(6);
 
         $upcomingProjects = Project::where('mint_time', '>=', Carbon::now())->where('status', 'published')->orderBy('id', 'ASC')
