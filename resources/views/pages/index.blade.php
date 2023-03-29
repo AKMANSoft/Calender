@@ -102,9 +102,11 @@
         <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Featured Projects</h3>
             <div>
-                <a href="{{ route('projects.index', 'featured') }}" class="btn-theme-secondary">
+                <a href="https://commerce.coinbase.com/checkout/d34b2b82-fece-44b9-83d6-24801255107e" class="btn-theme-secondary buy-with-crypto">
                     Get Featured <i class="fa-solid fa-chevron-right"></i>
                 </a>
+                <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">
+                </script>
             </div>
         </div>
         <div class="mt-40">

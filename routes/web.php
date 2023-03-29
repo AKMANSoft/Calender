@@ -37,6 +37,9 @@ Route::prefix('event-registraion')->name('event-registraion.')->group(function (
     Route::get('/', [App\Http\Controllers\EventRegistrationController::class, 'index'])->name('index');
 });
 
+Route::prefix('payments')->name('payments.')->group(function () {
+    Route::post('/', [App\Http\Controllers\PaymentController::class, 'store'])->name('store');
+});
 
 //admin routes
 Route::prefix('admin')->name('admin.')->group(function () {
