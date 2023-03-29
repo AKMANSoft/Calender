@@ -19,13 +19,13 @@ class ProjectController extends Controller
     public function search(Request $request)
     {
         $request->validate([
-            'keyword'=>'required'
+            'keyword' => 'required'
         ]);
 
         $keyword = $request->keyword;
 
         $projects = Project::where('status', 'published')->where('name', 'like', '%' . $keyword . '%')
-                    ->orderBy('id', 'ASC')->paginate(14);
+            ->orderBy('id', 'ASC')->paginate(14);
 
         return view('pages.projects.search', compact('projects', 'keyword'));
     }
@@ -36,7 +36,7 @@ class ProjectController extends Controller
     public function index($category, $chain = 'all')
     {
         $projectCategory = null;
-        if($chain != 'all'){
+        if ($chain != 'all') {
             $projectCategory = ProjectCategory::where('slug', $chain)->get()->first();
         }
         $projectsPerPage = 14;
@@ -147,16 +147,22 @@ class ProjectController extends Controller
      */
     public function show(Request $request, Project $project)
     {
-        $cookie_name = (Str::replace('.','',($request->ip())).'-'. $project->id);
-        if(Cookie::get($cookie_name) == ''){
-            $cookie = cookie($cookie_name, '1', 60);//set the cookie
+        $cookie_name = (Str::replace('.', '', ($request->ip())) . '-' . $project->id);
+        if (Cookie::get($cookie_name) == '') {
+            $cookie = cookie($cookie_name, '1', 60); //set the cookie
             $currentViews = $project->page_views;
             $project->page_views = $currentViews + 1;
             $project->save();
             return response()->view('pages.projects.show', compact('project'))
-            ->withCookie($cookie);
+                ->withCookie($cookie);
         }
-        return view('pages.projects.show', compact('project'));
+
+        $featuredProjects = Project::where('is_featured', true)->where('status', 'published')->orderBy('id', 'ASC')->get()->take(6);
+        $mintingSoonProjects = Project::where('status', 'published')->where('mint_time', '>=', Carbon::now())
+            ->where('mint_time', '<=', Carbon::now()->addWeek(1))
+            ->orderBy('id', 'ASC')->get()->take(6);
+
+        return view('pages.projects.show', compact('project', 'featuredProjects', 'mintingSoonProjects'));
     }
 
     /**

@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="theme-layout">
-            <div class="mx-xl-110 row justify-content-between mb-140 g-0">
+            <div class="mx-xl-110 row justify-content-between mb-100 g-0">
                 <div class="col-lg-8" style="max-width: 700px;">
                     <div class="pb-3 border-bottom-muted">
                         <p class="theme-text-body theme-fw-600 text-primary">Overview</p>
@@ -139,5 +139,132 @@
             </div>
         </div>
     </section>
+    <section class="max-1440 px-60-auto mx-auto mb-80 mt-100">
+        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
+            <h3 class="theme-h3 theme-fw-700">Featured Projects</h3>
+            <div>
+                <button type="button" class="btn-theme-secondary">
+                    Get Featured <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mt-40">
+            <div class="d-flex gap-40 flex-wrap">
+                <div class="col-auto d-flex">
+                    <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
+                    <div class="ms-20 d-flex flex-column justify-content-between">
+                        <div>
+                            <p class="theme-text-body mt-3">Future</p>
+                            <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
+                            <img src="/assets/images/icons/verified_icon.svg" width="20" height="20" alt="">
+                        </div>
+                        <div class="mt-2">
+                            <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
+                            <div class="mt-2 row gx-2">
+                                <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12" height="20" alt="">
+                                <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto d-flex">
+                    <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
+                    <div class="ms-20 d-flex flex-column justify-content-between">
+                        <div>
+                            <p class="theme-text-body mt-3">Future</p>
+                            <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
+                            <img src="/assets/images/icons/verified_icon.svg" width="20" height="20" alt="">
+                        </div>
+                        <div class="mt-2">
+                            <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
+                            <div class="mt-2 row gx-2">
+                                <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12" height="20" alt="">
+                                <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto d-flex">
+                    <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
+                    <div class="ms-20 d-flex flex-column justify-content-between">
+                        <div>
+                            <p class="theme-text-body mt-3">Future</p>
+                            <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
+                            <img src="/assets/images/icons/verified_icon.svg" width="20" height="20" alt="">
+                        </div>
+                        <div class="mt-2">
+                            <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
+                            <div class="mt-2 row gx-2">
+                                <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12" height="20" alt="">
+                                <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto d-flex">
+                    <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
+                    <div class="ms-20 d-flex flex-column justify-content-between">
+                        <div>
+                            <p class="theme-text-body mt-3">Future</p>
+                            <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
+                            <img src="/assets/images/icons/verified_icon.svg" width="20" height="20" alt="">
+                        </div>
+                        <div class="mt-2">
+                            <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
+                            <div class="mt-2 row gx-2">
+                                <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12" height="20" alt="">
+                                <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto d-flex">
+                    <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
+                    <div class="ms-20 d-flex flex-column justify-content-between">
+                        <div>
+                            <p class="theme-text-body mt-3">Future</p>
+                            <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
+                            <img src="/assets/images/icons/verified_icon.svg" width="20" height="20" alt="">
+                        </div>
+                        <div class="mt-2">
+                            <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
+                            <div class="mt-2 row gx-2">
+                                <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12" height="20" alt="">
+                                <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto d-flex">
+                    <img src="/assets/images/nft_2.png" class="nft-project-item-img" alt="">
+                    <div class="ms-20 d-flex flex-column justify-content-between">
+                        <div>
+                            <p class="theme-text-body mt-3">Future</p>
+                            <h5 class="theme-text-lg theme-fw-700 my-2">xHamsterNFT</h5>
+                            <img src="/assets/images/icons/verified_icon.svg" width="20" height="20" alt="">
+                        </div>
+                        <div class="mt-2">
+                            <p class="theme-text-body text-light-80">Public-sale: 19 Dec 2022</p>
+                            <div class="mt-2 row gx-2">
+                                <img class="col-auto" src="/assets/images/icons/price_icon.svg" width="12" height="20" alt="">
+                                <p class="col-auto theme-text-body theme-fw-400 text-uppercase">1.0 Eth</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="interaction_card" style="background-image: url(/assets/images/interact_card_stars_large.svg);">
+        <div class="inner-container">
+            <h2 class="theme-h2 heading theme-fw-700">Are you a project founder? Do you want to get listed?</h2>
+            <button type="button" class="btn-theme-light">
+                Submit Project
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
 </main>
+
+<?php include("./includes/newsletter-section.php") ?>
 <?php include("./includes/footer.php") ?>

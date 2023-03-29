@@ -8,13 +8,13 @@
                 {{ $project->minting_status }}
             </p>
             <h5 class="theme-text-lg text-decoration-none text-light d-block theme-fw-700 my-2">{{ $project->name }}</h5>
-            <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
             @if ($project->is_link_verified && $project->is_dooxed_kyc_verified)
-            <img src="{{ asset('assets') }}/images/icons/golden_badge.png" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
-            @elseif ($project->is_dooxed_kyc_verified)
+            <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
+            <img src="{{ asset('assets') }}/images/icons/kyc_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/kyc_badge.svg" height="20" alt="">
+            @elseif ($project->is_link_verified)
             <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
             @elseif ($project->is_dooxed_kyc_verified)
-            <img src="{{ asset('assets') }}/images/icons/golden_badge.png" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
+            <img src="{{ asset('assets') }}/images/icons/kyc_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/kyc_badge.svg" height="20" alt="">
             @endif
         </div>
         <div class="mt-2">
@@ -22,7 +22,7 @@
                 {{ date('d M Y', strtotime($project->pre_sale_date)) }}
             </p>
             <div class="mt-2 row gx-2 align-items-center">
-                <img class="col-auto" src="{{ asset('assets') }}/images/icons/{{ $project->category->slug }}_price_icon.svg" width="12" height="20" alt="">
+                <img class="col-auto" src="{{ asset('assets') }}/images/icons/{{ $project->category->slug }}.svg" width="12" height="20" alt="">
                 <p class="col-auto theme-text-body theme-fw-400 text-uppercase">
                     {{ $project->pre_sale_price . ' ' . $project->category->short_name  }}
                 </p>

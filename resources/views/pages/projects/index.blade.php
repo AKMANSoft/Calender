@@ -70,13 +70,6 @@
         </div>
     </div>
 </main>
-<div class="interaction_card mt-190" style="background-image: url(/assets/images/interact_card_stars_large.svg);">
-    <div class="inner-container">
-        <h2 class="theme-h2 heading theme-fw-700">Are you a project founder? Do you want to get listed?</h2>
-        <a href="{{route('projects.create')}}" class="btn-theme-light">
-            Submit Project
-            <i class="fa-solid fa-chevron-right"></i>
-        </a>
-    </div>
-</div>
+@include("partials.interaction", ['variant' => 'primary'])
+@include("partials.newsletter")
 @endsection
