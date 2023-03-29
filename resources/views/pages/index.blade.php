@@ -59,16 +59,18 @@
                                 <div class="featured_tag bg-primary">
                                     <span class="text-light theme-text-body">{{ $project->minting_status }}</span>
                                 </div>
-                                <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}" width="260" height="260" alt="">
+                                <a href="/">
+                                    <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}" width="260" height="260" alt="">
+                                </a>
                                 <div class="title">
                                     <h4 class="theme-fw-700">{{ $project->name }}</h4>
                                     @if ($project->is_link_verified && $project->is_dooxed_kyc_verified)
-                                    <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" width="20" height="20" alt="">
-                                    <img src="{{ asset('assets') }}/images/icons/golden_badge.png" width="20" height="20" alt="">
+                                    <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
+                                    <img src="{{ asset('assets') }}/images/icons/kyc_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/kyc_badge.svg" height="20" alt="">
+                                    @elseif ($project->is_link_verified)
+                                    <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
                                     @elseif ($project->is_dooxed_kyc_verified)
-                                    <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" width="20" height="20" alt="">
-                                    @elseif ($project->is_dooxed_kyc_verified)
-                                    <img src="{{ asset('assets') }}/images/icons/golden_badge.png" width="20" height="20" alt="">
+                                    <img src="{{ asset('assets') }}/images/icons/kyc_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/kyc_badge.svg" height="20" alt="">
                                     @endif
                                 </div>
                                 <div class="theme-text-body d-flex align-items-center justify-content-center gap-4 mt-2">
@@ -119,15 +121,7 @@
             </div>
         </div>
     </section>
-    <div class="interaction_card" style="background-image: url(/assets/images/interact_card_stars_large.svg);">
-        <div class="inner-container">
-            <h2 class="theme-h2 heading theme-fw-700">Are you a project founder? Do you want to get listed?</h2>
-            <button type="button" class="btn-theme-light">
-                Submit Project
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-        </div>
-    </div>
+    @include("partials.interaction", ['variant' => 'primary'])
     <section class="max-1440 px-60-auto mx-auto mb-80 mt-80">
         <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Most Popular</h3>
@@ -172,15 +166,7 @@
             </div>
         </div>
     </section>
-    <div class="interaction_card" style="background-image: url(/assets/images/interact_card_large.svg);">
-        <div class="inner-container">
-            <h2 class="theme-h2 heading theme-fw-700">Founders: Sellout Your Project</h2>
-            <a href="{{ route('projects.create') }}" class="btn-theme-light">
-                Submit Project
-                <i class="fa-solid fa-chevron-right"></i>
-            </a>
-        </div>
-    </div>
+    @include("partials.interaction", ['variant' => 'secondary'])
     <section class="max-1440 px-60-auto mx-auto mb-80 mt-100">
         <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Verified</h3>
@@ -203,15 +189,7 @@
             </div>
         </div>
     </section>
-    <div class="interaction_card" style="background-image: url(/assets/images/interact_card_stars_large.svg);">
-        <div class="inner-container">
-            <h2 class="theme-h2 heading theme-fw-700">Are you a project founder? Do you want to get listed?</h2>
-            <button type="button" class="btn-theme-light">
-                Submit Project
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-        </div>
-    </div>
+    @include("partials.interaction", ['variant' => 'primary'])
     <section class="max-1440 px-60-auto mx-auto mt-100">
         <h3 class="theme-h3 theme-fw-700 mb-40 text-center">Latest News</h3>
         <div class="nft-news-list">
@@ -239,6 +217,7 @@
         </div>
     </section>
 </main>
+@include("partials.newsletter")
 @endsection
 
 @section('custom-script')
