@@ -431,11 +431,13 @@
 
 
                                         <tbody>
+                                            @foreach ($project->eventRagistrations as $registration)
                                             <tr>
-                                                <td class="theme-text-sm theme-fw-400">wallet_address</td>
-                                                <td class="theme-text-sm theme-fw-400">username</td>
-                                                <td class="theme-text-sm theme-fw-400">email</td>
+                                                <td class="theme-text-sm theme-fw-400">{{$registration->wallet_address}}</td>
+                                                <td class="theme-text-sm theme-fw-400">{{$registration->twitter_username}}</td>
+                                                <td class="theme-text-sm theme-fw-400">{{$registration->email}}</td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
 
                                     </table>
