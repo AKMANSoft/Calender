@@ -29,6 +29,7 @@ Route::prefix('projects')->name('projects.')->group(function () {
     Route::post('/', [App\Http\Controllers\ProjectController::class, 'store'])->name('store');
     Route::get('/create', [App\Http\Controllers\ProjectController::class, 'create'])->name('create');
     Route::get('/search', [App\Http\Controllers\ProjectController::class, 'search'])->name('search');
+    Route::get('/success', [App\Http\Controllers\ProjectController::class, 'success'])->name('success');
     Route::get('/{project}', [App\Http\Controllers\ProjectController::class, 'show'])->name('show');
 });
 

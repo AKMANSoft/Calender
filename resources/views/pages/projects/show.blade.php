@@ -3,11 +3,11 @@
 <main>
     <section class="mt-80 poition-relative project-detail-profile-section">
         <div>
-            <img src="{{ asset('storage') . $project->banner_image_path }}" class="banner-img" height="320" alt="">
+            <img src="{{ asset('storage') . '/' . $project->banner_image_path }}" class="banner-img" height="320" alt="">
         </div>
         <div class="theme-layout">
             <div class=" nft-profile ms-xl-110">
-                <img src="{{ asset('storage') . $project->profile_image_path}}" class="rounded-circle profile-img" width="260" height="260" alt="">
+                <img src="{{ asset('storage') . '/'. $project->profile_image_path}}" class="rounded-circle profile-img" width="260" height="260" alt="">
                 <div class="details">
                     <h5 class="theme-text-lg theme-fw-400">Pre sale:
                         {{ date('d M Y', strtotime($project->pre_sale_date)) }}

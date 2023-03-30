@@ -106,16 +106,16 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        // return asset('assets/timezones.json');
-
-        // // Read the JSON file
-        // $json = file_get_contents(asset('assets/timezones.json'));
-
-        // // Decode the JSON file
-        // return $timezones = json_decode($json);
-
         $categories = ProjectCategory::all();
         return view('pages.projects.create', compact('categories'));
+    }
+
+    /**
+     * Show the success page.
+     */
+    public function success()
+    {
+        return view('pages.projects.success');
     }
 
     /**
@@ -139,7 +139,7 @@ class ProjectController extends Controller
 
         Project::create($inputs);
 
-        return view('pages.projects.success');
+        return redirect()->route('projects.success');
     }
 
     /**
