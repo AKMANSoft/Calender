@@ -118,8 +118,8 @@ class ProjectController extends Controller
                 $inputs['is_dooxed_kyc_verified'] = $request->input('is_dooxed_kyc_verified') == "on" ? true : false;
             }
 
-            // $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date']. ' ' . $inputs['mint_time']);
-            // $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date']. ' ' . $inputs['pre_sale_time']);
+            $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date']. ' ' . $inputs['mint_time']);
+            $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date']. ' ' . $inputs['pre_sale_time']);
 
             Project::where('id', $project->id)->update($inputs);
 
