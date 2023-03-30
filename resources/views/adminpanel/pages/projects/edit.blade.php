@@ -417,7 +417,7 @@
                                 <div class="card-body">
                                     <h3 class="theme-text-lg mb-4 theme-fw-700 text-light ">
                                         Registerations
-                                        <span class="theme-text-sm theme-fw-400">(10)</span>
+                                        <span class="theme-text-sm theme-fw-400">({{sizeof($project->eventRagistrations)}})</span>
                                     </h3>
 
                                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
