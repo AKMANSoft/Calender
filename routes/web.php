@@ -40,7 +40,7 @@ Route::prefix('payments')->name('payments.')->group(function () {
 });
 
 //admin routes
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::prefix('projects')->name('projects.')->group(function () {
         Route::get('/{status}/list', [App\Http\Controllers\Admin\ProjectController::class, 'index'])->name('index');
         Route::put('/{project}', [App\Http\Controllers\Admin\ProjectController::class, 'update'])->name('update');

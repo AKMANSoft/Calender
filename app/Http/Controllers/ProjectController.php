@@ -147,23 +147,27 @@ class ProjectController extends Controller
      */
     public function show(Request $request, Project $project)
     {
-        $featuredProjects = Project::where('is_featured', true)->where('status', 'published')->orderBy('id', 'ASC')->get()->take(6);
-        $mintingSoonProjects = Project::where('status', 'published')->where('mint_time', '>=', Carbon::now())
-            ->where('mint_time', '<=', Carbon::now()->addWeek(1))
-            ->orderBy('id', 'ASC')->get()->take(6);
+        if($project->status == 'published'){
+            $featuredProjects = Project::where('is_featured', true)->where('status', 'published')->orderBy('id', 'ASC')->get()->take(6);
+            $mintingSoonProjects = Project::where('status', 'published')->where('mint_time', '>=', Carbon::now())
+                ->where('mint_time', '<=', Carbon::now()->addWeek(1))
+                ->orderBy('id', 'ASC')->get()->take(6);
 
-        $cookie_name = (Str::replace('.', '', ($request->ip())) . '-' . $project->id);
-        if (Cookie::get($cookie_name) == '') {
-            $cookie = cookie($cookie_name, '1', 60); //set the cookie
-            $currentViews = $project->page_views;
-            $project->page_views = $currentViews + 1;
-            $project->save();
-            return response()->view('pages.projects.show', compact('project', 'featuredProjects', 'mintingSoonProjects'))
-                ->withCookie($cookie);
+            $cookie_name = (Str::replace('.', '', ($request->ip())) . '-' . $project->id);
+            if (Cookie::get($cookie_name) == '') {
+                $cookie = cookie($cookie_name, '1', 60); //set the cookie
+                $currentViews = $project->page_views;
+                $project->page_views = $currentViews + 1;
+                $project->save();
+                return response()->view('pages.projects.show', compact('project', 'featuredProjects', 'mintingSoonProjects'))
+                    ->withCookie($cookie);
+            }
+
+
+            return view('pages.projects.show', compact('project', 'featuredProjects', 'mintingSoonProjects'));
+        } else {
+            abort(404);
         }
-
-
-        return view('pages.projects.show', compact('project', 'featuredProjects', 'mintingSoonProjects'));
     }
 
     /**
