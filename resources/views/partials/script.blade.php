@@ -2,7 +2,6 @@
 <script src="{{asset('assets')}}/js/validate.js"></script>
 <script src="{{asset('assets')}}/libs/jquery/jquery.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
-<script src="https://commerce.coinbase.com/v1/checkout.js?version=201807"></script>
 <script type="text/javascript">
 
     function saveCoinbaseCommereceResponse(e){
