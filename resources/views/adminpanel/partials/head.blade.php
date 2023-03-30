@@ -1,6 +1,5 @@
 <head>
     <meta charset="utf-8" />
-    <title>Datatables | UBold - Responsive Admin Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -8,6 +7,9 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('assets')}}/images/favicon.ico">
 
+    <link rel="shortcut icon" href="{{asset('assets')}}/images/icons/favicon.png" type="image/x-icon">
+    <title>MOON-LANDING MEDIA</title>
+    
     <!-- third party css -->
     <link href="{{asset('assets')}}/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets')}}/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet" type="text/css" />
