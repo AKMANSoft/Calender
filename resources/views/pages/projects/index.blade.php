@@ -70,6 +70,8 @@
         </div>
     </div>
 </main>
-@include("partials.interaction", ['variant' => 'primary'])
+<div class="mt-100">
+    @include("partials.interaction", ['variant' => 'primary'])
+</div>
 @include("partials.newsletter")
 @endsection
