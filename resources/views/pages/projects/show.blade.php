@@ -15,15 +15,12 @@
                     <div class="d-flex align-items-center gap-3 flex-wrap">
                         <h3 class="col-12 col-md-auto theme-h3 theme-fw-700">{{ $project->name }}</h3>
                         <div class="col-auto d-inline-flex gap-2">
-                            @if ($project->is_link_verified && $project->is_dooxed_kyc_verified)
+                            @if ($project->is_link_verified)
                             <img src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="30" alt="">
-                            <img src="{{ asset('assets') }}/images/icons/doxxed_kyc_badge.png" height="30" alt="">
-                            @elseif ($project->is_link_verified)
-                            <img src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="30" alt="">
-                            @elseif ($project->is_dooxed_kyc_verified)
+                            @endif
+                            @if ($project->is_dooxed_kyc_verified)
                             <img src="{{ asset('assets') }}/images/icons/doxxed_kyc_badge.png" height="30" alt="">
                             @endif
-
                         </div>
                     </div>
                     <div class="d-flex mt-4">
@@ -144,6 +141,12 @@
                                 <button type="submit" class="btn-theme px-5 h-46">Submit</button>
                             </div>
                         </form>
+                        <div class="alert alert-success show">
+                            <h4 class="alert-heading">Well done!</h4>
+                            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                            <hr>
+                            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -198,3 +201,8 @@
 </main>
 @include("partials.newsletter")
 @endsection
+<script>
+    $(".register-success-alert").delay(4000).slideUp(200, function() {
+        $(this).alert('close');
+    });
+</script>

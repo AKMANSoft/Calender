@@ -8,17 +8,17 @@
                 {{ $project->minting_status }}
             </p>
             <h5 class="theme-text-lg text-decoration-none text-light d-block theme-fw-700 my-2">{{ $project->name }}</h5>
-            @if ($project->is_link_verified && $project->is_dooxed_kyc_verified)
-            <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
-            <img src="{{ asset('assets') }}/images/icons/kyc_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/kyc_badge.svg" height="20" alt="">
-            @elseif ($project->is_link_verified)
-            <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="20" alt="">
-            @elseif ($project->is_dooxed_kyc_verified)
-            <img src="{{ asset('assets') }}/images/icons/kyc_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/kyc_badge.svg" height="20" alt="">
+
+            @if ($project->is_link_verified)
+            <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Links Verified" data-bs-custom-class="verification-tooltip" height="20" alt="">
+            @endif
+            @if ($project->is_dooxed_kyc_verified)
+            <img src="{{ asset('assets') }}/images/icons/kyc_icon.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Doxxed KYC Verified" data-bs-custom-class="verification-tooltip kyc" height="20" alt="">
             @endif
         </div>
         <div class="mt-2">
-            <p class="theme-text-body text-light-80">Public-sale:
+            <p class="theme-text-body text-light-80">
+                Public-sale:
                 {{ date('d M Y', strtotime($project->pre_sale_date)) }}
             </p>
             <div class="mt-2 row gx-2 align-items-center">
@@ -33,17 +33,10 @@
 
 @section('custom-script')
 <script>
-    document.querySelectorAll(".change-on-hover").forEach((el) => {
-        let originalSrc = el.src;
-        let originalHeight = el.height;
-        el.addEventListener("mouseenter", () => {
-            el.src = el.getAttribute("hover-src");
-            el.height = el.getAttribute("hover-height")
-        })
-        el.addEventListener("mouseleave", () => {
-            el.src = originalSrc;
-            el.height = originalHeight;
-        })
-    })
+    $(document).ready(function() {
+        $("body").tooltip({
+            selector: '[data-bs-toggle=tooltip]'
+        });
+    });
 </script>
 @endsection

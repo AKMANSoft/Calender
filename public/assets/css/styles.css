@@ -2291,7 +2291,7 @@ progress {
 }
 
 
-.form-control-image.active{
+.form-control-image.active {
     background: rgba(255, 255, 255, 0.1);
 }
 
@@ -13446,3 +13446,59 @@ input[type=number] {
 
 
 /*# sourceMappingURL=styles.css.map */
+
+
+
+.pagination {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    width: auto;
+}
+
+.pagination .page-item .page-link {
+    background: transparent;
+    border: none;
+    color: white;
+    box-shadow: none;
+    padding: 10px 20px;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: gray;
+}
+
+.pagination .page-item.active {
+    background: rgba(33, 27, 46, 1);
+}
+
+.pagination .page-item:hover {
+    background: rgba(33, 27, 46, .5);
+}
+
+
+
+
+
+.verification-tooltip .tooltip-inner {
+    background-color: rgba(111, 207, 151, 1) !important;
+    color: black !important;
+    border-radius: 70px;
+    font-weight: bold !important;
+    padding: 5px 15px;
+}
+
+.verification-tooltip.show {
+    opacity: 1 !important;
+}
+
+.verification-tooltip .tooltip-arrow::before {
+    border-top-color: rgba(111, 207, 151, 1) !important;
+}
+
+.verification-tooltip.kyc .tooltip-inner {
+    background-color: rgba(242, 201, 76, 1) !important;
+}
+
+.verification-tooltip.kyc .tooltip-arrow::before {
+    border-top-color: rgba(242, 201, 76, 1) !important;
+}

@@ -267,6 +267,7 @@
                 </div>
             </li>
 
+
             <li class="dropdown notification-list topbar-dropdown">
                 <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <img src="{{asset('assets')}}/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
@@ -325,6 +326,19 @@
         </ul>
 
         <ul class="list-unstyled topnav-menu float-end mb-0">
+
+            <li class="dropdown notification-list topbar-dropdown">
+                <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light d-flex align-items-center" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <!-- <img src="{{asset('assets')}}/images/users/user-1.jpg" alt="user-image" class="rounded-circle"> -->
+                    <span class="fe-user text-light rounded-circle fs-4 mx-2"></span>
+                    <span class="pro-user-name ms-1">
+                        Geneva <i class="mdi mdi-chevron-down"></i>
+                    </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
+
+                </div>
+            </li>
 
 
             @guest

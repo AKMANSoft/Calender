@@ -187,7 +187,7 @@
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Project description
                                                 <span class="ms-1 text-danger">*</span></label>
 
-                                            <textarea name="description" class="form-control bg-transparent theme-text-xsm shadow-none" rows={6}> {{ $project->description }} </textarea>
+                                            <textarea name="description" class="form-control bg-transparent theme-text-xsm shadow-none" rows="6"> {{ $project->description }} </textarea>
                                         </div>
                                         <div id="invalidfeedback8" class="text-danger">
                                             @error('description')
