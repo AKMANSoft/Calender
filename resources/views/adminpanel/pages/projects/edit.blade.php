@@ -307,7 +307,7 @@
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Pre-sale mint time
                                                 (Optional)</label>
-                                            <input name="pre_sale_time" value="{{ $project->pre_sale_time }}" type="time" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
+                                            <input name="pre_sale_time" value="{{ date('H:i', strtotime($project->pre_sale_time)) }}" type="time" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
                                             <div id="invalidfeedback8" class="text-danger">
                                                 @error('pre_sale_time')
                                                 {{ $message }}
@@ -346,7 +346,7 @@
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label theme-text-xsm text-light-70 mb-10">Mint time <span class="ms-1 text-danger">*</span></label>
-                                            <input name="mint_time" value="{{ $project->mint_time }}" type="time" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
+                                            <input name="mint_time" value="{{ date('H:i', strtotime($project->mint_time)) }}" type="time" class="form-control bg-transparent theme-text-xsm shadow-none" placeholder="Choose date" />
                                             <div id="invalidfeedback8" class="text-danger">
                                                 @error('mint_time')
                                                 {{ $message }}
@@ -417,7 +417,7 @@
                                 <div class="card-body">
                                     <h3 class="theme-text-lg mb-4 theme-fw-700 text-light ">
                                         Registerations
-                                        <span class="theme-text-sm theme-fw-400">(10)</span>
+                                        <span class="theme-text-sm theme-fw-400">({{sizeof($project->eventRagistrations)}})</span>
                                     </h3>
 
                                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
@@ -431,11 +431,13 @@
 
 
                                         <tbody>
+                                            @foreach ($project->eventRagistrations as $registration)
                                             <tr>
-                                                <td class="theme-text-sm theme-fw-400">wallet_address</td>
-                                                <td class="theme-text-sm theme-fw-400">username</td>
-                                                <td class="theme-text-sm theme-fw-400">email</td>
+                                                <td class="theme-text-sm theme-fw-400">{{$registration->wallet_address}}</td>
+                                                <td class="theme-text-sm theme-fw-400">{{$registration->twitter_username}}</td>
+                                                <td class="theme-text-sm theme-fw-400">{{$registration->email}}</td>
                                             </tr>
+                                            @endforeach
                                         </tbody>
 
                                     </table>

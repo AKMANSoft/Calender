@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeControler;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +26,7 @@ Route::prefix('projects')->name('projects.')->group(function () {
     Route::post('/', [App\Http\Controllers\ProjectController::class, 'store'])->name('store');
     Route::get('/create', [App\Http\Controllers\ProjectController::class, 'create'])->name('create');
     Route::get('/search', [App\Http\Controllers\ProjectController::class, 'search'])->name('search');
+    Route::get('/success', [App\Http\Controllers\ProjectController::class, 'success'])->name('success');
     Route::get('/{project}', [App\Http\Controllers\ProjectController::class, 'show'])->name('show');
 });
 
@@ -42,7 +40,7 @@ Route::prefix('payments')->name('payments.')->group(function () {
 });
 
 //admin routes
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::prefix('projects')->name('projects.')->group(function () {
         Route::get('/{status}/list', [App\Http\Controllers\Admin\ProjectController::class, 'index'])->name('index');
         Route::put('/{project}', [App\Http\Controllers\Admin\ProjectController::class, 'update'])->name('update');

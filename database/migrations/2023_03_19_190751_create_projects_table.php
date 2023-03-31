@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('chain')->nullable();
             $table->string('total_supply');
-            $table->string('description');
+            $table->longText('description');
 
             $table->string('twitter_link')->nullable();
             $table->string('discord_link')->nullable();

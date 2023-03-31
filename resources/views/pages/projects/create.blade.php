@@ -91,9 +91,9 @@
                     </div>
                     <div class="col-md-4 mb-20">
                         <label class="form-label fs-14 text-light-70 mb-10">Website Link (Optional)</label>
-                        <input value="{{ old('website_url') }}" type="url" class="form-control fs-14 shadow-none bg-transparent" pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})" placeholder="Enter URL" name="website_url" />
+                        <input value="{{ old('website_link') }}" type="url" class="form-control fs-14 shadow-none bg-transparent" pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})" placeholder="Enter URL" name="website_link" />
                         <div id="invalidfeedback3" class="text-danger">
-                            @error('website_url')
+                            @error('website_link')
                             {{ $message }}
                             @enderror
                         </div>
