@@ -47,4 +47,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get('/{project}', [App\Http\Controllers\Admin\ProjectController::class, 'show'])->name('show');
         Route::get('/{project}/edit', [App\Http\Controllers\Admin\ProjectController::class, 'edit'])->name('edit');
     });
+    Route::prefix('payments')->name('payments.')->group(function () {
+        Route::get('/', [App\Http\Controllers\Admin\PaymentController::class, 'index'])->name('index');
+    });
 });

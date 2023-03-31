@@ -59,7 +59,7 @@
                                 <div class="featured_tag bg-primary">
                                     <span class="text-light theme-text-body">{{ $project->minting_status }}</span>
                                 </div>
-                                <a href="/">
+                                <a href="{{route('projects.show', $project)}}">
                                     <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}" width="260" height="260" alt="">
                                 </a>
                                 <div class="title">
