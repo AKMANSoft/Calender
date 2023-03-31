@@ -7,8 +7,7 @@
         <div class="user-box text-center">
             <img src="assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md">
             <div class="dropdown">
-                <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block"
-                    data-bs-toggle="dropdown">Geneva Kennedy</a>
+                <a href="javascript: void(0);" class="text-dark dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown">Geneva Kennedy</a>
                 <div class="dropdown-menu user-pro-dropdown">
 
                     <!-- item-->
@@ -807,12 +806,12 @@
                 </li>
 
                 <li>
-                    <a href="#sidebarOpt1" data-bs-toggle="collapse">
+                    <a href="#sidebarServiceRequests" data-bs-toggle="collapse">
                         <i class="dripicons-document"></i>
                         <span> Services Requests </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <div class="collapse" id="sidebarOpt1">
+                    <div class="collapse" id="sidebarServiceRequests">
                         <ul class="nav-second-level">
                             <li>
                                 <a href="#">Get Gold Verification (KYC Verified)</a>
