@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\ProjectCategory;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -125,6 +126,52 @@ class ProjectController extends Controller
 
             return redirect()->back()->with(['Success'=>'Successfully updated !']);
 
+        }
+    }
+
+    public function updateOnToogle(Request $request, Project $project)
+    {
+        if ($request->ajax()) {
+            $button = $request->button;
+            switch ($button) {
+                case 'super-featured':
+                    if($project->is_super_featured){
+                        $project->is_super_featured = false;
+                    } else {
+                        $project->is_super_featured = true;
+                    }
+                    break;
+                case 'featured':
+                    if($project->is_featured){
+                        $project->is_featured = false;
+                    } else {
+                        $project->is_featured = true;
+                    }
+                    break;
+                case 'link-verified':
+                    if($project->is_link_verified){
+                        $project->is_link_verified = false;
+                    } else {
+                        $project->is_link_verified = true;
+                    }
+                    break;
+                case 'kyc-verified':
+                    if($project->is_dooxed_kyc_verified){
+                        $project->is_dooxed_kyc_verified = false;
+                    } else {
+                        $project->is_dooxed_kyc_verified = true;
+                    }
+                    break;
+                default:
+                    if($project->is_super_featured){
+                        $project->is_super_featured = false;
+                    } else {
+                        $project->is_super_featured = true;
+                    }
+                    break;
+            }
+            $project->save();
+            return response()->json(['success' => 'Status successfully updated !']);
         }
     }
 

@@ -44,6 +44,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::prefix('projects')->name('projects.')->group(function () {
         Route::get('/{status}/list', [App\Http\Controllers\Admin\ProjectController::class, 'index'])->name('index');
         Route::put('/{project}', [App\Http\Controllers\Admin\ProjectController::class, 'update'])->name('update');
+        Route::put('/toggle-buttons/{project}', [App\Http\Controllers\Admin\ProjectController::class, 'updateOnToogle'])->name('update.toggle');
         Route::get('/{project}', [App\Http\Controllers\Admin\ProjectController::class, 'show'])->name('show');
         Route::get('/{project}/edit', [App\Http\Controllers\Admin\ProjectController::class, 'edit'])->name('edit');
     });
