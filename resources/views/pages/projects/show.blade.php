@@ -3,7 +3,11 @@
 <main>
     <section class="mt-80 poition-relative project-detail-profile-section">
         <div>
+            @if ($project->banner_image_path)
             <img src="{{ asset('storage') . '/' . $project->banner_image_path }}" class="banner-img" height="320" alt="">
+            @else
+            <img src="{{ asset('assets')}}/images/project_banner_image.png" class="banner-img" height="320" alt="project_banner_image">
+            @endif
         </div>
         <div class="theme-layout">
             <div class=" nft-profile ms-xl-110">
