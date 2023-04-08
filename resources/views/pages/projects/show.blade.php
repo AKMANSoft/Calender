@@ -113,40 +113,40 @@
                             <input type="hidden" name="project_id" value="{{$project->id}}">
                             <div class="w-100 mb-20">
                                 <label class="form-label fs-14 text-light-70 mb-10">Wallet address</label>
-                                <input type="text" name="wallet_address" value="{{old('wallet_address')}}" class="form-control fs-14 shadow-none" placeholder="" />
+                                <input type="text" name="wallet_address" value="{{old('wallet_address')}}" class="bg-transparent form-control fs-14 shadow-none" placeholder="" />
                                 @error('wallet_address')
                                 <p style="color: red">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="w-100 mb-20">
                                 <label class="form-label fs-14 text-light-70 mb-10">Twitter username</label>
-                                <input type="text" name="twitter_username" value="{{old('twitter_username')}}" class="form-control fs-14 shadow-none" placeholder="" />
+                                <input type="text" name="twitter_username" value="{{old('twitter_username')}}" class="bg-transparent form-control fs-14 shadow-none" placeholder="" />
                                 @error('twitter_username')
                                 <p style="color: red">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="w-100 mb-20">
                                 <label class="form-label fs-14 text-light-70 mb-10">Email</label>
-                                <input type="email" name="email" value="{{old('email')}}" class="form-control fs-14 shadow-none" placeholder="" />
+                                <input type="email" name="email" value="{{old('email')}}" class="bg-transparent form-control fs-14 shadow-none" placeholder="" />
                                 @error('email')
                                 <p style="color: red">{{$message}}</p>
                                 @enderror
                             </div>
-                            @if (\Session::has('success'))
+                            <!-- @if (\Session::has('success'))
                             <div class="alert alert-success">
                                 <p style="color: green">{!! \Session::get('success') !!}</p>
                             </div>
-                            @endif
+                            @endif -->
                             <div class="d-flex">
                                 <button type="submit" class="btn-theme px-5 h-46">Submit</button>
                             </div>
                         </form>
-                        <div class="alert alert-success show">
-                            <h4 class="alert-heading">Well done!</h4>
-                            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                            <hr>
-                            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                        @if (\Session::has('success'))
+                        <div id="register-success-alert" class="alert alert-success theme-text-sm theme-fw-400 mt-20">
+                            Thanks for getting registered. We will notify you with all the updates for this project.
                         </div>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -201,8 +201,10 @@
 </main>
 @include("partials.newsletter")
 @endsection
+@section('custom-script')
 <script>
-    $(".register-success-alert").delay(4000).slideUp(200, function() {
+    $("#register-success-alert").delay(5000).fadeOut(200, function() {
         $(this).alert('close');
     });
 </script>
+@endsection
