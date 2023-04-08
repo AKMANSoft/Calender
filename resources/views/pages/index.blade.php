@@ -59,7 +59,7 @@
                                 <div class="featured_tag bg-primary">
                                     <span class="text-light theme-text-body">{{ $project->minting_status }}</span>
                                 </div>
-                                <a href="/">
+                                <a href="{{route('projects.show', $project)}}">
                                     <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}" width="260" height="260" alt="">
                                 </a>
                                 <div class="title">
@@ -102,7 +102,7 @@
         <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Featured Projects</h3>
             <div>
-                <a href="https://commerce.coinbase.com/checkout/3afa7c3d-e230-4b2e-9840-f70deec9b4a9" class="btn-theme-secondary buy-with-crypto">
+                <a href="https://commerce.coinbase.com/checkout/183618ca-934f-40e3-b2db-5164c450eaf1" class="btn-theme-secondary buy-with-crypto">
                     Get Featured <i class="fa-solid fa-chevron-right"></i>
                 </a>
                 <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">

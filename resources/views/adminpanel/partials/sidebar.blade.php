@@ -814,19 +814,19 @@
                     <div class="collapse" id="sidebarServiceRequests">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="#">Get Gold Verification (KYC Verified)</a>
+                                <a href="{{route('admin.payments.index')}}">Get Gold Verification (KYC Verified)</a>
                             </li>
                             <li>
-                                <a href="#">Get your project featured</a>
+                                <a href="{{route('admin.payments.index')}}">Get your project featured</a>
                             </li>
                             <li>
-                                <a href="#">Purchase an article</a>
+                                <a href="{{route('admin.payments.index')}}">Purchase an article</a>
                             </li>
                             <li>
-                                <a href="#">Email blast</a>
+                                <a href="{{route('admin.payments.index')}}">Email blast</a>
                             </li>
                             <li>
-                                <a href="#">Free listing</a>
+                                <a href="{{route('admin.payments.index')}}">Free listing</a>
                             </li>
                         </ul>
                     </div>
