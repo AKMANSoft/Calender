@@ -21,17 +21,6 @@ class ProjectController extends Controller
      */
     public function search(Request $request)
     {
-        $response = Http::withToken(config('services.twitter.token'))
-            ->get("https://api.twitter.com/2/users/by/username/mianham22846878", [
-            'user.fields'=>'description',
-        ]);
-
-        if($response->successful()){
-            
-        } else {
-            Log::error('Twiiter API not working.');
-        }
-
         $request->validate([
             'keyword' => 'required'
         ]);
