@@ -31,6 +31,11 @@
                                 Minting Soon
                             </a>
                         </div>
+                        <div class="col-auto wmin-100 col-xl-6">
+                            <a href="{{route('projects.index', ['category'=>'featured', 'chain'=>$chain])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$category == 'featured' ? 'text-primary' : ''}}">
+                                Featured
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="py-20">
@@ -70,6 +75,8 @@
         </div>
     </div>
 </main>
-@include("partials.interaction", ['variant' => 'primary'])
+<div class="mt-100">
+    @include("partials.interaction", ['variant' => 'primary'])
+</div>
 @include("partials.newsletter")
 @endsection

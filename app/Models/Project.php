@@ -59,4 +59,9 @@ class Project extends Model
     {
         return $this->belongsTo(ProjectCategory::class, 'project_category_id', 'id');
     }
+
+    public function eventRagistrations()
+    {
+        return $this->hasMany(EventRegistration::class, 'project_id', 'id');
+    }
 }

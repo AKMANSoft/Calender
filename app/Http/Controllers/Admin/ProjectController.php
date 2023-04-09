@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Models\ProjectCategory;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -87,7 +88,7 @@ class ProjectController extends Controller
                 'founder_phone' => 'nullable',
             ]);
 
-            $inputs = $request->except(['_method', '_token', 'mint_time']);
+            $inputs = $request->except(['_method', '_token']);
 
             if($request->hasFile('profile_image_path')){
                 $profileImage = $request->file('profile_image_path');
@@ -118,13 +119,59 @@ class ProjectController extends Controller
                 $inputs['is_dooxed_kyc_verified'] = $request->input('is_dooxed_kyc_verified') == "on" ? true : false;
             }
 
-            // $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date']. ' ' . $inputs['mint_time']);
-            // $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date']. ' ' . $inputs['pre_sale_time']);
+            $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date']. ' ' . $inputs['mint_time']);
+            $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date']. ' ' . $inputs['pre_sale_time']);
 
             Project::where('id', $project->id)->update($inputs);
 
             return redirect()->back()->with(['Success'=>'Successfully updated !']);
 
+        }
+    }
+
+    public function updateOnToogle(Request $request, Project $project)
+    {
+        if ($request->ajax()) {
+            $button = $request->button;
+            switch ($button) {
+                case 'super-featured':
+                    if($project->is_super_featured){
+                        $project->is_super_featured = false;
+                    } else {
+                        $project->is_super_featured = true;
+                    }
+                    break;
+                case 'featured':
+                    if($project->is_featured){
+                        $project->is_featured = false;
+                    } else {
+                        $project->is_featured = true;
+                    }
+                    break;
+                case 'link-verified':
+                    if($project->is_link_verified){
+                        $project->is_link_verified = false;
+                    } else {
+                        $project->is_link_verified = true;
+                    }
+                    break;
+                case 'kyc-verified':
+                    if($project->is_dooxed_kyc_verified){
+                        $project->is_dooxed_kyc_verified = false;
+                    } else {
+                        $project->is_dooxed_kyc_verified = true;
+                    }
+                    break;
+                default:
+                    if($project->is_super_featured){
+                        $project->is_super_featured = false;
+                    } else {
+                        $project->is_super_featured = true;
+                    }
+                    break;
+            }
+            $project->save();
+            return response()->json(['success' => 'Status successfully updated !']);
         }
     }
 
