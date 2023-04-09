@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->json('coinbase_response')->nullable();
+            $table->string('charge_name')->nullable();
+            $table->string('charge_email')->nullable();
+            $table->string('charge_phone')->nullable();
+            $table->string('customer_name')->nullable();
+            $table->string('customer_email')->nullable();
+            $table->string('customer_phone')->nullable();
+            $table->string('checkout_id')->nullable();
+            $table->decimal('amount', $precision = 8, $scale = 2)->nullable();
             $table->timestamps();
         });
     }

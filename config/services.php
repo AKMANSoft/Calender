@@ -41,4 +41,9 @@ return [
         'secret' => env('TWITTER_API_SECRET_KEY'),
         'token' => env('TWITTER_BEARER_TOKEN'),
     ],
+
+    'coinbase-commerce' => [
+        'base_uri' => env('COINBASE_COMMERCE_BASE_URI'),
+        'key' => env('COINBASE_COMMERCE_API_KEY'),
+    ],
 ];

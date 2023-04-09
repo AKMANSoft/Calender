@@ -11,5 +11,13 @@ class Payment extends Model
 
     protected $fillable = [
         'coinbase_response',
+        'charge_name',
+        'charge_email',
+        'charge_phone',
+        'customer_name',
+        'customer_email',
+        'customer_phone',
+        'checkout_id',
+        'amount',
     ];
 }
