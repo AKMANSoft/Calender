@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ProjectCreated;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
@@ -10,6 +11,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ProjectController extends Controller
 {
@@ -18,6 +21,17 @@ class ProjectController extends Controller
      */
     public function search(Request $request)
     {
+        $response = Http::withToken(config('services.twitter.token'))
+            ->get("https://api.twitter.com/2/users/by/username/mianham22846878", [
+            'user.fields'=>'description',
+        ]);
+
+        if($response->successful()){
+            
+        } else {
+            Log::error('Twiiter API not working.');
+        }
+
         $request->validate([
             'keyword' => 'required'
         ]);
@@ -137,7 +151,9 @@ class ProjectController extends Controller
         $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date'] . ' ' . $inputs['mint_time']);
         $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date'] . ' ' . $inputs['pre_sale_time']);
 
-        Project::create($inputs);
+        $project = Project::create($inputs);
+
+        ProjectCreated::dispatch($project);
 
         return redirect()->route('projects.success');
     }

@@ -36,4 +36,9 @@ return [
         'secret' => env('GOOGLE_RECAPTCHA_SECRET_KEY'),
     ],
 
+    'twitter' => [
+        'key' => env('TWITTER_API_KEY'),
+        'secret' => env('TWITTER_API_SECRET_KEY'),
+        'token' => env('TWITTER_BEARER_TOKEN'),
+    ],
 ];

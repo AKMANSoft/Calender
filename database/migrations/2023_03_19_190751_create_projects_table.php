@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('twitter_link')->nullable();
             $table->string('discord_link')->nullable();
             $table->string('website_link')->nullable();
+            $table->string('twitter_followers')->nullable();
 
             $table->string('profile_image_path');
             $table->string('banner_image_path')->nullable();
