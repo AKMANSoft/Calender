@@ -2,6 +2,7 @@
 @section('other-css')
 <!-- Plugins css -->
 <link href="{{ asset('assets') }}/libs/glidejs/glide.min.css" rel="stylesheet" type="text/css">
+
 @endsection
 @section('content')
 <main class="mt-150">
@@ -56,9 +57,9 @@
                         <!-- NFT Slide  -->
                         <li class="glide__slide">
                             <div class="fetured_project_slider_card bg-gradient-light">
-                                <div class="featured_tag bg-primary">
+                                <!-- <div class="featured_tag bg-primary">
                                     <span class="text-light theme-text-body">{{ $project->minting_status }}</span>
-                                </div>
+                                </div> -->
                                 <a href="{{route('projects.show', $project)}}">
                                     <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}" width="260" height="260" alt="">
                                 </a>
@@ -223,13 +224,14 @@
 @endsection
 
 @section('custom-script')
-<!-- Plugins js-->
 <script src="{{ asset('assets') }}/libs/glidejs/glide.min.js"></script>
 <script>
-    new Glide('.nft-cards-carousel', {
-        type: "carousel",
-        autoplay: 2500,
-        animationDuration: 1000
-    }).mount();
+    document.addEventListener("DOMContentLoaded", () => {
+        new Glide('.nft-cards-carousel', {
+            type: "carousel",
+            autoplay: 2500,
+            animationDuration: 1000
+        }).mount();
+    })
 </script>
 @endsection

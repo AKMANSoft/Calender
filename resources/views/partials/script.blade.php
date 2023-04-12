@@ -3,8 +3,7 @@
 <script src="{{asset('assets')}}/libs/jquery/jquery.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script type="text/javascript">
-
-    function saveCoinbaseCommereceResponse(e){
+    function saveCoinbaseCommereceResponse(e) {
         $.ajax({
             method: 'POST',
             data: {
