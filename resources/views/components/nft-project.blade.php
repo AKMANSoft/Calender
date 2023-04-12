@@ -22,7 +22,10 @@
                 {{ date('d M Y', strtotime($project->pre_sale_date)) }}
             </p>
             <div class="mt-2 row gx-2 align-items-center">
-                
+                <img class="col-auto" src="{{ asset('assets') }}/images/icons/{{ $project->category->slug }}_price_icon.svg" width="12" height="20" alt="">
+                <p class="col-auto theme-text-body theme-fw-400 text-uppercase">
+                    {{ $project->pre_sale_price . ' ' . $project->category->short_name  }}
+                </p>
             </div>
         </div>
     </div>

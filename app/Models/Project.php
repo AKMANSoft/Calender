@@ -36,6 +36,7 @@ class Project extends Model
         'is_featured',
         'is_link_verified',
         'is_dooxed_kyc_verified',
+        'twitter_followers',
     ];
 
     public function getMintingStatusAttribute()

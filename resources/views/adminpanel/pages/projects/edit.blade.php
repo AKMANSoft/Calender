@@ -69,8 +69,13 @@
                     <div class="col-lg-4">
                         <div class="widget-rounded-circle card" style="min-height: 750px;">
                             <div class="banner-img">
+                                @if ($project->banner_image_path)
                                 <img src="{{ asset('storage') }}/{{ $project->banner_image_path }}" height="160"
                                     style="width: 100%; object-fit: cover; object-position: center;" alt="">
+                                @else
+                                <img src="{{ asset('assets')}}/images/project_banner_image.png" height="160"
+                                    style="width: 100%; object-fit: cover; object-position: center;" alt="">
+                                @endif
                             </div>
 
                             <form action="{{ route('admin.projects.update', $project) }}" method="POST"
@@ -123,7 +128,7 @@
                                         <div class="col row g-4 mt-3">
                                             <p class="col-auto theme-text-xsm theme-fw-400 text-light">
                                                 <i class="text-primary fa-brands fa-twitter"></i>
-                                                <span class="ms-1">Twitter (2.4K)</span>
+                                                <span class="ms-1">Twitter ({{$project->twitter_followers}})</span>
                                             </p>
                                             <p class="col-auto theme-text-xsm theme-fw-400 text-light">
                                                 <i class="text-primary fa-brands fa-discord"></i>

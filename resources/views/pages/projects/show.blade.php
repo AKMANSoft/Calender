@@ -85,7 +85,7 @@
                             <div class="col row g-0">
                                 <p class="col-auto theme-text-sm theme-fw-400 text-light">
                                     <i class="text-primary fa-brands fa-twitter"></i>
-                                    <span class="ms-2">Twitter (2.4K)</span>
+                                    <span class="ms-2">Twitter ({{$project->twitter_followers}})</span>
                                 </p>
                                 <p class="col-auto ms-4 theme-text-sm theme-fw-400 text-light">
                                     <i class="text-primary fa-brands fa-discord"></i>
