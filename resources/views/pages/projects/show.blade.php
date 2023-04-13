@@ -80,18 +80,18 @@
                                 {{$project->description}}
                             </p>
                         </div>
-                        <div class="row mt-80 align-items-center">
+                        <div class="row mt-80 align-items-center" style="overflow-x: hidden;">
                             <p class="col-3 theme-text-body theme-fw-400 text-light-70" style="max-width: 145px; min-width: 90px;">Social Profiles:</p>
-                            <div class="col row g-0">
+                            <div class="col d-flex gap-3 flex-wrap">
                                 <p class="col-auto theme-text-sm theme-fw-400 text-light">
                                     <i class="text-primary fa-brands fa-twitter"></i>
                                     <span class="ms-2">Twitter ({{$project->twitter_followers}})</span>
                                 </p>
-                                <p class="col-auto ms-4 theme-text-sm theme-fw-400 text-light">
+                                <p class="col-auto theme-text-sm theme-fw-400 text-light">
                                     <i class="text-primary fa-brands fa-discord"></i>
                                     <span class="ms-2">Discord (3.2K)</span>
                                 </p>
-                                <p class="col-auto ms-4 theme-text-sm theme-fw-400 text-light">
+                                <p class="col-auto theme-text-sm theme-fw-400 text-light">
                                     <i class="text-primary fa-solid fa-globe"></i>
                                     <span class="ms-2">Website : {{$project->website_link}}</span>
                                 </p>
