@@ -39,4 +39,18 @@
         saveCoinbaseCommereceResponse(e);
     });
 </script>
+
+<script src="{{ asset('assets') }}/libs/glidejs/glide.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        new Glide('.nft-cards-carousel', {
+            type: "carousel",
+            autoplay: 2500,
+            animationDuration: 1000
+        }).mount();
+    })
+    $("#register-success-alert").delay(5000).fadeOut(200, function() {
+        $(this).alert('close');
+    });
+</script>
 @yield('custom-script')

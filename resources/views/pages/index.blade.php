@@ -222,16 +222,3 @@
 </main>
 @include("partials.newsletter")
 @endsection
-
-@section('custom-script')
-<script src="{{ asset('assets') }}/libs/glidejs/glide.min.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        new Glide('.nft-cards-carousel', {
-            type: "carousel",
-            autoplay: 2500,
-            animationDuration: 1000
-        }).mount();
-    })
-</script>
-@endsection

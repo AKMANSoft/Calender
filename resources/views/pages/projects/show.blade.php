@@ -205,10 +205,3 @@
 </main>
 @include("partials.newsletter")
 @endsection
-@section('custom-script')
-<script>
-    $("#register-success-alert").delay(5000).fadeOut(200, function() {
-        $(this).alert('close');
-    });
-</script>
-@endsection
