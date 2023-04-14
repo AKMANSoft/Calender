@@ -19,15 +19,12 @@
                     <div class="d-flex align-items-center gap-3 flex-wrap">
                         <h3 class="col-12 col-md-auto theme-h3 theme-fw-700">{{ $project->name }}</h3>
                         <div class="col-auto d-inline-flex gap-2">
-                            @if ($project->is_link_verified && $project->is_dooxed_kyc_verified)
+                            @if ($project->is_link_verified)
                             <img src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="30" alt="">
-                            <img src="{{ asset('assets') }}/images/icons/doxxed_kyc_badge.png" height="30" alt="">
-                            @elseif ($project->is_link_verified)
-                            <img src="{{ asset('assets') }}/images/icons/verified_badge.svg" height="30" alt="">
-                            @elseif ($project->is_dooxed_kyc_verified)
+                            @endif
+                            @if ($project->is_dooxed_kyc_verified)
                             <img src="{{ asset('assets') }}/images/icons/doxxed_kyc_badge.png" height="30" alt="">
                             @endif
-
                         </div>
                     </div>
                     <div class="d-flex mt-4">
@@ -83,18 +80,18 @@
                                 {{$project->description}}
                             </p>
                         </div>
-                        <div class="row mt-80 align-items-center">
+                        <div class="row mt-80 align-items-center" style="overflow-x: hidden;">
                             <p class="col-3 theme-text-body theme-fw-400 text-light-70" style="max-width: 145px; min-width: 90px;">Social Profiles:</p>
-                            <div class="col row g-0">
+                            <div class="col d-flex gap-3 flex-wrap">
                                 <p class="col-auto theme-text-sm theme-fw-400 text-light">
                                     <i class="text-primary fa-brands fa-twitter"></i>
                                     <span class="ms-2">Twitter ({{$project->twitter_followers}})</span>
                                 </p>
-                                <p class="col-auto ms-4 theme-text-sm theme-fw-400 text-light">
+                                <p class="col-auto theme-text-sm theme-fw-400 text-light">
                                     <i class="text-primary fa-brands fa-discord"></i>
                                     <span class="ms-2">Discord (3.2K)</span>
                                 </p>
-                                <p class="col-auto ms-4 theme-text-sm theme-fw-400 text-light">
+                                <p class="col-auto theme-text-sm theme-fw-400 text-light">
                                     <i class="text-primary fa-solid fa-globe"></i>
                                     <span class="ms-2">Website : {{$project->website_link}}</span>
                                 </p>
@@ -120,34 +117,40 @@
                             <input type="hidden" name="project_id" value="{{$project->id}}">
                             <div class="w-100 mb-20">
                                 <label class="form-label fs-14 text-light-70 mb-10">Wallet address</label>
-                                <input type="text" name="wallet_address" value="{{old('wallet_address')}}" class="form-control fs-14 shadow-none" placeholder="" />
+                                <input type="text" name="wallet_address" value="{{old('wallet_address')}}" class="bg-transparent form-control fs-14 shadow-none" placeholder="" />
                                 @error('wallet_address')
                                 <p style="color: red">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="w-100 mb-20">
                                 <label class="form-label fs-14 text-light-70 mb-10">Twitter username</label>
-                                <input type="text" name="twitter_username" value="{{old('twitter_username')}}" class="form-control fs-14 shadow-none" placeholder="" />
+                                <input type="text" name="twitter_username" value="{{old('twitter_username')}}" class="bg-transparent form-control fs-14 shadow-none" placeholder="" />
                                 @error('twitter_username')
                                 <p style="color: red">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="w-100 mb-20">
                                 <label class="form-label fs-14 text-light-70 mb-10">Email</label>
-                                <input type="email" name="email" value="{{old('email')}}" class="form-control fs-14 shadow-none" placeholder="" />
+                                <input type="email" name="email" value="{{old('email')}}" class="bg-transparent form-control fs-14 shadow-none" placeholder="" />
                                 @error('email')
                                 <p style="color: red">{{$message}}</p>
                                 @enderror
                             </div>
-                            @if (\Session::has('success'))
+                            <!-- @if (\Session::has('success'))
                             <div class="alert alert-success">
                                 <p style="color: green">{!! \Session::get('success') !!}</p>
                             </div>
-                            @endif
+                            @endif -->
                             <div class="d-flex">
                                 <button type="submit" class="btn-theme px-5 h-46">Submit</button>
                             </div>
                         </form>
+                        @if (\Session::has('success'))
+                        <div id="register-success-alert" class="alert alert-success theme-text-sm theme-fw-400 mt-20">
+                            Thanks for getting registered. We will notify you with all the updates for this project.
+                        </div>
+                        @endif
+
                     </div>
                 </div>
             </div>

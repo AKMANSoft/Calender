@@ -60,3 +60,30 @@ input.bg-transparent:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
     -webkit-text-fill-color: #ffffff;
 }
+
+
+.pagination {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    width: auto;
+}
+
+.pagination .page-item .page-link {
+    background: transparent;
+    border: none;
+    color: white;
+    box-shadow: none;
+    padding: 10px 20px;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: gray;
+}
+
+.pagination .page-item.active {
+    background: rgba(33, 27, 46, 1);
+}
+
+.pagination .page-item:hover {
+    background: rgba(33, 27, 46, .5);
+}

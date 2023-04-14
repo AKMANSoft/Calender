@@ -3,8 +3,7 @@
 <script src="{{asset('assets')}}/libs/jquery/jquery.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script type="text/javascript">
-
-    function saveCoinbaseCommereceResponse(e){
+    function saveCoinbaseCommereceResponse(e) {
         $.ajax({
             method: 'POST',
             data: {
@@ -38,6 +37,20 @@
     BuyWithCrypto.registerCallback('onPaymentDetected', function(e) {
         // Payment has been detected but not yet confirmed
         saveCoinbaseCommereceResponse(e);
+    });
+</script>
+
+<script src="{{ asset('assets') }}/libs/glidejs/glide.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        new Glide('.nft-cards-carousel', {
+            type: "carousel",
+            autoplay: 2500,
+            animationDuration: 1000
+        }).mount();
+    })
+    $("#register-success-alert").delay(5000).fadeOut(200, function() {
+        $(this).alert('close');
     });
 </script>
 @yield('custom-script')

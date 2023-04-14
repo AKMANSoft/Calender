@@ -14,9 +14,35 @@
                         <img src="/assets/images/icons/verified_icon.svg" height="20" alt="" class="col-auto" />
                     </div>
                     <h3 class="fs-32 fw-bold text-primary pt-20 pb-30 border-bottom border-1 border-muted">Free</h3>
+                    <p class="mt-3 theme-text-body theme-fw-400 text-light">For FREE Project Verification, you must complete ALL of the following:</p>
                     <ul class='pt-20 list-group'>
-                        <li class="text-light mb-3">Please provide text to be written here. the process the avail this
-                            verification</li>
+                        <li class="text-light mb-3 d-flex theme-text-sm p-0" style="gap: 10px; list-style: none;">
+                            <span class="bg-light-30 theme-fw-700 mt-1 text-center rounded-circle d-inline-block" style="line-height: 24px; aspect-ratio: 1; min-width: 24px; height: 24px;">
+                                1
+                            </span>
+                            <span class="theme-fw-400">
+                                <span class="theme-fw-700">Verify Twitter.</span>
+                                Follow @moonlanding_m on Twitter, and DM us to confirm.
+                            </span>
+                        </li>
+                        <li class="text-light mb-3 d-flex theme-text-sm p-0" style="gap: 10px; list-style: none;">
+                            <span class="bg-light-30 theme-fw-700 mt-1 text-center rounded-circle d-inline-block" style="line-height: 24px; aspect-ratio: 1; min-width: 24px; height: 24px;">
+                                2
+                            </span>
+                            <span class="theme-fw-400">
+                                <span class="theme-fw-700">Verify Website.</span>
+                                Post this small image in you website's footer or other, hyperlinking back to https://moonlanding.media/.
+                            </span>
+                        </li>
+                        <li class="text-light mb-3 d-flex theme-text-sm p-0" style="gap: 10px; list-style: none;">
+                            <span class="bg-light-30 theme-fw-700 mt-1 text-center rounded-circle d-inline-block" style="line-height: 24px; aspect-ratio: 1; min-width: 24px; height: 24px;">
+                                3
+                            </span>
+                            <span class="theme-fw-400">
+                                <span class="theme-fw-700">Verify Collab.</span>
+                                Post a tweet announcing you have just submitted your project on @moonlanding_m upcoming NFT calendar, sharing the good news with your community.
+                            </span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -25,7 +51,7 @@
             <div class="d-flex flex-column justify-content-between bg-white-10 p-30 rounded-3 h-100" style="min-height: 360px">
                 <div>
                     <div class='row align-items-center gx-3 pb-3 border-bottom border-1 border-muted'>
-                        <p class="text-light col-auto">Free low level verification</p>
+                        <p class="text-light col-auto">KYC Verified</p>
                         <img src="/assets/images/icons/kyc_badge.svg" height="30" alt="" class="col-auto" />
                     </div>
                     <h3 class="fs-32 fw-bold text-primary pt-20 pb-30 border-bottom border-1 border-muted">1.0 ETH</h3>

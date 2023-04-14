@@ -28,4 +28,12 @@
             </div>
         </div>
     </div>
+    <div class="d-flex flex-column p-5 px-60-auto max-1440 mx-auto">
+        <p class="theme-text-sm theme-fw-700 text-light mb-3">Disclaimer:</p>
+        <p class="theme-text-sm theme-fw-400 text-light-60">
+            All investment or financial opinions expressed or listed by/on MoonLanding Media are not recommendations and are intended for entertainment purposes only. Do your own research prior to making any kind of investment.
+            <br><br>
+            All articles have been generated based on trending topics, project listings published by the founders directly, and neither have been fact checked and may contain incorrect information. Please verify all information before relying on it. MoonLanding accepts no liability of any sorts.
+        </p>
+    </div>
 </footer>

@@ -69,7 +69,9 @@
                         <p class="text-center mt-4">No project to show yet in <br /> this category</p>
                     </div>
                     @endforelse
-                    {{ $projects->links('pagination::bootstrap-4') }}
+                    <div class="d-flex align-items-center justify-content-center mt-60">
+                        {{ $projects->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
             </div>
         </div>
