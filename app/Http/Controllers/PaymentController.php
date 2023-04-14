@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\PaymentProcessed;
 use App\Http\Requests\StorePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
 use App\Models\Payment;
@@ -30,9 +31,10 @@ class PaymentController extends Controller
     public function store(StorePaymentRequest $request)
     {
         if($request->ajax()){
-            Payment::create([
+            $payment = Payment::create([
                 'coinbase_response'=>json_encode($request->response),
             ]);
+            PaymentProcessed::dispatch($payment);
             return response()->json(['success' => 'Status successfully Saved !']);
         }
     }
