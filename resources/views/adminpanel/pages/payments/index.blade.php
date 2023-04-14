@@ -45,7 +45,6 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Amount Paid</th>
-                                        <th>Coinbase Response</th>
                                         <th>Date & Time</th>
                                     </tr>
                                 </thead>
@@ -54,14 +53,14 @@
                                     @foreach ($payments as $payment)
 
                                     <tr>
-                                        <td>--</td>
-                                        <td>--</td>
-                                        <td>--</td>
-                                        @if (json_decode($payment->coinbase_response)->event == 'charge_failed')
+                                        <td>{{$payment->charge_name}}</td>
+                                        <td>{{$payment->charge_email}}</td>
+                                        <td>{{$payment->amount}}</td>
+                                        {{-- @if (json_decode($payment->coinbase_response)->event == 'charge_failed')
                                         <td style="color: red">{{$payment->coinbase_response}}</td>
                                         @else
                                         <td>{{$payment->coinbase_response}}</td>
-                                        @endif
+                                        @endif --}}
                                         <td>{{$payment->created_at}}</td>
                                     </tr>
                                     @endforeach

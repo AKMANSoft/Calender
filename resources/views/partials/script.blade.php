@@ -31,7 +31,7 @@
 
     BuyWithCrypto.registerCallback('onFailure', function(e) {
         // Charge failed
-        saveCoinbaseCommereceResponse(e);
+        console.log('payment failed or canceled ..');
     });
 
     BuyWithCrypto.registerCallback('onPaymentDetected', function(e) {
