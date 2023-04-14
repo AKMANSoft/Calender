@@ -63,7 +63,7 @@
                             <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'avalanche'])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'avalanche' ? 'text-primary' : ''}}">Avalanche</a>
                         </div>
                         <div class="col-auto wmin-100 col-xl-6">
-                            <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'bnb'])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'bnb-chain' ? 'text-primary' : ''}}">BNB Chain</a>
+                            <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'bnb-chain'])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'bnb-chain' ? 'text-primary' : ''}}">BNB Chain</a>
                         </div>
                         <div class="col-auto wmin-100 col-xl-6">
                             <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'klaytn'])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'klaytn' ? 'text-primary' : ''}}">Klaytn</a>
