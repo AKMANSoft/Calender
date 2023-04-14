@@ -56,6 +56,21 @@
                         <div class="col-auto wmin-100 col-xl-6">
                             <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'polygon'])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'polygon' ? 'text-primary' : ''}}">Polygon</a>
                         </div>
+                        <div class="col-auto wmin-100 col-xl-6">
+                            <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'arbitrum'])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'arbitrum' ? 'text-primary' : ''}}">Arbitrum</a>
+                        </div>
+                        <div class="col-auto wmin-100 col-xl-6">
+                            <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'avalanche'])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'avalanche' ? 'text-primary' : ''}}">Avalanche</a>
+                        </div>
+                        <div class="col-auto wmin-100 col-xl-6">
+                            <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'bnb'])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'bnb' ? 'text-primary' : ''}}">BNB</a>
+                        </div>
+                        <div class="col-auto wmin-100 col-xl-6">
+                            <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'klaytn'])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'klaytn' ? 'text-primary' : ''}}">Klaytn</a>
+                        </div>
+                        <div class="col-auto wmin-100 col-xl-6">
+                            <a href="{{route('projects.index', ['category'=>$category, 'chain'=>'optimism'])}}" class="btn theme-text-sm p-10 w-100 bg-light-10 rounded-pill text-uppercase {{$chain == 'optimism' ? 'text-primary' : ''}}">Optimism</a>
+                        </div>
                     </div>
                 </div>
             </div>
