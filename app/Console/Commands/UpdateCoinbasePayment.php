@@ -1,30 +1,34 @@
 <?php
 
-namespace App\Listeners;
+namespace App\Console\Commands;
 
-use App\Events\PaymentProcessed;
 use App\Models\Payment;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
-class FetchPaymentDetailCoinbaseCommerce
+class UpdateCoinbasePayment extends Command
 {
     /**
-     * Create the event listener.
+     * The name and signature of the console command.
+     *
+     * @var string
      */
-    public function __construct()
-    {
-        //
-    }
+    protected $signature = 'app:update-coinbase-payment';
 
     /**
-     * Handle the event.
+     * The console command description.
+     *
+     * @var string
      */
-    public function handle(PaymentProcessed $event): void
+    protected $description = 'Update Coinbase payment in DB.';
+
+    /**
+     * Execute the console command.
+     */
+    public function handle(): void
     {
-        $payment = Payment::find($event->payment->id);
+        $payment = Payment::find(1);
         if (!is_null($payment->coinbase_response)) {
             $chargeCode = json_decode($payment->coinbase_response)->code;
 
