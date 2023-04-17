@@ -11,17 +11,20 @@
         </form>
     </div>
     <section>
-        <div class="d-flex gap-40 flex-wrap">
+        <div class="row" style="row-gap: 40px;">
             @forelse ($projects as $project)
-            <x-nft-project class="col-md-6" :project=$project />
+            <x-nft-project class="col-12 col-xl-4 col-lg-6" :project=$project />
             @empty
             <div class="d-flex py-5 w-100 flex-column align-items-center justify-content-center" style="height: 500px;">
                 <img src="{{ asset('assets') }}/images/icons/no_projects_icon.svg" width="103" height="115" alt="">
                 <p class="text-center mt-4">No project to show yet in <br /> this category</p>
             </div>
             @endforelse
-            {{ $projects->links('pagination::bootstrap-4') }}
+            <div class="d-flex align-items-center justify-content-center mt-60">
+                {{ $projects->links('pagination::bootstrap-4') }}
+            </div>
         </div>
+
         <!-- No Result Found -->
         <!-- <div class="d-flex w-100 text-center align-items-center justify-content-center" style="height: 300px;">
                     <h2 class="theme-h2 text-light-70 theme-fw-700">No result found for <br /> “herman”</h2>
