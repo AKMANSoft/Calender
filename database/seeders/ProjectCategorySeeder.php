@@ -28,5 +28,25 @@ class ProjectCategorySeeder extends Seeder
         ProjectCategory::create(
             ['name' => 'Polygon', 'short_name' => 'MATIC', 'slug' => 'polygon'],
         );
+
+        ProjectCategory::create(
+            ['name' => 'Arbitrum', 'short_name' => 'ARB', 'slug' => 'arbitrum'],
+        );
+
+        ProjectCategory::create(
+            ['name' => 'Avalanche', 'short_name' => 'AVAX', 'slug' => 'avalanche'],
+        );
+
+        ProjectCategory::create(
+            ['name' => 'BNB Chain', 'short_name' => 'BNB', 'slug' => 'bnb-chain'],
+        );
+
+        ProjectCategory::create(
+            ['name' => 'Klaytn', 'short_name' => 'KLAY', 'slug' => 'klaytn'],
+        );
+
+        ProjectCategory::create(
+            ['name' => 'Optimism', 'short_name' => 'OP', 'slug' => 'optimism'],
+        );
     }
 }
