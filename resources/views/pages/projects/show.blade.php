@@ -80,7 +80,7 @@
                                 {{$project->description}}
                             </p>
                         </div>
-                        <div class="row mt-80 align-items-center" style="overflow-x: hidden;">
+                        <div class="row mt-80 align-items-center">
                             <p class="col-3 theme-text-body theme-fw-400 text-light-70" style="max-width: 145px; min-width: 90px;">Social Profiles:</p>
                             <div class="col d-flex gap-3 flex-wrap">
                                 <p class="col-auto theme-text-sm theme-fw-400 text-light">
@@ -91,9 +91,9 @@
                                     <i class="text-primary fa-brands fa-discord"></i>
                                     <span class="ms-2">Discord (3.2K)</span>
                                 </p>
-                                <p class="col-auto theme-text-sm theme-fw-400 text-light">
+                                <p class="col-auto theme-text-sm theme-fw-400 text-light" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                     <i class="text-primary fa-solid fa-globe"></i>
-                                    <span class="ms-2">Website : {{$project->website_link}}</span>
+                                    <span class="ms-2">Website : <a href="{{$project->website_link}}" target="_blank" class="text-light">{{$project->website_link}}</a></span>
                                 </p>
                             </div>
                         </div>
@@ -157,7 +157,7 @@
         </div>
     </section>
     <section class="max-1440 px-60-auto mx-auto mb-80 mt-100">
-        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
+        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between align-items-start align-items-md-center pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Featured Projects</h3>
             <div>
                 <a href="{{ route('projects.index', 'featured') }}" class="btn-theme-secondary">
@@ -166,9 +166,9 @@
             </div>
         </div>
         <div class="mt-40">
-            <div class="d-flex gap-40 flex-wrap">
+            <div class="row" style="row-gap: 40px;">
                 @forelse ($featuredProjects as $project)
-                <x-nft-project :project=$project />
+                <x-nft-project class="col-12 col-xl-4 col-lg-6" :project=$project />
                 @empty
                 <div class="d-flex py-5 w-100 flex-column align-items-center justify-content-center">
                     <img src="{{asset('assets')}}/images/icons/no_projects_icon.svg" width="103" height="115" alt="">
@@ -180,7 +180,7 @@
         </div>
     </section>
     <section class="max-1440 px-60-auto mx-auto mb-80 mt-100">
-        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
+        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between align-items-start align-items-md-center pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Minting Soon</h3>
             <div>
                 <a href="{{ route('projects.index', 'minging soon') }}" class="btn-theme-secondary">
@@ -189,9 +189,9 @@
             </div>
         </div>
         <div class="mt-40">
-            <div class="d-flex gap-40 flex-wrap">
+            <div class="row" style="row-gap: 40px;">
                 @forelse ($mintingSoonProjects as $project)
-                <x-nft-project :project=$project />
+                <x-nft-project class="col-12 col-xl-4 col-lg-6" :project=$project />
                 @empty
                 <div class="d-flex py-5 w-100 flex-column align-items-center justify-content-center">
                     <img src="{{asset('assets')}}/images/icons/no_projects_icon.svg" width="103" height="115" alt="">

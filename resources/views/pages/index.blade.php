@@ -74,8 +74,8 @@
                                     <img src="{{ asset('assets') }}/images/icons/kyc_icon.svg" class="change-on-hover" hover-height="30" hover-src="{{ asset('assets') }}/images/icons/kyc_badge.svg" height="20" alt="">
                                     @endif
                                 </div>
-                                <div class="theme-text-body d-flex align-items-center justify-content-center gap-4 mt-2">
-                                    <span class="text-yellow theme-fw-600">Coming Soon </span>
+                                <div class="theme-text-body d-flex align-items-center flex-wrap justify-content-center mt-2" style="column-gap: 24px;">
+                                    <span class="text-yellow theme-fw-600">Coming Soon</span>
                                     <span class="theme-fw-400">Public-sale:
                                         {{ date('d M Y', strtotime($project->pre_sale_date)) }}</span>
                                 </div>
@@ -100,20 +100,18 @@
         </div>
     </section>
     <section class="max-1440 px-60-auto mx-auto mb-80 mt-100">
-        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
+        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between align-items-start align-items-md-center pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Featured Projects</h3>
             <div>
-                <a href="https://commerce.coinbase.com/checkout/183618ca-934f-40e3-b2db-5164c450eaf1" class="btn-theme-secondary buy-with-crypto">
+                <a href="{{ route('projects.index', 'featured') }}" class="btn-theme-secondary">
                     Get Featured <i class="fa-solid fa-chevron-right"></i>
                 </a>
-                <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">
-                </script>
             </div>
         </div>
         <div class="mt-40">
-            <div class="d-flex gap-40 flex-wrap">
+            <div class="row" style="row-gap: 40px;">
                 @forelse ($featuredProjects as $project)
-                <x-nft-project :project=$project />
+                <x-nft-project class="col-12 col-xl-4 col-lg-6" :project=$project />
                 @empty
                 <div class="d-flex py-5 w-100 flex-column align-items-center justify-content-center">
                     <img src="{{asset('assets')}}/images/icons/no_projects_icon.svg" width="103" height="115" alt="">
@@ -126,7 +124,7 @@
     </section>
     @include("partials.interaction", ['variant' => 'primary'])
     <section class="max-1440 px-60-auto mx-auto mb-80 mt-80">
-        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
+        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between align-items-start align-items-md-center pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Most Popular</h3>
             <div>
                 <a href="{{ route('projects.index', 'most popular') }}" class="btn-theme-secondary">
@@ -135,9 +133,9 @@
             </div>
         </div>
         <div class="mt-40">
-            <div class="d-flex gap-40 flex-wrap">
+            <div class="row" style="row-gap: 40px;">
                 @forelse ($popularProjects as $project)
-                <x-nft-project :project=$project />
+                <x-nft-project class="col-12 col-xl-4 col-lg-6" :project=$project />
                 @empty
                 <div class="d-flex py-5 w-100 flex-column align-items-center justify-content-center">
                     <img src="{{asset('assets')}}/images/icons/no_projects_icon.svg" width="103" height="115" alt="">
@@ -148,7 +146,7 @@
         </div>
     </section>
     <section class="max-1440 px-60-auto mx-auto mb-80 mt-100">
-        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
+        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between align-items-start align-items-md-center pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Upcoming</h3>
             <div>
                 <a href="{{ route('projects.index', 'upcoming') }}" class="btn-theme-secondary">
@@ -159,7 +157,7 @@
         <div class="mt-40">
             <div class="d-flex gap-40 flex-wrap">
                 @forelse ($upcomingProjects as $project)
-                <x-nft-project :project=$project />
+                <x-nft-project class="col-12 col-xl-4 col-lg-6" :project=$project />
                 @empty
                 <div class="d-flex py-5 w-100 flex-column align-items-center justify-content-center">
                     <img src="{{asset('assets')}}/images/icons/no_projects_icon.svg" width="103" height="115" alt="">
@@ -171,7 +169,7 @@
     </section>
     @include("partials.interaction", ['variant' => 'secondary'])
     <section class="max-1440 px-60-auto mx-auto mb-80 mt-100">
-        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between pb-20 border-bottom-muted">
+        <div class="d-flex gap-3 flex-column flex-md-row justify-content-between align-items-start align-items-md-center pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Verified</h3>
             <div>
                 <a href="{{ route('projects.index', 'verified') }}" class="btn-theme-secondary">
@@ -180,9 +178,9 @@
             </div>
         </div>
         <div class="mt-40">
-            <div class="d-flex gap-40 flex-wrap">
+            <div class="row" style="row-gap: 40px;">
                 @forelse ($popularProjects as $project)
-                <x-nft-project :project=$project />
+                <x-nft-project class="col-12 col-xl-4 col-lg-6" :project=$project />
                 @empty
                 <div class="d-flex py-5 w-100 flex-column align-items-center justify-content-center">
                     <img src="{{asset('assets')}}/images/icons/no_projects_icon.svg" width="103" height="115" alt="">

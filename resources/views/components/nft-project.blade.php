@@ -1,4 +1,4 @@
-<div {{ $attributes->merge(['class' => 'col-auto d-flex']) }}>
+<div {{ $attributes->merge(['class' => 'd-flex px-3']) }}>
     <a href="{{route('projects.show', $project)}}">
         <img src="{{ asset('storage') }}/{{ $project->profile_image_path }}" class="nft-project-item-img" alt="">
     </a>
@@ -7,7 +7,9 @@
             <p class="theme-text-body mt-3">
                 {{ $project->minting_status }}
             </p>
-            <h5 class="theme-text-lg text-decoration-none text-light d-block theme-fw-700 my-2">{{ $project->name }}</h5>
+            <h5 class="theme-text-lg text-decoration-none text-light d-block theme-fw-700 my-2" style="max-width: 80%; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                {{ $project->name }}
+            </h5>
 
             @if ($project->is_link_verified)
             <img src="{{ asset('assets') }}/images/icons/verified_icon.svg" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Links Verified" data-bs-custom-class="verification-tooltip" height="20" alt="">
