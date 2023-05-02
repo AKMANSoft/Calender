@@ -19,7 +19,7 @@
     <div class="bg-secondary-5">
         <div class="max-1440 mx-auto d-flex flex-column flex-md-row gap-4 align-items-center justify-content-between mt-5 px-60-auto py-35">
             <div class='col-auto'>
-                <span class='text-muted col'>© tagDiv. All rights reserved. Moonlanding Media</span>
+                <span class='text-muted col'>© All rights reserved. Moonlanding Media</span>
             </div>
             <div class="d-flex col justify-content-end gap-4 gap-lg-5">
                 <a href="#"><i class="fa-brands fa-twitter text-muted"></i></a>
@@ -30,10 +30,10 @@
     </div>
     <div class="d-flex flex-column p-5 px-60-auto max-1440 mx-auto">
         <p class="theme-text-sm theme-fw-700 text-light mb-3">Disclaimer:</p>
-        <p class="theme-text-sm theme-fw-400 text-light-60">
-            All investment or financial opinions expressed or listed by/on MoonLanding Media are not recommendations and are intended for entertainment purposes only. Do your own research prior to making any kind of investment.
+        <p class="theme-text-sm theme-fw-400 text-light-60" style=" font-size: 12px !important;">
+            All investment or financial opinions expressed or listed on or by MoonLanding Media are not recommendations nor advice, are opinions only, and are intended for entertainment purposes only. Do your own research prior to making any kind of investment.
             <br><br>
-            All articles have been generated based on trending topics, project listings published by the founders directly, and neither have been fact checked and may contain incorrect information. Please verify all information before relying on it. MoonLanding accepts no liability of any sorts.
+            All listed projects and their descriptions have been provided by the project teams themselves, are likely to be bias, and are not edited or endorsed by MoonLanding Media in any way. Neither articles nor listings have been fact checked and may contain incorrect information. Please verify all information before relying on it. Use at your own risk. MoonLanding accepts no liability of any sorts.
         </p>
     </div>
 </footer>

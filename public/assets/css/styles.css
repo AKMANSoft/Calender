@@ -13508,3 +13508,8 @@ input[type=number] {
 .verification-tooltip.kyc .tooltip-arrow::before {
     border-top-color: rgba(242, 201, 76, 1) !important;
 }
+
+
+.buy-with-crypto.text-left>span {
+    text-align: left !important;
+}

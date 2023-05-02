@@ -9,10 +9,16 @@
 @endsection
 @section('content')
 <main class="mx-auto mt-150 px-60-auto mb-100" style="max-width: 1220px;">
+
+
+
     <div>
         <h1 class="fs-1 fw-bold mb-3">Submit a project</h1>
         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p> -->
     </div>
+    @if($errors->has('error'))
+    <div class="alert alert-danger" id="error_alert">{{ $errors->first('error') }}</div>
+    @endif
     <div class="mt-100">
         <!-- Project Info Section -->
         <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data" action="{{ route('projects.store') }}">
@@ -269,13 +275,14 @@
             </div>
             <!-- Verification Badge -->
             <div class="">
-                <div class="mt-50 mb-20">
+                
+                <!-- <div class="mt-50 mb-20">
                     <h3 class="fs-30 fw-bold">Verification Badge</h3>
                     <p class="fs-14">
                         To avail the verification badge, we will ask you to DM us on twitter and also add our logo to
                         your website. after you submit your project.
                     </p>
-                </div>
+                </div> -->
                 @if (config('services.recaptcha.key'))
                 <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.key') }}">
                 </div>
@@ -314,6 +321,11 @@
 <!-- App js -->
 <script src="{{ asset('assets') }}/js/app.min.js"></script>
 <script type="text/javascript">
+    $("#error_alert").delay(5000).fadeOut(200, function() {
+        $(this).alert('close');
+    });
+
+
     document.querySelectorAll(".form-control-image-container").forEach((container) => {
         container.addEventListener("click", () => container.querySelector("input").click())
         let imgInput = container.querySelector("input");

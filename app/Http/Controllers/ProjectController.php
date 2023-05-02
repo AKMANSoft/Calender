@@ -126,25 +126,33 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $inputs = $request->input();
-
-        $profileImage = $request->file('profile_image_path');
-        $profileImagePath = $profileImage->store('images/projects', 'public');
-        $inputs['profile_image_path'] = $profileImagePath;
-        if ($request->hasFile('banner_image_path')) {
-            $profileImage = $request->file('banner_image_path');
+        try {
+            $inputs = $request->input();
+            $profileImage = $request->file('profile_image_path');
             $profileImagePath = $profileImage->store('images/projects', 'public');
-            $inputs['banner_image_path'] = $profileImagePath;
+            $inputs['profile_image_path'] = $profileImagePath;
+            if ($request->hasFile('banner_image_path')) {
+                $profileImage = $request->file('banner_image_path');
+                $profileImagePath = $profileImage->store('images/projects', 'public');
+                $inputs['banner_image_path'] = $profileImagePath;
+            }
+
+            $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date'] . ' ' . $inputs['mint_time']);
+            if($inputs['pre_sale_time']==null){
+                $inputs['pre_sale_time'] = null;
+            }else{
+                $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date'] . ' ' . $inputs['pre_sale_time']);
+            }
+            
+
+            $project = Project::create($inputs);
+
+            ProjectCreated::dispatch($project);
+
+            return redirect()->route('projects.success');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => 'Submission error - Please check and fix your details']);
         }
-
-        $inputs['mint_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['mint_date'] . ' ' . $inputs['mint_time']);
-        $inputs['pre_sale_time'] = Carbon::createFromFormat('Y-m-d H:i', $inputs['pre_sale_date'] . ' ' . $inputs['pre_sale_time']);
-
-        $project = Project::create($inputs);
-
-        ProjectCreated::dispatch($project);
-
-        return redirect()->route('projects.success');
     }
 
     /**
@@ -152,7 +160,7 @@ class ProjectController extends Controller
      */
     public function show(Request $request, Project $project)
     {
-        if($project->status == 'published'){
+        if ($project->status == 'published') {
             $featuredProjects = Project::where('is_featured', true)->where('status', 'published')->orderBy('id', 'ASC')->get()->take(6);
             $mintingSoonProjects = Project::where('status', 'published')->where('mint_time', '>=', Carbon::now())
                 ->where('mint_time', '<=', Carbon::now()->addWeek(1))

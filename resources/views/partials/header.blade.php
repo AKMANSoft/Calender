@@ -24,11 +24,44 @@
                             <i class='fa-solid fa-chevron-right'></i>
                         </span>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item py-2" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">Get Gold Verification (KYC Verified)</a></li>
-                            <li><a class="dropdown-item py-2" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">Get your project featured</a></li>
-                            <li><a class="dropdown-item py-2" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">Purchase an article</a></li>
-                            <li><a class="dropdown-item py-2" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">Email blast</a></li>
-                            <li><a class="dropdown-item py-2" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">Free Listing</a></li>
+
+
+                            <li><a class="buy-with-crypto text-left dropdown-item py-2" style="background: none !important;" href="https://commerce.coinbase.com/checkout/67b9e57d-5580-4211-bb2c-70698bed78d0">
+                                    Get Gold Verification (KYC Verified)
+                                </a>
+                                <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">
+                                </script>
+                            </li>
+                            <li>
+                                <div>
+                                    <a class="buy-with-crypto text-left dropdown-item py-2" style="background: none !important;" href="https://commerce.coinbase.com/checkout/526c3f9e-7c75-47c3-8e79-9d7f0c2cbf2f">
+                                        Get your project featured
+                                    </a>
+                                    <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">
+                                    </script>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <a class="buy-with-crypto text-left dropdown-item py-2" style="background: none !important;" href="https://commerce.coinbase.com/checkout/c6628131-3f8a-46b2-8a2f-0b941b7340df">
+                                        Purchase an article
+                                    </a>
+                                    <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">
+                                    </script>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div>
+                                    <a class="buy-with-crypto text-left dropdown-item py-2" style="background: none !important;" href="https://commerce.coinbase.com/checkout/dc063fc8-de1f-4dca-906e-5698d72e2317">
+                                        Email blast
+                                    </a>
+                                    <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">
+                                    </script>
+                                </div>
+
+                            </li>
+                            <li><a class="dropdown-item py-2" href="{{route('projects.create')}}">Free Listing</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -59,7 +92,7 @@
                 <div class="d-flex flex-column flex-md-row col-xl-6 align-items-center justify-content-lg-end mt-4 mt-xl-0 gap-lg-4">
                     <form action="{{route('projects.search')}}" method="GET">
 
-                    <div class="input-group d-none d-xl-flex h-46 bg-secondary-10 rounded-5 ps-2">
+                        <div class="input-group d-none d-xl-flex h-46 bg-secondary-10 rounded-5 ps-2">
                             {{-- @csrf --}}
                             <input required type="text" class="form-control col-auto bg-transparent border-0 shadow-none" name="keyword" value="{{old('search_keyword')}}" placeholder="Project name, type" aria-describedby="button-addon2" />
                             <button class="btn btn-secondary col-auto px-20 rounded-5 border-0 text-light" type="submit" id="button-addon2">Search</button>

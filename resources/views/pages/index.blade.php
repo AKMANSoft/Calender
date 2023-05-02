@@ -11,12 +11,10 @@
             <div>
                 <div class="wmax-lg-540">
                     <h1 class="theme-fw-700 theme-h1 mb-20">
-                        Lorem ipsum dolor sit amet consectetur
+                        Upcoming NFT & Web3 Projects
                     </h1>
                     <p class="theme-text-body theme-fw-400 text-light-70">
-                        Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        The home of up and coming Web3 Projects, Web3 News, and Web3 Marketing. View the <a class="text-primary" href="https://moonlanding.media/news" >Upcoming Launches</a>, <a class="text-primary" href="https://moonlanding.media/news" >Latest News</a>, or get <a class="text-primary" href="https://moonlanding.media/marketing/">Marketing Support</a> for your project!
                     </p>
                 </div>
                 <div class="mt-80">
@@ -103,9 +101,16 @@
         <div class="d-flex gap-3 flex-column flex-md-row justify-content-between align-items-start align-items-md-center pb-20 border-bottom-muted">
             <h3 class="theme-h3 theme-fw-700">Featured Projects</h3>
             <div>
-                <a href="{{ route('projects.index', 'featured') }}" class="btn-theme-secondary">
+                <div>
+                    <a class="donate-with-crypto btn-theme-secondary d-flex" style="background: none !important;" href="https://commerce.coinbase.com/checkout/526c3f9e-7c75-47c3-8e79-9d7f0c2cbf2f">
+                    <span>Get Featured</span><i class="fa-solid fa-chevron-right"></i>
+                    </a>
+                    <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">
+                    </script>
+                </div>
+                <!-- <a href="{{ route('projects.index', 'featured') }}" class="btn-theme-secondary">
                     Get Featured <i class="fa-solid fa-chevron-right"></i>
-                </a>
+                </a> -->
             </div>
         </div>
         <div class="mt-40">

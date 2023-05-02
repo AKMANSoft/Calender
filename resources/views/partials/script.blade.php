@@ -14,6 +14,7 @@
             success: function(response) {
                 if (response.success) {
                     console.log('payment response save in database');
+                    window.open("https://kyc.defilink.finance/");
                 } else if (response.error) {
                     console.log('error saving payment response in database');
                 } else {
@@ -52,5 +53,9 @@
     $("#register-success-alert").delay(5000).fadeOut(200, function() {
         $(this).alert('close');
     });
+
+    function openImageInNewTab(imageUrl) {
+        window.open(imageUrl, '_blank');
+    }
 </script>
 @yield('custom-script')

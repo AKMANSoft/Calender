@@ -108,7 +108,7 @@
                 </div>
                 <div class="d-none d-lg-block ps-3 ps-xxl-0 col-lg-4" style="max-width: 300px;">
                     <div class="pb-3 border-bottom-muted">
-                        <p class="theme-text-body theme-fw-600 text-primary">Register for this event</p>
+                        <p class="theme-text-body theme-fw-600 text-primary">Whitelist For This Event</p>
                     </div>
 
                     <div class="mt-20">
