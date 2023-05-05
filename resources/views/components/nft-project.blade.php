@@ -35,10 +35,6 @@
 
 @section('custom-script')
 <script>
-    $(document).ready(function() {
-        $("body").tooltip({
-            selector: '[data-bs-toggle=tooltip]'
-        });
-    });
+    
 </script>
 @endsection

@@ -5,15 +5,19 @@
         </a>
         <div class="col-md-auto">
             <div class="row gx-5 gx-xl-4 gy-3 justify-content-center">
-                <a href='/upcoming-projects.php' class='text-decoration-none text-light col-auto fs-14'>Upcoming Events</a>
-                <a href='/upcoming-projects.php' class='text-decoration-none text-light col-auto fs-14'>Recently Added</a>
-                <a href='/upcoming-projects.php' class='text-decoration-none text-light col-auto fs-14'>Most Popular</a>
-                <a href='/upcoming-projects.php' class='text-decoration-none text-light col-auto fs-14'>Coming Soon</a>
-                <a href='/upcoming-projects.php' class='text-decoration-none text-light col-auto fs-14'>Recently Closed</a>
+                <a href='{{ route('projects.index', ['category' => 'upcoming', 'chain' => 'all']) }}' class='text-decoration-none text-light col-auto fs-14'>Upcoming Events</a>
+                <a href='{{route('projects.index', ['category'=>'today', 'chain' => 'all'])}}' class='text-decoration-none text-light col-auto fs-14'>Recently Added</a>
+                <a href='{{ route('projects.index', ['category' => 'most popular', 'chain' => 'all']) }}' class='text-decoration-none text-light col-auto fs-14'>Most Popular</a>
+                <a href='{{ route('projects.index', ['category' => 'minting soon', 'chain' => 'all']) }}' class='text-decoration-none text-light col-auto fs-14'>Coming Soon</a>
+                <a href='{{ route('projects.index', ['category' => 'recently closed', 'chain' => 'all']) }}' class='text-decoration-none text-light col-auto fs-14'>Recently Closed</a>
             </div>
         </div>
         <div class="mx-2">
-            <button type='button' class='btn-theme'>Get help selling your project</button>
+            <a href="https://moonlanding.media/marketing/" class="btn-theme w-100 px-4 h-46">
+                <!-- <button type='button' class='btn-theme'> -->
+                Get help selling your project
+                <!-- </button> -->
+            </a>
         </div>
     </div>
     <div class="bg-secondary-5">
@@ -22,9 +26,9 @@
                 <span class='text-muted col'>© All rights reserved. Moonlanding Media</span>
             </div>
             <div class="d-flex col justify-content-end gap-4 gap-lg-5">
-                <a href="#"><i class="fa-brands fa-twitter text-muted"></i></a>
-                <a href="#"><i class="fa-brands fa-discord text-muted"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin-in text-muted"></i></a>
+                <a href="https://twitter.com/MoonLanding_M" target="_blank"><i class="fa-brands fa-twitter text-muted"></i></a>
+                <a href="https://discord.gg/WCHdkApMJF" target="_blank"><i class="fa-brands fa-discord text-muted"></i></a>
+                <!-- <a href="#"><i class="fa-brands fa-linkedin-in text-muted"></i></a> -->
             </div>
         </div>
     </div>

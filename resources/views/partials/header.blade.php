@@ -16,7 +16,7 @@
                         <a class="nav-link text-light active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Marketing Support</a>
+                        <a class="nav-link text-light" href="https://moonlanding.media/">Marketing Support</a>
                     </li>
                     <li class="nav-item dropdown">
                         <span class="nav-link dropdown-toggle d-flex align-items-center cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,7 +64,7 @@
                             <li><a class="dropdown-item py-2" href="{{route('projects.create')}}">Free Listing</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <span class="nav-link dropdown-toggle d-flex align-items-center cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
                             <a class="text-decoration-none text-light" href="#">News</a>
                             <i class='fa-solid fa-chevron-right'></i>
@@ -72,6 +72,9 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Option 1</a></li>
                         </ul>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="https://moonlanding.media/news">News</a>
                     </li>
                     <li class="nav-item dropdown">
                         <span class="nav-link dropdown-toggle d-flex align-items-center cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">

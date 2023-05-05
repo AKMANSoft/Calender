@@ -14,7 +14,7 @@
                         Upcoming NFT & Web3 Projects
                     </h1>
                     <p class="theme-text-body theme-fw-400 text-light-70">
-                        The home of up and coming Web3 Projects, Web3 News, and Web3 Marketing. View the <a class="text-primary" href="https://moonlanding.media/news" >Upcoming Launches</a>, <a class="text-primary" href="https://moonlanding.media/news" >Latest News</a>, or get <a class="text-primary" href="https://moonlanding.media/marketing/">Marketing Support</a> for your project!
+                        The home of up and coming Web3 Projects, Web3 News, and Web3 Marketing. View the <a class="text-primary" href="{{ route('projects.index', ['category' => 'upcoming', 'chain' => 'all']) }}" >Upcoming Launches</a>, <a class="text-primary" href="https://moonlanding.media/news" >Latest News</a>, or get <a class="text-primary" href="https://moonlanding.media/marketing/">Marketing Support</a> for your project!
                     </p>
                 </div>
                 <div class="mt-80">
@@ -102,15 +102,15 @@
             <h3 class="theme-h3 theme-fw-700">Featured Projects</h3>
             <div>
                 <div>
-                    <a class="donate-with-crypto btn-theme-secondary d-flex" style="background: none !important;" href="https://commerce.coinbase.com/checkout/526c3f9e-7c75-47c3-8e79-9d7f0c2cbf2f">
+                    <a class="buy-with-crypto btn-theme-secondary d-flex" style="background: linear-gradient(270deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%); display: flex; align-items: center;" href="https://commerce.coinbase.com/checkout/526c3f9e-7c75-47c3-8e79-9d7f0c2cbf2f">
                     <span>Get Featured</span><i class="fa-solid fa-chevron-right"></i>
                     </a>
                     <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807">
                     </script>
                 </div>
                 <!-- <a href="{{ route('projects.index', 'featured') }}" class="btn-theme-secondary">
-                    Get Featured <i class="fa-solid fa-chevron-right"></i>
-                </a> -->
+                    Get Featured <i class="fa-solid fa-chevron-right"></i> -->
+                <!-- </a> -->
             </div>
         </div>
         <div class="mt-40">

@@ -21,7 +21,7 @@
     @endif
     <div class="mt-100">
         <!-- Project Info Section -->
-        <form class="needs-validation" novalidate method="POST" enctype="multipart/form-data" action="{{ route('projects.store') }}">
+        <form id="myForm" class="needs-validation" novalidate method="POST" enctype="multipart/form-data" action="{{ route('projects.store') }}">
             @csrf
             <div>
                 <div>
@@ -116,11 +116,12 @@
                         <label for="profile_image_path" class="form-label fs-14 text-light-70 mb-10">Profile Photo
                             <span class="mx-2 text-danger">*</span> Ideal size: 240px X 240px</label>
                         <input type="file" name="profile_image_path" class="d-none" accept="image/*" />
-                        <div class="form-control-image position-relative overflow-hidden text-center">
+                        <div class="form-control-image position-relative overflow-hidden text-center" id="profile_image_path">
                             <img src="/assets/images/icons/upload_icon.svg" alt="" />
                             <p class="fs-14 text-light-70">Drag and drop or browse</p>
                             <div class="preview-image position-absolute top-0 left-0 w-100 h-100" style="z-index: 0;">
                                 <img src="" class="d-none" style="width: 100%; height: 100%; object-fit: contain; object-position: center;" alt="">
+
                             </div>
                         </div>
                         <div id="invalidfeedback3" class="text-danger">
@@ -275,7 +276,7 @@
             </div>
             <!-- Verification Badge -->
             <div class="">
-                
+
                 <!-- <div class="mt-50 mb-20">
                     <h3 class="fs-30 fw-bold">Verification Badge</h3>
                     <p class="fs-14">
@@ -296,7 +297,12 @@
                 <div class="d-flex">
                     <button type="submit" class="btn-theme fs-18 mt-60 px-60 h-60">Submit</button>
                     {{-- <input name="submit" type="submit" onClick="validate()" class="btn-theme fs-18 mt-60 px-60 h-60">Submit</input> --}}
+
                 </div>
+                <div class="d-flex ">
+                    <p class="text-danger d-none" style="padding: 11px 17px 10px 18px;margin-top: 20px !important;background: rgba(252, 69, 69, 0.1);border-radius: 10px;" id="error-message"></p>
+                </div>
+                <!-- <p class="text-danger" style="margin-top: 20px; background: rgba(252, 69, 69, 0.1);" id="error-message"></p> -->
             </div>
         </form>
     </div>
@@ -324,7 +330,6 @@
     $("#error_alert").delay(5000).fadeOut(200, function() {
         $(this).alert('close');
     });
-
 
     document.querySelectorAll(".form-control-image-container").forEach((container) => {
         container.addEventListener("click", () => container.querySelector("input").click())
@@ -734,6 +739,75 @@
         timezones.forEach(element => {
             $("#timeZone").append(new Option(element, element));
         });
+        // const fileInput = document.querySelector('input[name="profile_image_path"]');
+
+        // if (fileInput.files.length === 0) {
+        //     // No file has been selected
+        //     $('#profile_image_path').addClass('border-danger');
+
+        // } else {
+        //     $('#profile_image_path').removeClass('border-danger');
+
+        //     // A file has been selected
+        // }
+
+        $('input[type="file"]').on('change', function() {
+            if ($(this).val() == "") {
+                $('#profile_image_path').addClass('border-danger');
+            } else {
+                $('#profile_image_path').removeClass('border-danger');
+            }
+        });
+
+    });
+
+
+    const errorMessage = $('#error-message');
+
+    function hideErrorMessage() {
+        $("#error-message").delay(15000).fadeOut(200, function() {
+            $(this).addClass('d-none');
+        });
+    }
+    $('form').submit(function(event) {
+        var formValid = event.target.checkValidity();
+        console.log(formValid)
+
+        // Validate input fields
+        // $('input[required]').each(function() {
+        //     if ($.trim($(this).val()) == '') {
+        //         // $(this).addClass('border-danger');
+        //         formValid = false;
+        //     } else {
+        //         // $(this).removeClass('border-danger');
+        //     }
+        // });
+
+        // Validate file input field
+        const fileInput = document.querySelector('input[name="profile_image_path"]');
+
+        if (fileInput.files.length === 0) {
+            // No file has been selected
+            $('#profile_image_path').addClass('border-danger');
+
+        } else {
+            $('#profile_image_path').removeClass('border-danger');
+
+            // A file has been selected
+        }
+
+        // Show error message and prevent form submission if any required field is empty
+        if (!formValid) {
+            // console.log('testing');
+            errorMessage.text('Please fill out the required fields. Check your answers and try again');
+            errorMessage.removeClass('d-none');
+            errorMessage.show();
+            event.preventDefault();
+            hideErrorMessage();
+
+        } else {
+            errorMessage.hide();
+        }
     });
 </script>
 @endsection

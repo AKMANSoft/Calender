@@ -12579,6 +12579,14 @@ input[type=time]::-webkit-calendar-picker-indicator {
 .border-muted {
     border: 1px solid #292220 !important;
 }
+.border-vertical-muted{
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.pb-35{
+    padding-bottom: 35px;
+}
 
 .border-bottom-muted {
     border-bottom: 2px solid rgba(255, 255, 255, .2) !important;
@@ -13512,4 +13520,10 @@ input[type=number] {
 
 .buy-with-crypto.text-left>span {
     text-align: left !important;
+}
+
+a.buy-with-crypto.loading,
+a.donate-with-crypto.loading {
+    background: linear-gradient(270deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    /* cursor: default; */
 }

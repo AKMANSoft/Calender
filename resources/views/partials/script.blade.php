@@ -2,6 +2,7 @@
 <script src="{{asset('assets')}}/js/validate.js"></script>
 <script src="{{asset('assets')}}/libs/jquery/jquery.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
+
 <script type="text/javascript">
     function saveCoinbaseCommereceResponse(e) {
         $.ajax({
@@ -57,5 +58,25 @@
     function openImageInNewTab(imageUrl) {
         window.open(imageUrl, '_blank');
     }
+
+    $(".buy-with-crypto").click((e) => {
+        setTimeout(function() {
+            $(e.target).removeClass("loading");
+            console.log('test');
+        }, 10);
+    })
+
+    // function redirectToHTTPS() {
+    //     if (window.location.protocol == "http:") {
+    //         window.location.href = "https://" + window.location.host + window.location.pathname;
+    //         console.log('test success');
+    //     }
+    //     console.log('test success 00');
+    // }
+    $(document).ready(function() {
+        $("body").tooltip({
+            selector: '[data-bs-toggle=tooltip]'
+        });
+    });
 </script>
 @yield('custom-script')
