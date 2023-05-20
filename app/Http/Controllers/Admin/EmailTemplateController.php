@@ -43,17 +43,33 @@ class EmailTemplateController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(EmailTemplate $emailTemplate)
+    public function edit()
     {
-        //
+        $emailTemplate = EmailTemplate::find(1);
+        if($emailTemplate) {
+            return view('adminpanel.pages.email-template.edit', compact('emailTemplate'));
+        } else {
+            $emailTemplate = EmailTemplate::create([
+                'name' => 'Project Submit',
+                'data' => null
+            ]);
+            return view('adminpanel.pages.email-template.edit', compact('emailTemplate'));
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, EmailTemplate $emailTemplate)
+    public function update(Request $request)
     {
-        //
+        $emailTemplate = EmailTemplate::find(1);
+        if($emailTemplate) {
+            $emailTemplate->data = $request->data;
+            $emailTemplate->save();
+            return redirect()->back();
+        } else {
+            abort(404);
+        }
     }
 
     /**
