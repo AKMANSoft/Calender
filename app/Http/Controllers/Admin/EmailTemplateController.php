@@ -5,9 +5,30 @@ namespace App\Http\Controllers\Admin;
 use App\Models\EmailTemplate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 
 class EmailTemplateController extends Controller
 {
+    public function joinNewsleter(Request $request)
+    {
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer ' . config('services.gohighlevel.token')
+        ])->post('https://rest.gohighlevel.com/v1/contacts', [
+            "email"=> $request->email,
+            "tags" => []
+        ]);
+
+        if ($response->successful()) {
+            return response()->json([
+                'message' => 'Subsribed Successfully'
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Error while Subscribing'
+            ], 500);
+        }
+    }
     /**
      * Display a listing of the resource.
      */

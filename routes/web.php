@@ -20,6 +20,7 @@ Route::get('/', [WelcomeControler::class, 'index'])->name('index');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/join-newsleter', [App\Http\Controllers\Admin\EmailTemplateController::class, 'joinNewsleter'])->name('join-newsleter');
 
 Route::prefix('projects')->name('projects.')->group(function () {
     Route::get('/category/{category}/chain/{chain?}', [App\Http\Controllers\ProjectController::class, 'index'])->name('index');

@@ -78,5 +78,23 @@
             selector: '[data-bs-toggle=tooltip]'
         });
     });
+    $("#joinNewsleterForm").submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: $(this).attr('action'),
+            type: $(this).attr('method'),
+            data: $(this).serialize(),
+            success: (response) => {
+                $('#newsletterMessage').css("color", 'green');
+                $('#newsletterMessage').html(response.message);
+                console.log(response)
+            },
+            error: (error) => {
+                $('#newsletterMessage').css("color", 'red');
+                $('#newsletterMessage').html(response.message);
+                console.log(error);
+            }
+        });
+    });
 </script>
 @yield('custom-script')

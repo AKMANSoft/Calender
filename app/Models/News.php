@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     use HasFactory;
-    protected $table = "news";
+
+    protected $table = 'wp_f00d214522_posts';
 }

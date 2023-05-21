@@ -46,4 +46,8 @@ return [
         'base_uri' => env('COINBASE_COMMERCE_BASE_URI'),
         'key' => env('COINBASE_COMMERCE_API_KEY'),
     ],
+
+    'gohighlevel' => [
+        'token' => env('GOHIGHLEVEL_TOKEN'),
+    ],
 ];

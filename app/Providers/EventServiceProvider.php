@@ -6,6 +6,7 @@ use App\Events\PaymentProcessed;
 use App\Events\ProjectCreated;
 use App\Listeners\FetchPaymentDetailCoinbaseCommerce;
 use App\Listeners\FetchTwitterFollowers;
+use App\Listeners\SendProjectSubmitNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -24,6 +25,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         ProjectCreated::class => [
             FetchTwitterFollowers::class,
+            SendProjectSubmitNotification::class,
         ],
         PaymentProcessed::class => [
             FetchPaymentDetailCoinbaseCommerce::class,

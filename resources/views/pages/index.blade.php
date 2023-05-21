@@ -199,27 +199,14 @@
     <section class="max-1440 px-60-auto mx-auto mt-100">
         <h3 class="theme-h3 theme-fw-700 mb-40 text-center">Latest News</h3>
         <div class="nft-news-list">
+            @foreach ($news as $row)
             <div class="col nft-news-item">
-                <img src="/assets/images/nft_3.png" class="img-fluid" alt="">
-                <h5 class="mt-20 theme-text-lg theme-fw-700">Ut enim ad minim veniam, quis nostrud exercitation ullamc
-                    oculpa qui officia deserunt</h5>
+                <a href="{{$row->guid}}">
+                <img src="{{$row->image_link}}" class="img-fluid" alt="">
+            </a>
+                <h5 class="mt-20 theme-text-lg theme-fw-700">{{$row->post_title}}</h5>
             </div>
-            <div class="col nft-news-item">
-                <img src="/assets/images/nft_3.png" class="img-fluid" alt="">
-                <h5 class="mt-20 theme-text-lg theme-fw-700">Ut enim ad minim veniam, quis nostrud exercitation ullamc
-                    oculpa qui officia deserunt</h5>
-            </div>
-            <div class="col nft-news-item">
-                <img src="/assets/images/nft_3.png" class="img-fluid" alt="">
-                <h5 class="mt-20 theme-text-lg theme-fw-700">Ut enim ad minim veniam, quis nostrud exercitation ullamc
-                    oculpa qui officia deserunt</h5>
-            </div>
-            <div class="col nft-news-item">
-                <img src="/assets/images/nft_3.png" class="img-fluid" alt="">
-                <h5 class="mt-20 theme-text-lg theme-fw-700">Ut enim ad minim veniam, quis nostrud exercitation ullamc
-                    oculpa qui officia deserunt</h5>
-            </div>
-
+            @endforeach
         </div>
     </section>
 </main>
