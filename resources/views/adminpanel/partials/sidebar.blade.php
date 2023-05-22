@@ -831,7 +831,14 @@
                         </ul>
                     </div>
                 </li>
+                <li>
+                    <a href="{{ route('admin.email-templates.edit') }}">
+                        <i class="dripicons-device-desktop"></i>
+                        <span> Email Template </span>
 
+                    </a>
+
+                </li>
 
             </ul>
 

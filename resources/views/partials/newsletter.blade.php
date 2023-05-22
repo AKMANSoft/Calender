@@ -5,8 +5,13 @@
             <p class="theme-text-body theme-fw-400">Get into the latest hot projects and news before anyone else, to understand and act faster than anyone else. Secure your advantage and subscribe to our newsletter.</p>
         </div>
         <div class="mt-60 rounded-pill bg-gradient-light w-400 d-flex">
-            <input type="text" class="h-50 form-control bg-transparent border-0 shadow-none px-4 py-2" placeholder="Enter you email">
-            <a href="" class="line-50 btn btn-theme px-40">Join</a>
+            <form id="joinNewsleterForm" action="{{route('join-newsleter')}}" method="POST">
+                @csrf
+                <input type="email" name="email" class="h-50 form-control bg-transparent border-0 shadow-none px-4 py-2" placeholder="Enter you email">
+                <button type="submit" class="line-50 btn btn-theme px-40">Join</button>
+                <div id="newsletterMessage"></div>
+            </form>
         </div>
     </div>
 </div>
+

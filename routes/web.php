@@ -20,6 +20,7 @@ Route::get('/', [WelcomeControler::class, 'index'])->name('index');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/join-newsleter', [App\Http\Controllers\Admin\EmailTemplateController::class, 'joinNewsleter'])->name('join-newsleter');
 
 Route::prefix('projects')->name('projects.')->group(function () {
     Route::get('/category/{category}/chain/{chain?}', [App\Http\Controllers\ProjectController::class, 'index'])->name('index');
@@ -50,5 +51,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     });
     Route::prefix('payments')->name('payments.')->group(function () {
         Route::get('/', [App\Http\Controllers\Admin\PaymentController::class, 'index'])->name('index');
+    });
+    Route::prefix('email-templates')->name('email-templates.')->group(function () {
+        Route::get('/edit', [App\Http\Controllers\Admin\EmailTemplateController::class, 'edit'])->name('edit');
+        Route::put('/update', [App\Http\Controllers\Admin\EmailTemplateController::class, 'update'])->name('update');
     });
 });
