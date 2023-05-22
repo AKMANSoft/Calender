@@ -4,14 +4,12 @@
             <h3 class="theme-fw-700 mb-2">Be The First To Know</h3>
             <p class="theme-text-body theme-fw-400">Get into the latest hot projects and news before anyone else, to understand and act faster than anyone else. Secure your advantage and subscribe to our newsletter.</p>
         </div>
-        <div class="mt-60 rounded-pill bg-gradient-light w-400 d-flex">
-            <form id="joinNewsleterForm" action="{{route('join-newsleter')}}" method="POST">
+        <form id="joinNewsleterForm" action="{{route('join-newsleter')}}" method="POST">
+            <div class="mt-60 rounded-pill bg-gradient-light w-400 d-flex">
                 @csrf
-                <input type="email" name="email" class="h-50 form-control bg-transparent border-0 shadow-none px-4 py-2" placeholder="Enter you email">
-                <button type="submit" class="line-50 btn btn-theme px-40">Join</button>
-                <div id="newsletterMessage"></div>
-            </form>
-        </div>
+                <input required type="email" class="form-control bg-transparent px-4 border-0 shadow-none" style="width: 100%;" name="email" value="" placeholder="Enter you email" />
+                <button class="btn btn-primary col-auto line-50 px-40 rounded-5 border-0 text-light" type="submit">Join</button>
+            </div>
+        </form>
     </div>
 </div>
-
