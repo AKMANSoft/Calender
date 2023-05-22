@@ -13,12 +13,23 @@
 <link href="{{ asset('assets') }}/css/styles.css" rel="stylesheet" type="text/css">
 <link href="{{ asset('assets') }}/css/custom.css" rel="stylesheet" type="text/css">
 
+<!-- Quill.JS CSS -->
+<link href="{{ asset('assets') }}/libs/quill/quill.core.css" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets') }}/libs/quill/quill.snow.css" rel="stylesheet" type="text/css">
+
+
+
 
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <style>
     a {
         text-decoration: none;
+    }
+
+    .ql-snow .ql-script,
+    .ql-snow .ql-strike svg {
+        stroke: none !important;
     }
 </style>
 @endsection
@@ -51,7 +62,7 @@
                                 </a>
                             </form>
                         </div>
-                        <h4 class="page-title">Profile
+                        <h4 class="page-title">Email Template
 
 
                         </h4>
@@ -61,20 +72,34 @@
             <!-- end page title -->
 
             <div class="row g-0">
-                <form action="{{route('admin.email-templates.update')}}" method="POST">
+                <div id="email-editor" style="min-height: 400px;"> </div>
+                <div class="mt-4 d-flex align-items-center justify-content-end">
+                    <form action="{{route('admin.email-templates.update')}}" method="POST">
+                        @csrf
+                        @method('PUT')
+                        <input type="text" value="{{$emailTemplate->data}}" name="data" class="d-none" id="emailTemplateInput" />
+                        <button type="submit" class="btn btn-light">
+                            Save
+                            <i class="mdi mdi-check"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+            <!-- <form action="{{route('admin.email-templates.update')}}" method="POST">
                     @csrf
                     @method('PUT')
                     <textarea name="data" id="" cols="30" rows="10">{{$emailTemplate->data}}</textarea>
                     <button type="submit">Save</button>
-                </form>
-            </div>
-            <!-- end row-->
+                </form> -->
+        </div>
+        <!-- end row-->
 
-        </div> <!-- container -->
+    </div> <!-- container -->
 
-    </div> <!-- content -->
+</div> <!-- content -->
 
-    @include('adminpanel.partials.footer')
+@include('adminpanel.partials.footer')
 
 </div>
 
@@ -100,6 +125,83 @@
 <script src="{{ asset('assets') }}/js/app.min.js"></script>
 
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+
+<!-- Quill.JS Scripts  -->
+<script src="{{ asset('assets') }}/libs/quill/quill.min.js"></script>
+
+<script>
+    var toolbarOptions = [
+        [{
+            'header': [1, 2, 3, 4, 5, 6, false]
+        }],
+        [{
+                'header': 1
+            },
+            {
+                'header': 2
+            },
+        ],
+        ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+        [{
+            'script': 'sub'
+        }, {
+            'script': 'super'
+        }], // superscript/subscript
+
+        [{
+            'list': 'ordered'
+        }, {
+            'list': 'bullet'
+        }],
+        [{
+            'indent': '-1'
+        }, {
+            'indent': '+1'
+        }], // outdent/indent
+        [{
+            'align': []
+        }],
+        [{
+            'direction': 'rtl'
+        }], // text direction
+
+        [{
+            'size': ['small', false, 'large', 'huge']
+        }],
+        [{
+            'font': []
+        }],
+
+        [{
+            'color': []
+        }, {
+            'background': []
+        }], // dropdown with defaults from theme
+
+        // 'code-block',
+        ['blockquote', 'image'],
+
+        ['clean'] // remove formatting button
+    ];
+    let editorOptions = {
+        modules: {
+            toolbar: toolbarOptions,
+        },
+        placeholder: "Type...",
+        theme: "snow"
+    };
+    let editor = new Quill('#email-editor', editorOptions);
+
+    editor.on("text-change", (delta, source) => {
+        $("#emailTemplateInput").val($(".ql-editor").html());
+        console.log($(".ql-editor").html());
+    })
+
+    $(document).ready(() => {
+        $(".ql-editor").html($("#emailTemplateInput").val())
+    })
+</script>
 
 
 @endsection
