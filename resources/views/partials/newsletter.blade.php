@@ -10,6 +10,12 @@
                 <input required type="email" class="form-control bg-transparent px-4 border-0 shadow-none" style="width: 100%;" name="email" value="" placeholder="Enter you email" />
                 <button class="btn btn-primary col-auto line-50 px-40 rounded-5 border-0 text-light" type="submit">Join</button>
             </div>
+            <div id="newsletterSuccessMessage" class="d-none align-items-center justify-content-center mt-4">
+                <p class="text-center text-success">
+                    You are successfully subscribed. <br>
+                    Thank you for subscribing to our news letter.
+                </p>
+            </div>
         </form>
     </div>
 </div>

@@ -78,6 +78,7 @@
             selector: '[data-bs-toggle=tooltip]'
         });
     });
+
     $("#joinNewsleterForm").submit(function(event) {
         event.preventDefault();
         $.ajax({
@@ -85,13 +86,13 @@
             type: $(this).attr('method'),
             data: $(this).serialize(),
             success: (response) => {
-                $('#newsletterMessage').css("color", 'green');
-                $('#newsletterMessage').html(response.message);
-                console.log(response)
+                $("#newsletterSuccessMessage").removeClass("d-none").addClass("d-flex");
+                $("#newsletterSuccessMessage").delay(5000).fadeOut(200, function() {
+                    $(this).removeClass("d-flex").addClass("d-none");
+                });
+                console.log(response);
             },
             error: (error) => {
-                $('#newsletterMessage').css("color", 'red');
-                $('#newsletterMessage').html(response.message);
                 console.log(error);
             }
         });
