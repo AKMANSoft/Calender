@@ -16,6 +16,11 @@
                     Thank you for subscribing to our news letter.
                 </p>
             </div>
+            <div id="newsletterErrorMessage" class="d-none align-items-center justify-content-center mt-4">
+                <p class="text-center text-danger">
+                    Some error occured when subscribing to newsletter.
+                </p>
+            </div>
         </form>
     </div>
 </div>
