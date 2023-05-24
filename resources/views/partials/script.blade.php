@@ -86,13 +86,22 @@
             type: $(this).attr('method'),
             data: $(this).serialize(),
             success: (response) => {
-                $("#newsletterSuccessMessage").removeClass("d-none").addClass("d-flex");
-                $("#newsletterSuccessMessage").delay(5000).fadeOut(200, function() {
-                    $(this).removeClass("d-flex").addClass("d-none");
-                });
+                $("#newsletterSuccessMessage")
+                    .removeClass("d-none")
+                    .addClass("d-flex")
+                    .delay(5000).fadeOut(200, function() {
+                        $(this).removeClass("d-flex").addClass("d-none");
+                    });
+                $(this).find("input").val("");
                 console.log(response);
             },
             error: (error) => {
+                $("#newsletterErrorMessage")
+                    .removeClass("d-none")
+                    .addClass("d-flex")
+                    .delay(5000).fadeOut(200, function() {
+                        $(this).removeClass("d-flex").addClass("d-none");
+                    });
                 console.log(error);
             }
         });
