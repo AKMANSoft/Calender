@@ -91,7 +91,7 @@
             },
             error: (error) => {
                 $('#newsletterMessage').css("color", 'red');
-                $('#newsletterMessage').html(response.message);
+                $('#newsletterMessage').html('Server error while subscribing.');
                 console.log(error);
             }
         });

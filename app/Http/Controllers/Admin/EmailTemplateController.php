@@ -19,13 +19,14 @@ class EmailTemplateController extends Controller
             "tags" => []
         ]);
 
+        // return config('services.gohighlevel.token');
         if ($response->successful()) {
             return response()->json([
                 'message' => 'Subsribed Successfully'
             ], 200);
         } else {
             return response()->json([
-                'message' => 'Error while Subscribing'
+                'message' => 'Error while Subscribing: ' . $response['msg']
             ], 500);
         }
     }
